@@ -62,18 +62,18 @@ export function CategoryCard({ option, isSelected, onSelect }: CategoryCardProps
       {/* Content */}
       <div className="absolute bottom-0 left-0 right-0 p-5">
         <div className="flex items-end justify-between">
-          <div>
+          <div className="text-left">
             <h3 className={`
-              font-serif text-xl mb-1 transition-colors duration-300
+              font-serif text-xl mb-1 transition-colors duration-300 text-left
               ${isSelected ? 'text-[#C6A96B]' : 'text-[#F5F5F5]'}
             `}>
               {option.title}
             </h3>
-            <p className="text-sm text-[#A1A1A1] font-sans">
+            <p className="text-sm text-[#A1A1A1] font-sans text-left">
               {option.subtitle}
             </p>
           </div>
-          <span className="text-sm text-[#C6A96B] font-sans">
+          <span className="text-sm text-[#C6A96B] font-sans shrink-0">
             {option.priceLevel}
           </span>
         </div>
