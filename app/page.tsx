@@ -10,9 +10,9 @@ export default function HomePage() {
   return (
     <main className="min-h-screen bg-[#0F0F10] flex flex-col">
       {/* Hero Section */}
-      <div className="relative flex-1 min-h-[70vh]">
+      <div className="relative">
         {/* Background Image */}
-        <div className="absolute inset-0">
+        <div className="absolute inset-0 h-[50vh]">
           <Image
             src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=1200&q=80"
             alt="Luxury travel destination"
@@ -24,17 +24,17 @@ export default function HomePage() {
         </div>
         
         {/* Content */}
-        <div className="relative z-10 flex flex-col h-full px-6 pt-16 pb-8">
+        <div className="relative z-10 flex flex-col px-6 pt-16 pb-8">
           {/* Logo / Brand */}
-          <div className="mb-auto">
+          <div className="mb-8">
             <span className="text-[#C6A96B] font-serif text-lg tracking-wider">
               TravelWell
             </span>
           </div>
           
           {/* Hero Text */}
-          <div className="mt-auto">
-            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl text-[#F5F5F5] leading-tight mb-4">
+          <div>
+            <h1 className="font-serif text-4xl md:text-5xl lg:text-8xl text-[#F5F5F5] leading-tight mb-4">
               <span className="block">Luxury</span>
               <span className="block text-[#C6A96B]">Redefined</span>
             </h1>
