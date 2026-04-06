@@ -8,9 +8,10 @@ interface OptionCardProps {
   image: string
   isSelected: boolean
   onSelect: () => void
+  tierTag?: string
 }
 
-export function OptionCard({ title, subtitle, image, isSelected, onSelect }: OptionCardProps) {
+export function OptionCard({ title, subtitle, image, isSelected, onSelect, tierTag }: OptionCardProps) {
   return (
     <button
       onClick={onSelect}
@@ -34,6 +35,13 @@ export function OptionCard({ title, subtitle, image, isSelected, onSelect }: Opt
         />
         {/* Gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#0F0F10] via-[#0F0F10]/40 to-transparent" />
+        
+        {/* Tier tag */}
+        {tierTag && !isSelected && (
+          <div className="absolute top-4 left-4 px-2.5 py-1 rounded-full bg-[#0F0F10]/70 backdrop-blur-sm border border-[#2A2A2B]">
+            <span className="text-xs text-[#A1A1A1] font-sans tracking-wide">{tierTag}</span>
+          </div>
+        )}
         
         {/* Selection indicator */}
         {isSelected && (

@@ -1,10 +1,13 @@
 // Mock data for TravelWell LuxuryWorld
 
+export type BudgetTier = 'luxury' | 'high-end' | 'mid-range' | 'family-friendly' | 'budget-conscious'
+
 export interface IdentityOption {
   id: string
   title: string
   subtitle: string
   image: string
+  tier?: BudgetTier
 }
 
 export interface IdentityStepData {
@@ -12,6 +15,15 @@ export interface IdentityStepData {
   question: string
   subtitle: string
   options: IdentityOption[]
+  isBudgetTier?: boolean
+}
+
+export const budgetTierLabels: Record<BudgetTier, { label: string; tag: string }> = {
+  'luxury': { label: 'Luxury', tag: 'Exclusive' },
+  'high-end': { label: 'High End', tag: 'Premium' },
+  'mid-range': { label: 'Mid-Range', tag: 'Curated' },
+  'family-friendly': { label: 'Family Friendly', tag: 'Family Pick' },
+  'budget-conscious': { label: 'Budget Conscious', tag: 'Value' },
 }
 
 export const identitySteps: IdentityStepData[] = [
@@ -87,6 +99,19 @@ export const identitySteps: IdentityStepData[] = [
       { id: "6e", title: "Quiet Retreat", subtitle: "Early nights & rest", image: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=800&q=80" },
     ]
   },
+  {
+    id: 7,
+    question: "What level of travel experience do you prefer?",
+    subtitle: "Your journey, your style",
+    isBudgetTier: true,
+    options: [
+      { id: "7a", title: "Luxury", subtitle: "The pinnacle of refinement", image: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=800&q=80", tier: "luxury" as BudgetTier },
+      { id: "7b", title: "High End", subtitle: "Elevated experiences with style", image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=80", tier: "high-end" as BudgetTier },
+      { id: "7c", title: "Mid-Range", subtitle: "Quality and comfort, balanced", image: "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800&q=80", tier: "mid-range" as BudgetTier },
+      { id: "7d", title: "Family Friendly", subtitle: "Memorable moments for all ages", image: "https://images.unsplash.com/photo-1511895426328-dc8714191300?w=800&q=80", tier: "family-friendly" as BudgetTier },
+      { id: "7e", title: "Budget Conscious", subtitle: "Smart choices, great experiences", image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&q=80", tier: "budget-conscious" as BudgetTier },
+    ]
+  },
 ]
 
 export interface CategoryData {
@@ -104,6 +129,8 @@ export interface CategoryOption {
   image: string
   rating: number
   priceLevel: string
+  tier?: BudgetTier
+  tierTag?: string
 }
 
 export const categories: CategoryData[] = [
@@ -113,11 +140,13 @@ export const categories: CategoryData[] = [
     subtitle: "Where dreams rest",
     icon: "bed",
     options: [
-      { id: "s1", title: "Aman Tokyo", subtitle: "Urban sanctuary in the clouds", image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=80", rating: 5, priceLevel: "$$$$$" },
-      { id: "s2", title: "Four Seasons Bali", subtitle: "Tropical elegance", image: "https://images.unsplash.com/photo-1582719508461-905c673771fd?w=800&q=80", rating: 5, priceLevel: "$$$$" },
-      { id: "s3", title: "Rosewood Paris", subtitle: "Parisian grandeur", image: "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800&q=80", rating: 5, priceLevel: "$$$$$" },
-      { id: "s4", title: "One&Only Maldives", subtitle: "Private island paradise", image: "https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=800&q=80", rating: 5, priceLevel: "$$$$$" },
-      { id: "s5", title: "Mandarin Oriental", subtitle: "Legendary Asian hospitality", image: "https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=800&q=80", rating: 5, priceLevel: "$$$$" },
+      { id: "s1", title: "Aman Tokyo", subtitle: "Urban sanctuary in the clouds", image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=80", rating: 5, priceLevel: "$$$$$", tier: "luxury", tierTag: "Exclusive" },
+      { id: "s2", title: "Four Seasons Bali", subtitle: "Tropical elegance", image: "https://images.unsplash.com/photo-1582719508461-905c673771fd?w=800&q=80", rating: 5, priceLevel: "$$$$", tier: "high-end", tierTag: "Premium" },
+      { id: "s3", title: "Rosewood Paris", subtitle: "Parisian grandeur", image: "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800&q=80", rating: 5, priceLevel: "$$$$$", tier: "luxury", tierTag: "Exclusive" },
+      { id: "s4", title: "Kimpton Hotels", subtitle: "Boutique comfort for families", image: "https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=800&q=80", rating: 4, priceLevel: "$$$", tier: "family-friendly", tierTag: "Family Pick" },
+      { id: "s5", title: "Mandarin Oriental", subtitle: "Legendary Asian hospitality", image: "https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=800&q=80", rating: 5, priceLevel: "$$$$", tier: "high-end", tierTag: "Premium" },
+      { id: "s6", title: "Hyatt Regency", subtitle: "Reliable comfort worldwide", image: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=800&q=80", rating: 4, priceLevel: "$$$", tier: "mid-range", tierTag: "Curated" },
+      { id: "s7", title: "Generator Hostels", subtitle: "Social stays, smart prices", image: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=800&q=80", rating: 4, priceLevel: "$$", tier: "budget-conscious", tierTag: "Value" },
     ]
   },
   {
@@ -126,11 +155,12 @@ export const categories: CategoryData[] = [
     subtitle: "Culinary excellence",
     icon: "utensils",
     options: [
-      { id: "e1", title: "Eleven Madison Park", subtitle: "Plant-forward fine dining", image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80", rating: 5, priceLevel: "$$$$$" },
-      { id: "e2", title: "Narisawa", subtitle: "Innovative Japanese cuisine", image: "https://images.unsplash.com/photo-1579027989536-b7b1f875659b?w=800&q=80", rating: 5, priceLevel: "$$$$$" },
-      { id: "e3", title: "Osteria Francescana", subtitle: "Italian artistry", image: "https://images.unsplash.com/photo-1481931098730-318b6f776db0?w=800&q=80", rating: 5, priceLevel: "$$$$$" },
-      { id: "e4", title: "Noma Copenhagen", subtitle: "Nordic foraging experience", image: "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=800&q=80", rating: 5, priceLevel: "$$$$$" },
-      { id: "e5", title: "French Laundry", subtitle: "California perfection", image: "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?w=800&q=80", rating: 5, priceLevel: "$$$$$" },
+      { id: "e1", title: "Eleven Madison Park", subtitle: "Plant-forward fine dining", image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80", rating: 5, priceLevel: "$$$$$", tier: "luxury", tierTag: "Exclusive" },
+      { id: "e2", title: "Narisawa", subtitle: "Innovative Japanese cuisine", image: "https://images.unsplash.com/photo-1579027989536-b7b1f875659b?w=800&q=80", rating: 5, priceLevel: "$$$$$", tier: "luxury", tierTag: "Exclusive" },
+      { id: "e3", title: "Osteria Francescana", subtitle: "Italian artistry", image: "https://images.unsplash.com/photo-1481931098730-318b6f776db0?w=800&q=80", rating: 5, priceLevel: "$$$$", tier: "high-end", tierTag: "Premium" },
+      { id: "e4", title: "Local Trattorias", subtitle: "Authentic neighborhood gems", image: "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=800&q=80", rating: 4, priceLevel: "$$$", tier: "mid-range", tierTag: "Curated" },
+      { id: "e5", title: "Family Table", subtitle: "Kid-approved dining", image: "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?w=800&q=80", rating: 4, priceLevel: "$$", tier: "family-friendly", tierTag: "Family Pick" },
+      { id: "e6", title: "Street Food Tours", subtitle: "Flavor without the price tag", image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=80", rating: 4, priceLevel: "$", tier: "budget-conscious", tierTag: "Value" },
     ]
   },
   {
@@ -139,11 +169,11 @@ export const categories: CategoryData[] = [
     subtitle: "Experiences that transform",
     icon: "compass",
     options: [
-      { id: "a1", title: "Private Yacht Charter", subtitle: "Sail the Mediterranean", image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=80", rating: 5, priceLevel: "$$$$$" },
-      { id: "a2", title: "Hot Air Balloon", subtitle: "Sunrise over Cappadocia", image: "https://images.unsplash.com/photo-1507608616759-54f48f0af0ee?w=800&q=80", rating: 5, priceLevel: "$$$$" },
-      { id: "a3", title: "Private Art Tour", subtitle: "Behind the scenes at the Louvre", image: "https://images.unsplash.com/photo-1544928147-79a2dbc1f389?w=800&q=80", rating: 5, priceLevel: "$$$$" },
-      { id: "a4", title: "Helicopter Tour", subtitle: "Grand Canyon aerial views", image: "https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=800&q=80", rating: 5, priceLevel: "$$$$$" },
-      { id: "a5", title: "Safari Experience", subtitle: "Serengeti wildlife encounter", image: "https://images.unsplash.com/photo-1516426122078-c23e76319801?w=800&q=80", rating: 5, priceLevel: "$$$$$" },
+      { id: "a1", title: "Private Yacht Charter", subtitle: "Sail the Mediterranean", image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=80", rating: 5, priceLevel: "$$$$$", tier: "luxury", tierTag: "Exclusive" },
+      { id: "a2", title: "Hot Air Balloon", subtitle: "Sunrise over Cappadocia", image: "https://images.unsplash.com/photo-1507608616759-54f48f0af0ee?w=800&q=80", rating: 5, priceLevel: "$$$$", tier: "high-end", tierTag: "Premium" },
+      { id: "a3", title: "Private Art Tour", subtitle: "Behind the scenes at the Louvre", image: "https://images.unsplash.com/photo-1544928147-79a2dbc1f389?w=800&q=80", rating: 4, priceLevel: "$$$", tier: "mid-range", tierTag: "Curated" },
+      { id: "a4", title: "Theme Park Adventure", subtitle: "Fun for the whole family", image: "https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=800&q=80", rating: 5, priceLevel: "$$", tier: "family-friendly", tierTag: "Family Pick" },
+      { id: "a5", title: "Walking Food Tours", subtitle: "Taste the city on foot", image: "https://images.unsplash.com/photo-1516426122078-c23e76319801?w=800&q=80", rating: 4, priceLevel: "$", tier: "budget-conscious", tierTag: "Value" },
     ]
   },
   {
@@ -152,11 +182,11 @@ export const categories: CategoryData[] = [
     subtitle: "After dark elegance",
     icon: "moon",
     options: [
-      { id: "n1", title: "Skybar Bangkok", subtitle: "Rooftop cocktails", image: "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=800&q=80", rating: 5, priceLevel: "$$$$" },
-      { id: "n2", title: "Berghain Berlin", subtitle: "Legendary techno temple", image: "https://images.unsplash.com/photo-1571266028243-e4733b0f0bb0?w=800&q=80", rating: 5, priceLevel: "$$$" },
-      { id: "n3", title: "Jazz at Lincoln Center", subtitle: "World-class performances", image: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=800&q=80", rating: 5, priceLevel: "$$$$" },
-      { id: "n4", title: "The Connaught Bar", subtitle: "London's finest martinis", image: "https://images.unsplash.com/photo-1572116469696-31de0f17cc34?w=800&q=80", rating: 5, priceLevel: "$$$$" },
-      { id: "n5", title: "Cavalli Club Dubai", subtitle: "Glamorous evenings", image: "https://images.unsplash.com/photo-1566417713940-fe7c737a9ef2?w=800&q=80", rating: 5, priceLevel: "$$$$$" },
+      { id: "n1", title: "Skybar Bangkok", subtitle: "Rooftop cocktails", image: "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=800&q=80", rating: 5, priceLevel: "$$$$", tier: "luxury", tierTag: "Exclusive" },
+      { id: "n2", title: "Jazz at Lincoln Center", subtitle: "World-class performances", image: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=800&q=80", rating: 5, priceLevel: "$$$$", tier: "high-end", tierTag: "Premium" },
+      { id: "n3", title: "Live Music Venues", subtitle: "Local bands & atmosphere", image: "https://images.unsplash.com/photo-1571266028243-e4733b0f0bb0?w=800&q=80", rating: 4, priceLevel: "$$$", tier: "mid-range", tierTag: "Curated" },
+      { id: "n4", title: "Family Night Shows", subtitle: "Entertainment for all ages", image: "https://images.unsplash.com/photo-1572116469696-31de0f17cc34?w=800&q=80", rating: 4, priceLevel: "$$", tier: "family-friendly", tierTag: "Family Pick" },
+      { id: "n5", title: "Night Markets", subtitle: "Street vibes after dark", image: "https://images.unsplash.com/photo-1566417713940-fe7c737a9ef2?w=800&q=80", rating: 4, priceLevel: "$", tier: "budget-conscious", tierTag: "Value" },
     ]
   },
   {
@@ -165,11 +195,11 @@ export const categories: CategoryData[] = [
     subtitle: "Travel in style",
     icon: "car",
     options: [
-      { id: "m1", title: "Private Jet", subtitle: "Ultimate freedom", image: "https://images.unsplash.com/photo-1540962351504-03099e0a754b?w=800&q=80", rating: 5, priceLevel: "$$$$$" },
-      { id: "m2", title: "Luxury Car Service", subtitle: "Chauffeur-driven elegance", image: "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=800&q=80", rating: 5, priceLevel: "$$$$" },
-      { id: "m3", title: "Helicopter Transfer", subtitle: "Beat the traffic", image: "https://images.unsplash.com/photo-1534321238895-da3ab632df3e?w=800&q=80", rating: 5, priceLevel: "$$$$$" },
-      { id: "m4", title: "Yacht Transfer", subtitle: "Coastal arrivals", image: "https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?w=800&q=80", rating: 5, priceLevel: "$$$$$" },
-      { id: "m5", title: "First Class Rail", subtitle: "Scenic luxury journeys", image: "https://images.unsplash.com/photo-1474487548417-781cb71495f3?w=800&q=80", rating: 5, priceLevel: "$$$$" },
+      { id: "m1", title: "Private Jet", subtitle: "Ultimate freedom", image: "https://images.unsplash.com/photo-1540962351504-03099e0a754b?w=800&q=80", rating: 5, priceLevel: "$$$$$", tier: "luxury", tierTag: "Exclusive" },
+      { id: "m2", title: "Luxury Car Service", subtitle: "Chauffeur-driven elegance", image: "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=800&q=80", rating: 5, priceLevel: "$$$$", tier: "high-end", tierTag: "Premium" },
+      { id: "m3", title: "First Class Rail", subtitle: "Scenic luxury journeys", image: "https://images.unsplash.com/photo-1474487548417-781cb71495f3?w=800&q=80", rating: 4, priceLevel: "$$$", tier: "mid-range", tierTag: "Curated" },
+      { id: "m4", title: "Family Van Rental", subtitle: "Space for everyone", image: "https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?w=800&q=80", rating: 4, priceLevel: "$$", tier: "family-friendly", tierTag: "Family Pick" },
+      { id: "m5", title: "Public Transit Pass", subtitle: "Navigate like a local", image: "https://images.unsplash.com/photo-1534321238895-da3ab632df3e?w=800&q=80", rating: 4, priceLevel: "$", tier: "budget-conscious", tierTag: "Value" },
     ]
   },
 ]
