@@ -17,8 +17,7 @@ export interface IdentityStepData {
   subtitle: string
   options: IdentityOption[]
   isBudgetTier?: boolean
-  isMultiSelect?: boolean
-  layout?: 'cards' | 'chips' | 'scale'
+  layout?: 'cards' | 'chips' | 'dual-image'
 }
 
 export const budgetTierLabels: Record<BudgetTier, { label: string; tag: string }> = {
@@ -46,7 +45,6 @@ export const identitySteps: IdentityStepData[] = [
       { id: "age-60-75", title: "Senior (60-75)", subtitle: "Wisdom meets wanderlust", image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=800&q=80" },
       { id: "age-75+", title: "Elder (75+)", subtitle: "Timeless journeys await", image: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800&q=80" },
     ],
-    isMultiSelect: true,
   },
   // Step 2: Travel Companions
   {
@@ -77,12 +75,11 @@ export const identitySteps: IdentityStepData[] = [
       { id: "budget-conscious", title: "Budget Conscious", subtitle: "Smart choices, great experiences", image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&q=80", tier: "budget-conscious" as BudgetTier },
     ]
   },
-  // Step 4: Travel Worlds (Multi-select)
+  // Step 4: Travel Worlds
   {
     id: 4,
     question: "What worlds call to you?",
-    subtitle: "Select all that inspire your wanderlust",
-    isMultiSelect: true,
+    subtitle: "Choose the world that resonates most",
     layout: 'cards',
     options: [
       { id: "adventure", title: "Adventure", subtitle: "Thrill & adrenaline", image: "https://images.unsplash.com/photo-1527004013197-933c4bb611b3?w=800&q=80" },
@@ -99,46 +96,37 @@ export const identitySteps: IdentityStepData[] = [
   {
     id: 5,
     question: "What's your travel rhythm?",
-    subtitle: "Define your pace and structure",
-    layout: 'scale',
+    subtitle: "Define your ideal pace",
+    layout: 'dual-image',
     options: [
       { id: "pace-slow", title: "Slow & Deliberate", subtitle: "Savor every moment", image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=800&q=80" },
       { id: "pace-balanced", title: "Balanced Flow", subtitle: "Mix of rest & exploration", image: "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=800&q=80" },
       { id: "pace-fast", title: "Fast & Dynamic", subtitle: "Packed with experiences", image: "https://images.unsplash.com/photo-1530789253388-582c481c54b0?w=800&q=80" },
       { id: "structure-flexible", title: "Flexible", subtitle: "Go with the flow", image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&q=80" },
-      { id: "structure-balanced", title: "Semi-Planned", subtitle: "Some plans, some freedom", image: "https://images.unsplash.com/photo-1507608616759-54f48f0af0ee?w=800&q=80" },
+      { id: "structure-semi", title: "Semi-Planned", subtitle: "Some plans, some freedom", image: "https://images.unsplash.com/photo-1507608616759-54f48f0af0ee?w=800&q=80" },
       { id: "structure-structured", title: "Structured", subtitle: "Every detail mapped", image: "https://images.unsplash.com/photo-1544928147-79a2dbc1f389?w=800&q=80" },
     ],
-    isMultiSelect: true,
   },
   // Step 6: Scenario Preferences  
   {
     id: 6,
     question: "Set the scene for your journey",
-    subtitle: "Climate, season, and trip length",
-    layout: 'chips',
-    isMultiSelect: true,
+    subtitle: "Choose your ideal destination vibe",
+    layout: 'cards',
     options: [
-      { id: "climate-tropical", title: "Tropical", subtitle: "Warm & humid", image: "https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?w=800&q=80" },
-      { id: "climate-temperate", title: "Temperate", subtitle: "Mild & pleasant", image: "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=800&q=80" },
-      { id: "climate-cold", title: "Alpine/Cold", subtitle: "Crisp & refreshing", image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80" },
-      { id: "climate-desert", title: "Desert", subtitle: "Sun & sand", image: "https://images.unsplash.com/photo-1509316785289-025f5b846b35?w=800&q=80" },
-      { id: "season-spring", title: "Spring", subtitle: "Renewal & bloom", image: "https://images.unsplash.com/photo-1462275646964-a0e3571f4f8c?w=800&q=80" },
-      { id: "season-summer", title: "Summer", subtitle: "Peak travel season", image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80" },
-      { id: "season-autumn", title: "Autumn", subtitle: "Golden hues", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80" },
-      { id: "season-winter", title: "Winter", subtitle: "Festive & serene", image: "https://images.unsplash.com/photo-1491002052546-bf38f186af56?w=800&q=80" },
-      { id: "length-weekend", title: "Weekend Escape", subtitle: "2-4 days", image: "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=800&q=80" },
-      { id: "length-week", title: "Week Away", subtitle: "5-7 days", image: "https://images.unsplash.com/photo-1501555088652-021faa106b9b?w=800&q=80" },
-      { id: "length-extended", title: "Extended Journey", subtitle: "2+ weeks", image: "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=800&q=80" },
+      { id: "scene-tropical", title: "Tropical Paradise", subtitle: "Warm beaches & palm trees", image: "https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?w=800&q=80" },
+      { id: "scene-alpine", title: "Alpine Escape", subtitle: "Mountains & fresh air", image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80" },
+      { id: "scene-urban", title: "Urban Adventure", subtitle: "City lights & culture", image: "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=800&q=80" },
+      { id: "scene-countryside", title: "Countryside Retreat", subtitle: "Rolling hills & vineyards", image: "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=800&q=80" },
+      { id: "scene-desert", title: "Desert Mystique", subtitle: "Golden dunes & starry nights", image: "https://images.unsplash.com/photo-1509316785289-025f5b846b35?w=800&q=80" },
     ]
   },
   // Step 7: Emotional Drivers
   {
     id: 7,
     question: "What drives your desire to travel?",
-    subtitle: "The emotions behind every journey",
+    subtitle: "Choose the emotion that resonates most",
     layout: 'cards',
-    isMultiSelect: true,
     options: [
       { id: "emotion-relaxation", title: "Relaxation", subtitle: "Unwind & recharge", image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800&q=80" },
       { id: "emotion-exploration", title: "Exploration", subtitle: "Discover the unknown", image: "https://images.unsplash.com/photo-1501555088652-021faa106b9b?w=800&q=80" },

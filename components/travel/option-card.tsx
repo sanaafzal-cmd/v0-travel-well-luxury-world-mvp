@@ -9,10 +9,9 @@ interface OptionCardProps {
   isSelected: boolean
   onSelect: () => void
   tierTag?: string
-  isMultiSelect?: boolean
 }
 
-export function OptionCard({ title, subtitle, image, isSelected, onSelect, tierTag, isMultiSelect }: OptionCardProps) {
+export function OptionCard({ title, subtitle, image, isSelected, onSelect, tierTag }: OptionCardProps) {
   return (
     <button
       onClick={onSelect}
@@ -46,22 +45,11 @@ export function OptionCard({ title, subtitle, image, isSelected, onSelect, tierT
         
         {/* Selection indicator */}
         {isSelected && (
-          <div className={`
-            absolute top-4 right-4 flex items-center justify-center animate-scale-in
-            ${isMultiSelect 
-              ? 'w-7 h-7 rounded-lg bg-[#C6A96B]' 
-              : 'w-7 h-7 rounded-full bg-[#C6A96B]'
-            }
-          `}>
+          <div className="absolute top-4 right-4 w-7 h-7 rounded-full bg-[#C6A96B] flex items-center justify-center animate-scale-in">
             <svg className="w-4 h-4 text-[#0F0F10]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
             </svg>
           </div>
-        )}
-        
-        {/* Multi-select indicator when not selected */}
-        {isMultiSelect && !isSelected && (
-          <div className="absolute top-4 right-4 w-7 h-7 rounded-lg border-2 border-[#3A3A3B] bg-[#0F0F10]/50 backdrop-blur-sm" />
         )}
       </div>
       

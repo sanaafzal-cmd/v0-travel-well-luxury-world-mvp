@@ -30,18 +30,28 @@ export default function OnboardingPage() {
     setSelections(prev => ({ ...prev, [currentStep]: [optionId] }))
   }
   
-  const handleToggleOption = (optionId: string) => {
+  // For Step 5 dual-image layout - handle pace selection
+  const handleSelectPace = (optionId: string) => {
     setSelections(prev => {
       const currentSelections = prev[currentStep] || []
-      if (currentSelections.includes(optionId)) {
-        return {
-          ...prev,
-          [currentStep]: currentSelections.filter(id => id !== optionId)
-        }
-      }
+      // Remove any existing pace selection
+      const withoutPace = currentSelections.filter(id => !id.startsWith('pace'))
       return {
         ...prev,
-        [currentStep]: [...currentSelections, optionId]
+        [currentStep]: [...withoutPace, optionId]
+      }
+    })
+  }
+  
+  // For Step 5 dual-image layout - handle structure selection
+  const handleSelectStructure = (optionId: string) => {
+    setSelections(prev => {
+      const currentSelections = prev[currentStep] || []
+      // Remove any existing structure selection
+      const withoutStructure = currentSelections.filter(id => !id.startsWith('structure'))
+      return {
+        ...prev,
+        [currentStep]: [...withoutStructure, optionId]
       }
     })
   }
@@ -70,12 +80,12 @@ export default function OnboardingPage() {
   }
   
   const currentSelections = selections[currentStep] || []
-  const isMultiSelect = currentStepData?.isMultiSelect
+  const isDualImageStep = currentStepData?.layout === 'dual-image'
   
-  // For multi-select, require at least one selection
-  // For single-select, require exactly one selection
-  const isCurrentStepComplete = isMultiSelect 
-    ? currentSelections.length > 0
+  // For dual-image layout, require both pace and structure selections
+  // For other steps, require exactly one selection
+  const isCurrentStepComplete = isDualImageStep 
+    ? currentSelections.some(s => s.startsWith('pace')) && currentSelections.some(s => s.startsWith('structure'))
     : currentSelections.length === 1
   
   // Calculate step labels for progress
@@ -84,8 +94,8 @@ export default function OnboardingPage() {
     "Companions",
     "Budget",
     "Worlds",
-    "Pace",
-    "Scenario",
+    "Rhythm",
+    "Scene",
     "Drivers"
   ]
   
@@ -107,7 +117,8 @@ export default function OnboardingPage() {
           step={currentStepData}
           selectedOptions={currentSelections}
           onSelectOption={handleSelectOption}
-          onToggleOption={handleToggleOption}
+          onSelectPace={handleSelectPace}
+          onSelectStructure={handleSelectStructure}
         />
       </div>
       
@@ -131,13 +142,6 @@ export default function OnboardingPage() {
             {currentStep === totalSteps ? "Begin Your Journey" : "Continue"}
           </PrimaryButton>
         </div>
-        
-        {/* Selection counter for multi-select */}
-        {isMultiSelect && currentSelections.length > 0 && (
-          <p className="text-center text-sm text-[#A1A1A1] mt-4">
-            {currentSelections.length} selected
-          </p>
-        )}
       </div>
     </main>
   )
