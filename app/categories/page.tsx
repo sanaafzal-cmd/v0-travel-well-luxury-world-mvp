@@ -21,14 +21,14 @@ const categoryIcons: Record<string, React.ReactNode> = {
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
     </svg>
   ),
-  moon: (
-    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-    </svg>
-  ),
   car: (
     <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+    </svg>
+  ),
+  sparkles: (
+    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
     </svg>
   ),
 }
@@ -49,12 +49,21 @@ export default function CategoriesPage() {
   
   return (
     <main className="min-h-screen bg-[#0F0F10]">
-      {/* Header */}
-      <div className="px-6 pt-12 pb-8">
+      {/* Header with Back Arrow */}
+      <div className="px-5 md:px-6 pt-6 md:pt-8">
+        <button
+          onClick={() => router.push("/onboarding")}
+          className="w-10 h-10 flex items-center justify-center rounded-full bg-[#1A1A1B] border border-[#2A2A2B] text-[#A1A1A1] hover:text-[#F5F5F5] hover:border-[#3A3A3B] transition-colors mb-6"
+          aria-label="Go back"
+        >
+          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
         <span className="text-sm text-[#C6A96B] font-sans uppercase tracking-widest">
           Your Journey
         </span>
-        <h1 className="font-serif text-3xl md:text-4xl text-[#F5F5F5] mt-2 leading-tight">
+        <h1 className="font-serif text-2xl md:text-4xl text-[#F5F5F5] mt-2 leading-tight">
           Curate Your Experience
         </h1>
         <p className="text-base text-[#A1A1A1] font-sans mt-3">
@@ -63,7 +72,7 @@ export default function CategoriesPage() {
       </div>
       
       {/* Categories */}
-      <div className="px-6 pb-32">
+      <div className="px-5 md:px-6 pt-6 pb-32">
         <div className="flex flex-col gap-4">
           {categories.map((category) => (
             <button

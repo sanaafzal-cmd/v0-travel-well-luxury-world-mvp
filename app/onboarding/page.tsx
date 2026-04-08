@@ -95,6 +95,8 @@ export default function OnboardingPage() {
         <ProgressBar 
           currentStep={currentStep} 
           totalSteps={totalSteps}
+          onBack={currentStep > 1 ? handleBack : undefined}
+          showBackArrow={currentStep > 1}
         />
       </div>
       
