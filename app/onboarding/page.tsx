@@ -88,17 +88,6 @@ export default function OnboardingPage() {
     ? currentSelections.some(s => s.startsWith('pace')) && currentSelections.some(s => s.startsWith('structure'))
     : currentSelections.length === 1
   
-  // Calculate step labels for progress
-  const stepLabels = [
-    "Profile",
-    "Companions",
-    "Budget",
-    "Worlds",
-    "Rhythm",
-    "Scene",
-    "Drivers"
-  ]
-  
   return (
     <main className="min-h-screen bg-[#0F0F10] flex flex-col">
       {/* Progress Bar */}
@@ -106,7 +95,6 @@ export default function OnboardingPage() {
         <ProgressBar 
           currentStep={currentStep} 
           totalSteps={totalSteps}
-          stepLabel={stepLabels[currentStep - 1]}
         />
       </div>
       
@@ -123,13 +111,13 @@ export default function OnboardingPage() {
       </div>
       
       {/* Fixed Bottom Navigation */}
-      <div className="fixed bottom-0 left-0 right-0 bg-gradient-to-t from-[#0F0F10] via-[#0F0F10] to-[#0F0F10]/0 pt-12 pb-8 px-6">
-        <div className="flex gap-4 max-w-lg mx-auto">
+      <div className="fixed bottom-0 left-0 right-0 bg-gradient-to-t from-[#0F0F10] via-[#0F0F10] to-[#0F0F10]/0 pt-10 pb-6 md:pb-8 px-5 md:px-6">
+        <div className="flex gap-3 max-w-lg mx-auto">
           {currentStep > 1 && (
             <PrimaryButton 
               variant="secondary" 
               onClick={handleBack}
-              className="w-auto px-8"
+              className="flex-1"
             >
               Back
             </PrimaryButton>
