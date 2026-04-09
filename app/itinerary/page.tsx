@@ -79,16 +79,18 @@ export default function ItineraryPage() {
   
   return (
     <main className="min-h-screen bg-[#0F0F10]">
-      {/* Header */}
-      <div className="sticky top-0 z-30 bg-[#0F0F10]/95 backdrop-blur-sm border-b border-[#2A2A2B]">
-        <div className="px-6 py-4">
+      {/* Sticky Header + Day Tabs Container */}
+      <div className="sticky top-0 z-30 bg-[#0F0F10]/95 backdrop-blur-md">
+        {/* Header */}
+        <div className="px-5 md:px-6 py-4 border-b border-[#2A2A2B]">
           <div className="flex items-center justify-between mb-4">
             <button
               onClick={() => router.push("/categories")}
-              className="w-10 h-10 rounded-full bg-[#1A1A1B] flex items-center justify-center text-[#A1A1A1] hover:text-[#F5F5F5] transition-colors"
+              className="w-10 h-10 rounded-full bg-[#1A1A1B] border border-[#2A2A2B] flex items-center justify-center text-[#A1A1A1] hover:text-[#F5F5F5] hover:border-[#3A3A3B] transition-colors"
+              aria-label="Go back"
             >
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
               </svg>
             </button>
             <PriceToggle showPrices={showPrices} onToggle={() => setShowPrices(!showPrices)} />
@@ -98,61 +100,61 @@ export default function ItineraryPage() {
             <span className="text-xs text-[#C6A96B] font-sans uppercase tracking-widest">
               Your Journey
             </span>
-            <h1 className="font-serif text-2xl text-[#F5F5F5] mt-1">
+            <h1 className="font-serif text-xl md:text-2xl text-[#F5F5F5] mt-1">
               10-Day Japan Experience
             </h1>
           </div>
           
           {/* Quick stats */}
-          <div className="flex items-center gap-6 mt-4 pb-2">
+          <div className="flex items-center gap-4 md:gap-6 mt-4">
             <div>
-              <span className="text-2xl font-serif text-[#F5F5F5]">{itinerary.length}</span>
-              <span className="text-sm text-[#A1A1A1] font-sans ml-1">days</span>
+              <span className="text-xl md:text-2xl font-serif text-[#F5F5F5]">{itinerary.length}</span>
+              <span className="text-xs md:text-sm text-[#A1A1A1] font-sans ml-1">days</span>
             </div>
-            <div className="w-px h-6 bg-[#2A2A2B]" />
+            <div className="w-px h-5 bg-[#2A2A2B]" />
             <div>
-              <span className="text-2xl font-serif text-[#F5F5F5]">{totalActivities}</span>
-              <span className="text-sm text-[#A1A1A1] font-sans ml-1">experiences</span>
+              <span className="text-xl md:text-2xl font-serif text-[#F5F5F5]">{totalActivities}</span>
+              <span className="text-xs md:text-sm text-[#A1A1A1] font-sans ml-1">experiences</span>
             </div>
             {showPrices && (
               <>
-                <div className="w-px h-6 bg-[#2A2A2B]" />
+                <div className="w-px h-5 bg-[#2A2A2B]" />
                 <div>
-                  <span className="text-2xl font-serif text-[#C6A96B]">${totalPrice.toLocaleString()}</span>
-                  <span className="text-sm text-[#A1A1A1] font-sans ml-1">total</span>
+                  <span className="text-xl md:text-2xl font-serif text-[#C6A96B]">${totalPrice.toLocaleString()}</span>
+                  <span className="text-xs md:text-sm text-[#A1A1A1] font-sans ml-1">total</span>
                 </div>
               </>
             )}
           </div>
         </div>
-      </div>
-      
-      {/* Sticky Day Navigation Tabs */}
-      <div 
-        ref={tabsContainerRef}
-        className="sticky top-[165px] z-20 bg-[#0F0F10]/95 backdrop-blur-md border-b border-[#2A2A2B] px-5 md:px-6 py-3 overflow-x-auto scrollbar-hide"
-      >
-        <div className="flex gap-2 min-w-max">
-          {itinerary.map((day) => {
-            const isActive = activeDay === day.day
-            return (
-              <button
-                key={day.day}
-                data-day={day.day}
-                onClick={() => handleTabClick(day.day)}
-                className={`
-                  flex-shrink-0 px-5 py-2.5 rounded-full text-sm font-sans transition-all duration-300 ease-out
-                  focus:outline-none focus:ring-2 focus:ring-[#C6A96B]/50 focus:ring-offset-2 focus:ring-offset-[#0F0F10]
-                  ${isActive 
-                    ? 'bg-[#C6A96B]/10 text-[#C6A96B] border border-[#C6A96B]/40 font-medium shadow-sm shadow-[#C6A96B]/10' 
-                    : 'bg-[#1A1A1B] text-[#A1A1A1] border border-[#2A2A2B] hover:border-[#C6A96B]/30 hover:text-[#F5F5F5]'
-                  }
-                `}
-              >
-                Day {day.day}
-              </button>
-            )
-          })}
+        
+        {/* Day Navigation Tabs - inside sticky container */}
+        <div 
+          ref={tabsContainerRef}
+          className="px-5 md:px-6 py-3 overflow-x-auto scrollbar-hide border-b border-[#2A2A2B]"
+        >
+          <div className="flex gap-2 min-w-max">
+            {itinerary.map((day) => {
+              const isActive = activeDay === day.day
+              return (
+                <button
+                  key={day.day}
+                  data-day={day.day}
+                  onClick={() => handleTabClick(day.day)}
+                  className={`
+                    flex-shrink-0 px-4 md:px-5 py-2 md:py-2.5 rounded-full text-sm font-sans transition-all duration-300 ease-out
+                    focus:outline-none focus:ring-2 focus:ring-[#C6A96B]/50 focus:ring-offset-2 focus:ring-offset-[#0F0F10]
+                    ${isActive 
+                      ? 'bg-[#C6A96B]/10 text-[#C6A96B] border border-[#C6A96B]/40 font-medium shadow-sm shadow-[#C6A96B]/10' 
+                      : 'bg-[#1A1A1B] text-[#A1A1A1] border border-[#2A2A2B] hover:border-[#C6A96B]/30 hover:text-[#F5F5F5]'
+                    }
+                  `}
+                >
+                  Day {day.day}
+                </button>
+              )
+            })}
+          </div>
         </div>
       </div>
       
