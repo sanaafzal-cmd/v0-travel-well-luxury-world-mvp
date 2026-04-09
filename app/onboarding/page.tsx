@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { useRouter } from "next/navigation"
 import { identitySteps } from "@/lib/data"
 import { ProgressBar } from "@/components/travel/progress-bar"
@@ -15,16 +15,6 @@ export default function OnboardingPage() {
 
   const totalSteps = identitySteps.length
   const currentStepData = identitySteps[currentStep - 1]
-
-  // Initialize default selection for budget tier (Luxury)
-  useEffect(() => {
-    if (currentStepData?.isBudgetTier && !selections[currentStep]?.length) {
-      setSelections(prev => ({
-        ...prev,
-        [currentStep]: ['luxury']
-      }))
-    }
-  }, [currentStep, currentStepData?.isBudgetTier, selections])
 
   const handleSelectOption = (optionId: string) => {
     setSelections(prev => ({ ...prev, [currentStep]: [optionId] }))
