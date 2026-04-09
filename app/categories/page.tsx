@@ -88,11 +88,19 @@ export default function CategoriesPage() {
           {categories.map((category) => {
             const partnerData = affiliatePartners[category.name]
             return (
-              <button
+              <div
                 key={category.id}
+                role="button"
+                tabIndex={0}
                 onClick={() => handleCategorySelect(category.id)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault()
+                    handleCategorySelect(category.id)
+                  }
+                }}
                 className={`
-                  w-full p-5 md:p-6 rounded-xl border transition-all duration-300 ease-out text-left
+                  w-full p-5 md:p-6 rounded-xl border transition-all duration-300 ease-out text-left cursor-pointer
                   focus:outline-none focus:ring-2 focus:ring-[#C6A96B] focus:ring-offset-2 focus:ring-offset-[#0F0F10]
                   ${selectedCategory === category.id
                     ? 'bg-[#1A1A1B] border-[#C6A96B] scale-[1.02]'
@@ -148,7 +156,7 @@ export default function CategoriesPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
                 </div>
-              </button>
+              </div>
             )
           })}
         </div>
