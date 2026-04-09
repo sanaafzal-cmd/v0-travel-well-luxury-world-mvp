@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect, useRef } from "react"
 import { useRouter } from "next/navigation"
 import { itinerary } from "@/lib/data"
 import { DaySection } from "@/components/travel/day-section"
@@ -9,6 +9,59 @@ import { PriceToggle } from "@/components/travel/price-toggle"
 export default function ItineraryPage() {
   const router = useRouter()
   const [showPrices, setShowPrices] = useState(false)
+  const [activeDay, setActiveDay] = useState(1)
+  const dayRefs = useRef<Map<number, HTMLDivElement>>(new Map())
+  const tabsContainerRef = useRef<HTMLDivElement>(null)
+  
+  // Intersection Observer for scroll-based active day detection
+  useEffect(() => {
+    const observers: IntersectionObserver[] = []
+    
+    dayRefs.current.forEach((element, dayNum) => {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting && entry.intersectionRatio >= 0.3) {
+              setActiveDay(dayNum)
+            }
+          })
+        },
+        {
+          rootMargin: '-200px 0px -50% 0px',
+          threshold: [0.3, 0.5, 0.7]
+        }
+      )
+      observer.observe(element)
+      observers.push(observer)
+    })
+    
+    return () => {
+      observers.forEach((observer) => observer.disconnect())
+    }
+  }, [])
+  
+  // Scroll active tab into view
+  useEffect(() => {
+    if (tabsContainerRef.current) {
+      const activeTab = tabsContainerRef.current.querySelector(`[data-day="${activeDay}"]`)
+      if (activeTab) {
+        activeTab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' })
+      }
+    }
+  }, [activeDay])
+  
+  const handleTabClick = (day: number) => {
+    const element = dayRefs.current.get(day)
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+  }
+  
+  const setDayRef = (day: number) => (el: HTMLDivElement | null) => {
+    if (el) {
+      dayRefs.current.set(day, el)
+    }
+  }
   
   // Calculate totals
   const totalPrice = itinerary.reduce((acc, day) => {
@@ -74,25 +127,43 @@ export default function ItineraryPage() {
         </div>
       </div>
       
-      {/* Day Navigation Pills */}
-      <div className="sticky top-[165px] z-20 bg-[#0F0F10]/95 backdrop-blur-sm border-b border-[#2A2A2B] px-6 py-3 overflow-x-auto">
-        <div className="flex gap-2">
-          {itinerary.map((day) => (
-            <a
-              key={day.day}
-              href={`#day-${day.day}`}
-              className="flex-shrink-0 px-4 py-2 rounded-full text-sm font-sans bg-[#1A1A1B] text-[#A1A1A1] border border-[#2A2A2B] hover:border-[#C6A96B]/50 hover:text-[#F5F5F5] transition-all"
-            >
-              Day {day.day}
-            </a>
-          ))}
+      {/* Sticky Day Navigation Tabs */}
+      <div 
+        ref={tabsContainerRef}
+        className="sticky top-[165px] z-20 bg-[#0F0F10]/95 backdrop-blur-md border-b border-[#2A2A2B] px-5 md:px-6 py-3 overflow-x-auto scrollbar-hide"
+      >
+        <div className="flex gap-2 min-w-max">
+          {itinerary.map((day) => {
+            const isActive = activeDay === day.day
+            return (
+              <button
+                key={day.day}
+                data-day={day.day}
+                onClick={() => handleTabClick(day.day)}
+                className={`
+                  flex-shrink-0 px-5 py-2.5 rounded-full text-sm font-sans transition-all duration-300 ease-out
+                  focus:outline-none focus:ring-2 focus:ring-[#C6A96B]/50 focus:ring-offset-2 focus:ring-offset-[#0F0F10]
+                  ${isActive 
+                    ? 'bg-[#C6A96B]/10 text-[#C6A96B] border border-[#C6A96B]/40 font-medium shadow-sm shadow-[#C6A96B]/10' 
+                    : 'bg-[#1A1A1B] text-[#A1A1A1] border border-[#2A2A2B] hover:border-[#C6A96B]/30 hover:text-[#F5F5F5]'
+                  }
+                `}
+              >
+                Day {day.day}
+              </button>
+            )
+          })}
         </div>
       </div>
       
       {/* Itinerary Content */}
       <div className="pb-8">
         {itinerary.map((day) => (
-          <div key={day.day} id={`day-${day.day}`}>
+          <div 
+            key={day.day} 
+            id={`day-${day.day}`}
+            ref={setDayRef(day.day)}
+          >
             <DaySection day={day} showPrices={showPrices} />
           </div>
         ))}
