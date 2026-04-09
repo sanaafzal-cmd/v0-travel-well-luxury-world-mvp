@@ -6,7 +6,7 @@ interface ActivityBadgeProps {
 
 export function ActivityBadge({ label }: ActivityBadgeProps) {
   return (
-    <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-sans bg-[#2A2A2B] text-[#A1A1A1] border border-[#3A3A3B]">
+    <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-sans font-medium bg-[#0F0F10]/90 text-[#F5F5F5] border border-[#2A2A2B] backdrop-blur-sm shadow-sm">
       {label}
     </span>
   )
