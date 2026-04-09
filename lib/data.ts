@@ -88,7 +88,7 @@ export const identitySteps: IdentityStepData[] = [
       { id: "wellness", title: "Wellness", subtitle: "Mind, body & spirit", image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800&q=80" },
       { id: "culture", title: "Culture", subtitle: "Art, history & heritage", image: "https://images.unsplash.com/photo-1551632811-561732d1e306?w=800&q=80" },
       { id: "cruise", title: "Cruise", subtitle: "Sail the seas", image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=80" },
-      { id: "nature", title: "Nature", subtitle: "Earth's wonders", image: "https://images.unsplash.com/photo-1474511320723-9a56873571b7?w=800&q=80" },
+      { id: "nature", title: "Nature", subtitle: "Earth's wonders", image: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&q=80" },
       { id: "sports", title: "Sports", subtitle: "Active pursuits", image: "https://images.unsplash.com/photo-1530789253388-582c481c54b0?w=800&q=80" },
     ]
   },
