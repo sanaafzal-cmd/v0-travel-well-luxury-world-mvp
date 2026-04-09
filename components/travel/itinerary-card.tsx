@@ -4,6 +4,7 @@ import Image from "next/image"
 import type { ItineraryActivity } from "@/lib/data"
 import { ActivityBadge } from "./activity-badge"
 import { CommissionTag } from "./commission-tag"
+import { getCommissionRange } from "@/lib/monetization"
 
 interface ItineraryCardProps {
   activity: ItineraryActivity
@@ -13,9 +14,9 @@ interface ItineraryCardProps {
 const categoryColors: Record<string, string> = {
   "Stay-Well": "#C6A96B",
   "Eat-Well": "#E8DFC8",
-  "Activity-Well": "#A1A1A1",
-  "NightLife-Well": "#7A7A7A",
-  "Move-Well": "#5A5A5A",
+  "Move-Well": "#A1A1A1",
+  "Activity-Well": "#7A7A7A",
+  "Experience-Well": "#C6A96B",
 }
 
 const walkingIcons: Record<string, string> = {
@@ -96,16 +97,15 @@ export function ItineraryCard({ activity, showPrices }: ItineraryCardProps) {
           </div>
         )}
         
-        {/* Price & Commission */}
+        {/* Price & Commission - Only shown when prices toggle is ON */}
         {showPrices && activity.price !== undefined && activity.price > 0 && (
-          <div className="pt-4 border-t border-[#2A2A2B]">
+          <div className="pt-4 border-t border-[#2A2A2B] animate-fade-in">
             <div className="flex items-center justify-between">
               <span className="text-lg font-serif text-[#E8DFC8]">
                 ${activity.price.toLocaleString()}
               </span>
-              {activity.commission && (
-                <CommissionTag commission={activity.commission} />
-              )}
+              {/* Dynamic commission from monetization data based on category */}
+              <CommissionTag commission={getCommissionRange(activity.category)} />
             </div>
           </div>
         )}

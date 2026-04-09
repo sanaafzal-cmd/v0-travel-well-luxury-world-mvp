@@ -4,6 +4,8 @@ import { useState } from "react"
 import { useRouter } from "next/navigation"
 import { categories } from "@/lib/data"
 import { PrimaryButton } from "@/components/travel/primary-button"
+import { WellPopupModal } from "@/components/travel/well-popup-modal"
+import { getPopupData, affiliatePartners } from "@/lib/monetization"
 
 const categoryIcons: Record<string, React.ReactNode> = {
   bed: (
@@ -36,10 +38,19 @@ const categoryIcons: Record<string, React.ReactNode> = {
 export default function CategoriesPage() {
   const router = useRouter()
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
+  const [popupCategory, setPopupCategory] = useState<string | null>(null)
   
   const handleCategorySelect = (categoryId: string) => {
     setSelectedCategory(categoryId)
   }
+  
+  const handleInfoClick = (e: React.MouseEvent, categoryId: string) => {
+    e.stopPropagation()
+    setPopupCategory(categoryId)
+  }
+  
+  const popupData = popupCategory ? getPopupData(popupCategory) : null
+  const wellName = popupCategory ? categories.find(c => c.id === popupCategory)?.name || '' : ''
   
   const handleContinue = () => {
     if (selectedCategory) {
@@ -74,51 +85,72 @@ export default function CategoriesPage() {
       {/* Categories */}
       <div className="px-5 md:px-6 pt-6 pb-32">
         <div className="flex flex-col gap-4">
-          {categories.map((category) => (
-            <button
-              key={category.id}
-              onClick={() => handleCategorySelect(category.id)}
-              className={`
-                w-full p-6 rounded-xl border transition-all duration-300 ease-out text-left
-                focus:outline-none focus:ring-2 focus:ring-[#C6A96B] focus:ring-offset-2 focus:ring-offset-[#0F0F10]
-                ${selectedCategory === category.id
-                  ? 'bg-[#1A1A1B] border-[#C6A96B] scale-[1.02]'
-                  : 'bg-[#1A1A1B] border-[#2A2A2B] hover:border-[#C6A96B]/50'
-                }
-              `}
-            >
-              <div className="flex items-center gap-4">
-                <div className={`
-                  w-12 h-12 rounded-full flex items-center justify-center transition-colors duration-300
-                  ${selectedCategory === category.id 
-                    ? 'bg-[#C6A96B] text-[#0F0F10]' 
-                    : 'bg-[#2A2A2B] text-[#C6A96B]'
+          {categories.map((category) => {
+            const partnerData = affiliatePartners[category.name]
+            return (
+              <button
+                key={category.id}
+                onClick={() => handleCategorySelect(category.id)}
+                className={`
+                  w-full p-5 md:p-6 rounded-xl border transition-all duration-300 ease-out text-left
+                  focus:outline-none focus:ring-2 focus:ring-[#C6A96B] focus:ring-offset-2 focus:ring-offset-[#0F0F10]
+                  ${selectedCategory === category.id
+                    ? 'bg-[#1A1A1B] border-[#C6A96B] scale-[1.02]'
+                    : 'bg-[#1A1A1B] border-[#2A2A2B] hover:border-[#C6A96B]/50'
                   }
-                `}>
-                  {categoryIcons[category.icon]}
-                </div>
-                <div className="flex-1">
-                  <h3 className={`
-                    font-serif text-xl transition-colors duration-300
-                    ${selectedCategory === category.id ? 'text-[#C6A96B]' : 'text-[#F5F5F5]'}
+                `}
+              >
+                <div className="flex items-center gap-4">
+                  <div className={`
+                    w-12 h-12 rounded-full flex items-center justify-center transition-colors duration-300
+                    ${selectedCategory === category.id 
+                      ? 'bg-[#C6A96B] text-[#0F0F10]' 
+                      : 'bg-[#2A2A2B] text-[#C6A96B]'
+                    }
                   `}>
-                    {category.name}
-                  </h3>
-                  <p className="text-sm text-[#A1A1A1] font-sans mt-0.5">
-                    {category.subtitle}
-                  </p>
+                    {categoryIcons[category.icon]}
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2">
+                      <h3 className={`
+                        font-serif text-xl transition-colors duration-300
+                        ${selectedCategory === category.id ? 'text-[#C6A96B]' : 'text-[#F5F5F5]'}
+                      `}>
+                        {category.name}
+                      </h3>
+                      {/* Info button for monetization popup */}
+                      <button
+                        onClick={(e) => handleInfoClick(e, category.id)}
+                        className="w-5 h-5 rounded-full flex items-center justify-center text-[#5A5A5A] hover:text-[#C6A96B] hover:bg-[#C6A96B]/10 transition-colors"
+                        aria-label={`View ${category.name} partnership info`}
+                      >
+                        <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                      </button>
+                    </div>
+                    <p className="text-sm text-[#A1A1A1] font-sans mt-0.5">
+                      {category.subtitle}
+                    </p>
+                    {/* Subtle commission indicator */}
+                    {partnerData && (
+                      <p className="text-xs text-[#5A5A5A] font-sans mt-1.5">
+                        Earns: <span className="text-[#C6A96B]/60">{partnerData.commissionRange}</span>
+                      </p>
+                    )}
+                  </div>
+                  <svg 
+                    className={`w-5 h-5 flex-shrink-0 transition-all duration-300 ${selectedCategory === category.id ? 'text-[#C6A96B] translate-x-1' : 'text-[#A1A1A1]'}`} 
+                    fill="none" 
+                    viewBox="0 0 24 24" 
+                    stroke="currentColor"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
                 </div>
-                <svg 
-                  className={`w-5 h-5 transition-all duration-300 ${selectedCategory === category.id ? 'text-[#C6A96B] translate-x-1' : 'text-[#A1A1A1]'}`} 
-                  fill="none" 
-                  viewBox="0 0 24 24" 
-                  stroke="currentColor"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </div>
-            </button>
-          ))}
+              </button>
+            )
+          })}
         </div>
         
         {/* View Itinerary Link */}
@@ -133,7 +165,7 @@ export default function CategoriesPage() {
       </div>
       
       {/* Fixed Bottom */}
-      <div className="fixed bottom-0 left-0 right-0 bg-[#0F0F10]/95 backdrop-blur-sm border-t border-[#2A2A2B] p-6">
+      <div className="fixed bottom-0 left-0 right-0 bg-[#0F0F10]/95 backdrop-blur-sm border-t border-[#2A2A2B] p-5 md:p-6">
         <div className="max-w-lg mx-auto">
           <PrimaryButton 
             onClick={handleContinue}
@@ -143,6 +175,14 @@ export default function CategoriesPage() {
           </PrimaryButton>
         </div>
       </div>
+      
+      {/* Well Category Popup Modal */}
+      <WellPopupModal
+        isOpen={!!popupCategory}
+        onClose={() => setPopupCategory(null)}
+        popup={popupData}
+        wellName={wellName}
+      />
     </main>
   )
 }
