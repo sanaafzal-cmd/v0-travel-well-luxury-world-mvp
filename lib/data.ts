@@ -163,11 +163,11 @@ export const categories: CategoryData[] = [
     subtitle: "Where dreams rest",
     icon: "bed",
     options: [
-      { id: "s1", title: "Aman Tokyo", subtitle: "Urban sanctuary in the clouds", image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=80", rating: 5, priceLevel: "$$$$$", tier: "luxury", tierTag: "Exclusive" },
-      { id: "s2", title: "Four Seasons Bali", subtitle: "Tropical elegance", image: "https://images.unsplash.com/photo-1582719508461-905c673771fd?w=800&q=80", rating: 5, priceLevel: "$$$$", tier: "high-end", tierTag: "Premium" },
-      { id: "s3", title: "Rosewood Paris", subtitle: "Parisian grandeur", image: "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800&q=80", rating: 5, priceLevel: "$$$$$", tier: "luxury", tierTag: "Exclusive" },
-      { id: "s4", title: "Kimpton Hotels", subtitle: "Boutique comfort for families", image: "https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=800&q=80", rating: 4, priceLevel: "$$$", tier: "family-friendly", tierTag: "Family Pick" },
-      { id: "s5", title: "Mandarin Oriental", subtitle: "Legendary Asian hospitality", image: "https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=800&q=80", rating: 5, priceLevel: "$$$$", tier: "high-end", tierTag: "Premium" },
+      { id: "s1", title: "Aman Tokyo", subtitle: "Urban sanctuary in the clouds", image: "https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=800&q=80", rating: 5, priceLevel: "$$$$$", tier: "luxury", tierTag: "Exclusive" },
+      { id: "s2", title: "Four Seasons Bali", subtitle: "Tropical elegance", image: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&q=80", rating: 5, priceLevel: "$$$$", tier: "high-end", tierTag: "Premium" },
+      { id: "s3", title: "Rosewood Paris", subtitle: "Parisian grandeur", image: "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800&q=80", rating: 5, priceLevel: "$$$$$", tier: "luxury", tierTag: "Exclusive" },
+      { id: "s4", title: "Kimpton Hotels", subtitle: "Boutique comfort for families", image: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80", rating: 4, priceLevel: "$$$", tier: "family-friendly", tierTag: "Family Pick" },
+      { id: "s5", title: "Mandarin Oriental", subtitle: "Legendary Asian hospitality", image: "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=800&q=80", rating: 5, priceLevel: "$$$$", tier: "high-end", tierTag: "Premium" },
     ]
   },
   {
@@ -176,11 +176,11 @@ export const categories: CategoryData[] = [
     subtitle: "Culinary excellence",
     icon: "utensils",
     options: [
-      { id: "e1", title: "Eleven Madison Park", subtitle: "Plant-forward fine dining", image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80", rating: 5, priceLevel: "$$$$$", tier: "luxury", tierTag: "Exclusive" },
+      { id: "e1", title: "Eleven Madison Park", subtitle: "Plant-forward fine dining", image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=80", rating: 5, priceLevel: "$$$$$", tier: "luxury", tierTag: "Exclusive" },
       { id: "e2", title: "Narisawa", subtitle: "Innovative Japanese cuisine", image: "https://images.unsplash.com/photo-1579027989536-b7b1f875659b?w=800&q=80", rating: 5, priceLevel: "$$$$$", tier: "luxury", tierTag: "Exclusive" },
-      { id: "e3", title: "Osteria Francescana", subtitle: "Italian artistry", image: "https://images.unsplash.com/photo-1481931098730-318b6f776db0?w=800&q=80", rating: 5, priceLevel: "$$$$", tier: "high-end", tierTag: "Premium" },
-      { id: "e4", title: "Local Trattorias", subtitle: "Authentic neighborhood gems", image: "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=800&q=80", rating: 4, priceLevel: "$$$", tier: "mid-range", tierTag: "Curated" },
-      { id: "e5", title: "Family Table", subtitle: "Kid-approved dining", image: "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?w=800&q=80", rating: 4, priceLevel: "$$", tier: "family-friendly", tierTag: "Family Pick" },
+      { id: "e3", title: "Osteria Francescana", subtitle: "Italian artistry", image: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=80", rating: 5, priceLevel: "$$$$", tier: "high-end", tierTag: "Premium" },
+      { id: "e4", title: "Local Trattorias", subtitle: "Authentic neighborhood gems", image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80", rating: 4, priceLevel: "$$$", tier: "mid-range", tierTag: "Curated" },
+      { id: "e5", title: "Family Table", subtitle: "Kid-approved dining", image: "https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?w=800&q=80", rating: 4, priceLevel: "$$", tier: "family-friendly", tierTag: "Family Pick" },
     ]
   },
   {
@@ -191,9 +191,9 @@ export const categories: CategoryData[] = [
     options: [
       { id: "m1", title: "Private Jet", subtitle: "Ultimate freedom", image: "https://images.unsplash.com/photo-1540962351504-03099e0a754b?w=800&q=80", rating: 5, priceLevel: "$$$$$", tier: "luxury", tierTag: "Exclusive" },
       { id: "m2", title: "Luxury Car Service", subtitle: "Chauffeur-driven elegance", image: "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=800&q=80", rating: 5, priceLevel: "$$$$", tier: "high-end", tierTag: "Premium" },
-      { id: "m3", title: "First Class Rail", subtitle: "Scenic luxury journeys", image: "https://images.unsplash.com/photo-1474487548417-781cb71495f3?w=800&q=80", rating: 4, priceLevel: "$$$", tier: "mid-range", tierTag: "Curated" },
-      { id: "m4", title: "Family Van Rental", subtitle: "Space for everyone", image: "https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?w=800&q=80", rating: 4, priceLevel: "$$", tier: "family-friendly", tierTag: "Family Pick" },
-      { id: "m5", title: "Public Transit Pass", subtitle: "Navigate like a local", image: "https://images.unsplash.com/photo-1534321238895-da3ab632df3e?w=800&q=80", rating: 4, priceLevel: "$", tier: "budget-conscious", tierTag: "Value" },
+      { id: "m3", title: "First Class Rail", subtitle: "Scenic luxury journeys", image: "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=800&q=80", rating: 4, priceLevel: "$$$", tier: "mid-range", tierTag: "Curated" },
+      { id: "m4", title: "Family Van Rental", subtitle: "Space for everyone", image: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800&q=80", rating: 4, priceLevel: "$$", tier: "family-friendly", tierTag: "Family Pick" },
+      { id: "m5", title: "Airport Transfer", subtitle: "Seamless arrivals & departures", image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800&q=80", rating: 4, priceLevel: "$", tier: "budget-conscious", tierTag: "Value" },
     ]
   },
   {
@@ -202,11 +202,11 @@ export const categories: CategoryData[] = [
     subtitle: "Experiences that transform",
     icon: "compass",
     options: [
-      { id: "a1", title: "Private Yacht Charter", subtitle: "Sail the Mediterranean", image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=80", rating: 5, priceLevel: "$$$$$", tier: "luxury", tierTag: "Exclusive" },
-      { id: "a2", title: "Hot Air Balloon", subtitle: "Sunrise over Cappadocia", image: "https://images.unsplash.com/photo-1507608616759-54f48f0af0ee?w=800&q=80", rating: 5, priceLevel: "$$$$", tier: "high-end", tierTag: "Premium" },
-      { id: "a3", title: "Private Art Tour", subtitle: "Behind the scenes at the Louvre", image: "https://images.unsplash.com/photo-1544928147-79a2dbc1f389?w=800&q=80", rating: 4, priceLevel: "$$$", tier: "mid-range", tierTag: "Curated" },
-      { id: "a4", title: "Theme Park Adventure", subtitle: "Fun for the whole family", image: "https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=800&q=80", rating: 5, priceLevel: "$$", tier: "family-friendly", tierTag: "Family Pick" },
-      { id: "a5", title: "Walking Food Tours", subtitle: "Taste the city on foot", image: "https://images.unsplash.com/photo-1516426122078-c23e76319801?w=800&q=80", rating: 4, priceLevel: "$", tier: "budget-conscious", tierTag: "Value" },
+      { id: "a1", title: "Glamping Retreat", subtitle: "Luxury in the wilderness", image: "https://images.unsplash.com/photo-1499696010180-025ef6e1a8f9?w=800&q=80", rating: 5, priceLevel: "$$$$$", tier: "luxury", tierTag: "Exclusive" },
+      { id: "a2", title: "Mountain Lodge", subtitle: "Alpine serenity awaits", image: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=800&q=80", rating: 5, priceLevel: "$$$$", tier: "high-end", tierTag: "Premium" },
+      { id: "a3", title: "Desert Dome", subtitle: "Stars & sand", image: "https://images.unsplash.com/photo-1587061949409-02df41d5e562?w=800&q=80", rating: 4, priceLevel: "$$$", tier: "mid-range", tierTag: "Curated" },
+      { id: "a4", title: "Kayaking Adventure", subtitle: "Explore by water", image: "https://images.unsplash.com/photo-1530866495561-507c9faab2ed?w=800&q=80", rating: 5, priceLevel: "$$", tier: "family-friendly", tierTag: "Family Pick" },
+      { id: "a5", title: "Hot Springs", subtitle: "Natural rejuvenation", image: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800&q=80", rating: 4, priceLevel: "$", tier: "budget-conscious", tierTag: "Value" },
     ]
   },
   {
@@ -215,11 +215,11 @@ export const categories: CategoryData[] = [
     subtitle: "Moments to remember",
     icon: "sparkles",
     options: [
-      { id: "x1", title: "Private Chef Dinner", subtitle: "Exclusive culinary journey", image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80", rating: 5, priceLevel: "$$$$$", tier: "luxury", tierTag: "Exclusive" },
-      { id: "x2", title: "Helicopter Tour", subtitle: "See the world from above", image: "https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=800&q=80", rating: 5, priceLevel: "$$$$", tier: "high-end", tierTag: "Premium" },
-      { id: "x3", title: "Sunset Cruise", subtitle: "Golden hour on the water", image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=80", rating: 4, priceLevel: "$$$", tier: "mid-range", tierTag: "Curated" },
-      { id: "x4", title: "Wildlife Safari", subtitle: "Nature up close", image: "https://images.unsplash.com/photo-1516426122078-c23e76319801?w=800&q=80", rating: 5, priceLevel: "$$", tier: "family-friendly", tierTag: "Family Pick" },
-      { id: "x5", title: "Local Markets Tour", subtitle: "Discover hidden gems", image: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=80", rating: 4, priceLevel: "$", tier: "budget-conscious", tierTag: "Value" },
+      { id: "x1", title: "Theater Performance", subtitle: "World-class shows", image: "https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?w=800&q=80", rating: 5, priceLevel: "$$$$$", tier: "luxury", tierTag: "Exclusive" },
+      { id: "x2", title: "Museum Private Tour", subtitle: "Art & history unveiled", image: "https://images.unsplash.com/photo-1554907984-15263bfd63bd?w=800&q=80", rating: 5, priceLevel: "$$$$", tier: "high-end", tierTag: "Premium" },
+      { id: "x3", title: "Festival Experience", subtitle: "Local celebrations", image: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=800&q=80", rating: 4, priceLevel: "$$$", tier: "mid-range", tierTag: "Curated" },
+      { id: "x4", title: "Iconic Landmarks", subtitle: "Must-see destinations", image: "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=800&q=80", rating: 5, priceLevel: "$$", tier: "family-friendly", tierTag: "Family Pick" },
+      { id: "x5", title: "Guided Walking Tour", subtitle: "Stories of the city", image: "https://images.unsplash.com/photo-1569949381669-ecf31ae8f4a4?w=800&q=80", rating: 4, priceLevel: "$", tier: "budget-conscious", tierTag: "Value" },
     ]
   },
 ]
@@ -252,47 +252,47 @@ export const itinerary: ItineraryDay[] = [
     day: 1,
     date: "Monday, March 15",
     morning: [
-      { id: "d1m1", time: "08:00", title: "Arrival & Private Transfer", location: "Narita International Airport", category: "Move-Well", image: "https://images.unsplash.com/photo-1540962351504-03099e0a754b?w=800&q=80", price: 450, commission: "8-12%", badges: ["Transport Included"], walkingIntensity: "low", transportIncluded: true },
-      { id: "d1m2", time: "10:30", title: "Hotel Check-in", location: "Aman Tokyo, Otemachi", category: "Stay-Well", image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=80", price: 2400, commission: "10-15%", badges: ["Stroller Friendly"], walkingIntensity: "low" },
+      { id: "d1m1", time: "08:00", title: "Arrival & Private Transfer", location: "Narita International Airport", category: "Move-Well", image: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800&q=80", price: 450, commission: "8-12%", badges: ["Transport Included"], walkingIntensity: "low", transportIncluded: true },
+      { id: "d1m2", time: "10:30", title: "Hotel Check-in", location: "Aman Tokyo, Otemachi", category: "Stay-Well", image: "https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=800&q=80", price: 2400, commission: "10-15%", badges: ["Stroller Friendly"], walkingIntensity: "low" },
     ],
     afternoon: [
-      { id: "d1a1", time: "13:00", title: "Private Sushi Omakase", location: "Sukiyabashi Jiro", category: "Eat-Well", image: "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=800&q=80", price: 800, commission: "5-8%", badges: ["Seated Activity"], walkingIntensity: "low" },
-      { id: "d1a2", time: "15:30", title: "Imperial Palace Gardens", location: "Chiyoda, Tokyo", category: "Activity-Well", image: "https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?w=800&q=80", price: 150, commission: "12-18%", badges: ["Low Walking", "Senior Friendly"], walkingIntensity: "low", accessible: true },
+      { id: "d1a1", time: "13:00", title: "Private Sushi Omakase", location: "Sukiyabashi Jiro", category: "Eat-Well", image: "https://images.unsplash.com/photo-1579027989536-b7b1f875659b?w=800&q=80", price: 800, commission: "5-8%", badges: ["Seated Activity"], walkingIntensity: "low" },
+      { id: "d1a2", time: "15:30", title: "Imperial Palace Gardens", location: "Chiyoda, Tokyo", category: "Activity-Well", image: "https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=800&q=80", price: 150, commission: "12-18%", badges: ["Low Walking", "Senior Friendly"], walkingIntensity: "low", accessible: true },
     ],
     evening: [
-      { id: "d1e1", time: "19:00", title: "Rooftop Kaiseki Dinner", location: "Aman Tokyo Restaurant", category: "Eat-Well", image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80", price: 650, commission: "10-12%", badges: ["Seated Activity"], walkingIntensity: "low" },
+      { id: "d1e1", time: "19:00", title: "Rooftop Kaiseki Dinner", location: "Aman Tokyo Restaurant", category: "Eat-Well", image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=80", price: 650, commission: "10-12%", badges: ["Seated Activity"], walkingIntensity: "low" },
     ]
   },
   {
     day: 2,
     date: "Tuesday, March 16",
     morning: [
-      { id: "d2m1", time: "07:00", title: "Meditation at Senso-ji", location: "Asakusa Temple", category: "Activity-Well", image: "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=800&q=80", price: 200, commission: "15-20%", badges: ["Senior Friendly", "Low Walking"], walkingIntensity: "low", accessible: true },
-      { id: "d2m2", time: "09:30", title: "Traditional Breakfast", location: "Tsukiji Outer Market", category: "Eat-Well", image: "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=800&q=80", price: 120, commission: "8-10%", badges: ["Kid Friendly"], walkingIntensity: "moderate" },
+      { id: "d2m1", time: "07:00", title: "Meditation at Senso-ji", location: "Asakusa Temple", category: "Activity-Well", image: "https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=800&q=80", price: 200, commission: "15-20%", badges: ["Senior Friendly", "Low Walking"], walkingIntensity: "low", accessible: true },
+      { id: "d2m2", time: "09:30", title: "Traditional Breakfast", location: "Tsukiji Outer Market", category: "Eat-Well", image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80", price: 120, commission: "8-10%", badges: ["Kid Friendly"], walkingIntensity: "moderate" },
     ],
     afternoon: [
-      { id: "d2a1", time: "12:00", title: "Private Tea Ceremony", location: "Happo-en Garden", category: "Activity-Well", image: "https://images.unsplash.com/photo-1544928147-79a2dbc1f389?w=800&q=80", price: 350, commission: "12-15%", badges: ["Seated Activity", "Kid Friendly"], walkingIntensity: "low" },
-      { id: "d2a2", time: "15:00", title: "Ginza Shopping Experience", location: "Ginza District", category: "Activity-Well", image: "https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=800&q=80", price: 0, commission: "0%", badges: ["Teen Friendly"], walkingIntensity: "moderate" },
+      { id: "d2a1", time: "12:00", title: "Private Tea Ceremony", location: "Happo-en Garden", category: "Activity-Well", image: "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=800&q=80", price: 350, commission: "12-15%", badges: ["Seated Activity", "Kid Friendly"], walkingIntensity: "low" },
+      { id: "d2a2", time: "15:00", title: "Ginza Shopping Experience", location: "Ginza District", category: "Experience-Well", image: "https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=800&q=80", price: 0, commission: "0%", badges: ["Teen Friendly"], walkingIntensity: "moderate" },
     ],
     evening: [
-      { id: "d2e1", time: "18:30", title: "Wagyu Tasting Experience", location: "Ukai-tei Omotesando", category: "Eat-Well", image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=80", price: 550, commission: "8-12%", badges: ["Seated Activity"], walkingIntensity: "low" },
-      { id: "d2e2", time: "21:00", title: "Tokyo Tower Night View", location: "Minato City", category: "NightLife-Well", image: "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=800&q=80", price: 80, commission: "15-20%", badges: ["Kid Friendly", "Senior Friendly"], walkingIntensity: "low", accessible: true },
+      { id: "d2e1", time: "18:30", title: "Wagyu Tasting Experience", location: "Ukai-tei Omotesando", category: "Eat-Well", image: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=80", price: 550, commission: "8-12%", badges: ["Seated Activity"], walkingIntensity: "low" },
+      { id: "d2e2", time: "21:00", title: "Tokyo Tower Night View", location: "Minato City", category: "Experience-Well", image: "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=800&q=80", price: 80, commission: "15-20%", badges: ["Kid Friendly", "Senior Friendly"], walkingIntensity: "low", accessible: true },
     ]
   },
   {
     day: 3,
     date: "Wednesday, March 17",
     morning: [
-      { id: "d3m1", time: "08:30", title: "Bullet Train to Kyoto", location: "Tokyo Station", category: "Move-Well", image: "https://images.unsplash.com/photo-1474487548417-781cb71495f3?w=800&q=80", price: 280, commission: "5-8%", badges: ["Transport Included", "Stroller Friendly"], walkingIntensity: "low", transportIncluded: true },
+      { id: "d3m1", time: "08:30", title: "Bullet Train to Kyoto", location: "Tokyo Station", category: "Move-Well", image: "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=800&q=80", price: 280, commission: "5-8%", badges: ["Transport Included", "Stroller Friendly"], walkingIntensity: "low", transportIncluded: true },
       { id: "d3m2", time: "11:00", title: "Kyoto Arrival", location: "Kyoto Station", category: "Move-Well", image: "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=800&q=80", price: 0, commission: "0%", badges: [], walkingIntensity: "low" },
     ],
     afternoon: [
-      { id: "d3a1", time: "12:30", title: "Kaiseki Lunch", location: "Kikunoi Honten", category: "Eat-Well", image: "https://images.unsplash.com/photo-1580822184713-fc5400e7fe10?w=800&q=80", price: 450, commission: "10-12%", badges: ["Seated Activity"], walkingIntensity: "low" },
+      { id: "d3a1", time: "12:30", title: "Kaiseki Lunch", location: "Kikunoi Honten", category: "Eat-Well", image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=80", price: 450, commission: "10-12%", badges: ["Seated Activity"], walkingIntensity: "low" },
       { id: "d3a2", time: "15:00", title: "Fushimi Inari Shrine", location: "Fushimi, Kyoto", category: "Activity-Well", image: "https://images.unsplash.com/photo-1478436127897-769e1b3f0f36?w=800&q=80", price: 0, commission: "0%", badges: ["Moderate Walking"], walkingIntensity: "moderate" },
     ],
     evening: [
-      { id: "d3e1", time: "18:00", title: "Geisha District Walk", location: "Gion, Kyoto", category: "Activity-Well", image: "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=800&q=80", price: 200, commission: "15-18%", badges: ["Low Walking", "Cultural"], walkingIntensity: "low" },
-      { id: "d3e2", time: "20:00", title: "Traditional Ryokan Stay", location: "Hoshinoya Kyoto", category: "Stay-Well", image: "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?w=800&q=80", price: 1800, commission: "10-15%", badges: ["Unique Stay"], walkingIntensity: "low" },
+      { id: "d3e1", time: "18:00", title: "Geisha District Walk", location: "Gion, Kyoto", category: "Experience-Well", image: "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=800&q=80", price: 200, commission: "15-18%", badges: ["Low Walking", "Cultural"], walkingIntensity: "low" },
+      { id: "d3e2", time: "20:00", title: "Traditional Ryokan Stay", location: "Hoshinoya Kyoto", category: "Stay-Well", image: "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800&q=80", price: 1800, commission: "10-15%", badges: ["Unique Stay"], walkingIntensity: "low" },
     ]
   },
 ]
