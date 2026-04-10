@@ -219,7 +219,7 @@ export const categories: CategoryData[] = [
       { id: "x2", title: "Museum Private Tour", subtitle: "Art & history unveiled", image: "https://images.unsplash.com/photo-1554907984-15263bfd63bd?w=800&q=80", rating: 5, priceLevel: "$$$$", tier: "high-end", tierTag: "Premium" },
       { id: "x3", title: "Festival Experience", subtitle: "Local celebrations", image: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=800&q=80", rating: 4, priceLevel: "$$$", tier: "mid-range", tierTag: "Curated" },
       { id: "x4", title: "Iconic Landmarks", subtitle: "Must-see destinations", image: "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=800&q=80", rating: 5, priceLevel: "$$", tier: "family-friendly", tierTag: "Family Pick" },
-      { id: "x5", title: "Guided Walking Tour", subtitle: "Stories of the city", image: "https://images.unsplash.com/photo-1569949381669-ecf31ae8f4a4?w=800&q=80", rating: 4, priceLevel: "$", tier: "budget-conscious", tierTag: "Value" },
+      { id: "x5", title: "Guided Walking Tour", subtitle: "Stories of the city", image: "https://images.unsplash.com/photo-1519677100203-a0e668c92439?w=800&q=80", rating: 4, priceLevel: "$", tier: "budget-conscious", tierTag: "Value" },
     ]
   },
 ]
