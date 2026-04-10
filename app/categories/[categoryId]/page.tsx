@@ -40,7 +40,7 @@ export default function CategoryDetailPage() {
   return (
     <main className="min-h-screen bg-[#0F0F10]">
       {/* Header */}
-      <div className="sticky top-0 z-20 bg-[#0F0F10]/95 backdrop-blur-md border-b border-[#2A2A2B]">
+      <div className="sticky top-16 md:top-[72px] z-20 bg-[#0F0F10]/95 backdrop-blur-md border-b border-[#2A2A2B]">
         <div className="px-5 md:px-6 py-4 flex items-center gap-4">
           <button
             onClick={() => router.back()}
@@ -70,8 +70,8 @@ export default function CategoryDetailPage() {
       </div>
       
       {/* Options */}
-      <div className="px-6 pb-32">
-        <div className="flex flex-col gap-6">
+      <div className="px-5 md:px-6 pb-32">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
           {category.options.map((option) => (
             <CategoryCard
               key={option.id}
