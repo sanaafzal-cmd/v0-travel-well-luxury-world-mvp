@@ -74,14 +74,14 @@ export function WellPopupModal({ isOpen, onClose, popup, wellName }: WellPopupMo
           
           {/* Partners */}
           <div className="mb-6">
-            <span className="text-xs text-[#7A7A7A] font-sans uppercase tracking-wider">
+            <span className="text-xs text-[#C6A96B]/60 font-sans uppercase tracking-wider font-medium">
               Partner Network
             </span>
             <div className="flex flex-wrap gap-2 mt-3">
               {popup.partners.map((partner) => (
                 <span 
                   key={partner}
-                  className="px-3 py-1.5 rounded-full text-xs font-sans text-[#A1A1A1] bg-[#1A1A1B] border border-[#2A2A2B]"
+                  className="px-3 py-1.5 rounded-full text-xs font-sans text-[#C6A96B] bg-[#C6A96B]/10 border border-[#C6A96B]/25 shadow-[0_0_10px_rgba(198,169,107,0.1)] hover:shadow-[0_0_15px_rgba(198,169,107,0.2)] hover:border-[#C6A96B]/40 transition-all duration-300"
                 >
                   {partner}
                 </span>
