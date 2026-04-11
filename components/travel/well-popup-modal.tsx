@@ -64,24 +64,24 @@ export function WellPopupModal({ isOpen, onClose, popup, wellName }: WellPopupMo
             {popup.description}
           </p>
           
-          {/* Commission Range - Highlighted subtly */}
-          <div className="mb-6 p-4 rounded-xl bg-[#1A1A1B] border border-[#2A2A2B]">
+          {/* Commission Range - Gold illuminated highlight */}
+          <div className="mb-6 p-4 rounded-xl bg-gradient-to-r from-[#C6A96B]/10 via-[#C6A96B]/5 to-[#C6A96B]/10 border border-[#C6A96B]/30 shadow-[0_0_20px_rgba(198,169,107,0.15)]">
             <div className="flex items-center justify-between">
-              <span className="text-sm text-[#7A7A7A] font-sans">Commission Range</span>
-              <span className="text-lg font-serif text-[#C6A96B]">{popup.commissionRange}</span>
+              <span className="text-sm text-[#C6A96B]/80 font-sans font-medium">Commission Range</span>
+              <span className="text-xl font-serif text-[#C6A96B] drop-shadow-[0_0_8px_rgba(198,169,107,0.5)]">{popup.commissionRange}</span>
             </div>
           </div>
           
           {/* Partners */}
           <div className="mb-6">
-            <span className="text-xs text-[#7A7A7A] font-sans uppercase tracking-wider">
+            <span className="text-xs text-[#C6A96B]/60 font-sans uppercase tracking-wider font-medium">
               Partner Network
             </span>
             <div className="flex flex-wrap gap-2 mt-3">
               {popup.partners.map((partner) => (
                 <span 
                   key={partner}
-                  className="px-3 py-1.5 rounded-full text-xs font-sans text-[#A1A1A1] bg-[#1A1A1B] border border-[#2A2A2B]"
+                  className="px-3 py-1.5 rounded-full text-xs font-sans text-[#C6A96B] bg-[#C6A96B]/10 border border-[#C6A96B]/25 shadow-[0_0_10px_rgba(198,169,107,0.1)] hover:shadow-[0_0_15px_rgba(198,169,107,0.2)] hover:border-[#C6A96B]/40 transition-all duration-300"
                 >
                   {partner}
                 </span>
@@ -97,7 +97,7 @@ export function WellPopupModal({ isOpen, onClose, popup, wellName }: WellPopupMo
           {/* Close button */}
           <button
             onClick={onClose}
-            className="mt-8 w-full py-3 rounded-xl bg-[#1A1A1B] border border-[#2A2A2B] text-[#A1A1A1] font-sans text-sm hover:border-[#C6A96B]/30 hover:text-[#F5F5F5] transition-all duration-300"
+            className="mt-8 w-full py-3.5 rounded-xl bg-[#C6A96B] text-[#0F0F10] font-sans text-sm font-medium hover:bg-[#D4BC82] active:scale-[0.98] transition-all duration-300 shadow-[0_0_20px_rgba(198,169,107,0.25)]"
           >
             Continue Exploring
           </button>

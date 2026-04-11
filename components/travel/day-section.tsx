@@ -21,10 +21,10 @@ export function DaySection({ day, showPrices }: DaySectionProps) {
         </h2>
       </div>
       
-      <div className="px-6 py-8 flex flex-col gap-8">
+      <div className="px-5 md:px-8 py-6 md:py-10 flex flex-col gap-10 md:gap-12">
         {/* Morning */}
         {day.morning.length > 0 && (
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-5">
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 rounded-full bg-[#C6A96B]/20 flex items-center justify-center">
                 <svg className="w-4 h-4 text-[#C6A96B]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -35,7 +35,7 @@ export function DaySection({ day, showPrices }: DaySectionProps) {
                 Morning
               </h3>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
               {day.morning.map((activity) => (
                 <ItineraryCard key={activity.id} activity={activity} showPrices={showPrices} />
               ))}
@@ -45,7 +45,7 @@ export function DaySection({ day, showPrices }: DaySectionProps) {
         
         {/* Afternoon */}
         {day.afternoon.length > 0 && (
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-5">
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 rounded-full bg-[#E8DFC8]/20 flex items-center justify-center">
                 <svg className="w-4 h-4 text-[#E8DFC8]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -56,7 +56,7 @@ export function DaySection({ day, showPrices }: DaySectionProps) {
                 Afternoon
               </h3>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
               {day.afternoon.map((activity) => (
                 <ItineraryCard key={activity.id} activity={activity} showPrices={showPrices} />
               ))}
@@ -66,7 +66,7 @@ export function DaySection({ day, showPrices }: DaySectionProps) {
         
         {/* Evening */}
         {day.evening.length > 0 && (
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-5">
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 rounded-full bg-[#7A7A7A]/20 flex items-center justify-center">
                 <svg className="w-4 h-4 text-[#7A7A7A]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -77,7 +77,7 @@ export function DaySection({ day, showPrices }: DaySectionProps) {
                 Evening
               </h3>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
               {day.evening.map((activity) => (
                 <ItineraryCard key={activity.id} activity={activity} showPrices={showPrices} />
               ))}
