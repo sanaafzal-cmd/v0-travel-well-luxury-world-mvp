@@ -97,7 +97,7 @@ export function WellPopupModal({ isOpen, onClose, popup, wellName }: WellPopupMo
           {/* Close button */}
           <button
             onClick={onClose}
-            className="mt-8 w-full py-3 rounded-xl bg-[#1A1A1B] border border-[#2A2A2B] text-[#A1A1A1] font-sans text-sm hover:border-[#C6A96B]/30 hover:text-[#F5F5F5] transition-all duration-300"
+            className="mt-8 w-full py-3.5 rounded-xl bg-[#C6A96B] text-[#0F0F10] font-sans text-sm font-medium hover:bg-[#D4BC82] active:scale-[0.98] transition-all duration-300 shadow-[0_0_20px_rgba(198,169,107,0.25)]"
           >
             Continue Exploring
           </button>
