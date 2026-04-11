@@ -1,0 +1,632 @@
+{
+  "StayWell": {
+    "High-End": [
+      {
+        "name": "Cheval Blanc — Junior Seine Suite",
+        "well": "StayWell",
+        "category": "High-End",
+        "tier": "Luxury",
+        "location": { "city": "Paris", "country": "France" },
+        "refId": "turn0image1",
+        "url": "https://www.chevalblanc.com/en/maison/paris/",
+        "url_verification_required": false
+      },
+      {
+        "name": "Bulgari Hotel Paris — Executive Suite",
+        "well": "StayWell",
+        "category": "High-End",
+        "tier": "Luxury",
+        "location": { "city": "Paris", "country": "France" },
+        "refId": "turn0image3",
+        "url": "https://www.bulgarihotels.com/en_US/paris",
+        "url_verification_required": false
+      },
+      {
+        "name": "Hôtel de Crillon — Deluxe Room",
+        "well": "StayWell",
+        "category": "High-End",
+        "tier": "Luxury",
+        "location": { "city": "Paris", "country": "France" },
+        "refId": "turn0image4",
+        "url": "https://www.rosewoodhotels.com/en/hotel-de-crillon",
+        "url_verification_required": false
+      },
+      {
+        "name": "Ritz Paris — Prestige Room",
+        "well": "StayWell",
+        "category": "High-End",
+        "tier": "Luxury",
+        "location": { "city": "Paris", "country": "France" },
+        "refId": "turn0image2",
+        "url": "https://www.ritzparis.com",
+        "url_verification_required": false
+      },
+      {
+        "name": "Le Meurice — Executive Suite",
+        "well": "StayWell",
+        "category": "High-End",
+        "tier": "Luxury",
+        "location": { "city": "Paris", "country": "France" },
+        "refId": "turn0image5",
+        "url": "https://www.dorchestercollection.com/en/paris/le-meurice/",
+        "url_verification_required": false
+      },
+      {
+        "name": "Shangri-La Paris — Eiffel View Premier Room",
+        "well": "StayWell",
+        "category": "High-End",
+        "tier": "Luxury",
+        "location": { "city": "Paris", "country": "France" },
+        "refId": "turn0image6",
+        "url": "https://www.shangri-la.com/paris/shangrila/",
+        "url_verification_required": false
+      }
+    ],
+    "Luxury": [
+      {
+        "name": "Hôtel Dame des Arts",
+        "well": "StayWell",
+        "category": "Luxury",
+        "tier": "Luxury",
+        "location": { "city": "Paris", "country": "France" },
+        "refId": "turn0image7",
+        "url": "https://www.hoteldamedesarts.com",
+        "url_verification_required": false
+      },
+      {
+        "name": "Hôtel des Grands Boulevards",
+        "well": "StayWell",
+        "category": "Luxury",
+        "tier": "Luxury",
+        "location": { "city": "Paris", "country": "France" },
+        "refId": "turn0image8",
+        "url": "https://www.grandsboulevardshotel.com",
+        "url_verification_required": false
+      },
+      {
+        "name": "Hôtel National des Arts et Métiers",
+        "well": "StayWell",
+        "category": "Luxury",
+        "tier": "Luxury",
+        "location": { "city": "Paris", "country": "France" },
+        "refId": "turn0image9",
+        "url": "https://www.hotelnational.paris",
+        "url_verification_required": false
+      },
+      {
+        "name": "Hôtel Bachaumont",
+        "well": "StayWell",
+        "category": "Luxury",
+        "tier": "Luxury",
+        "location": { "city": "Paris", "country": "France" },
+        "refId": "turn0image10",
+        "url": "https://www.hotelbachaumont.com",
+        "url_verification_required": false
+      },
+      {
+        "name": "Hôtel Panache",
+        "well": "StayWell",
+        "category": "Luxury",
+        "tier": "Luxury",
+        "location": { "city": "Paris", "country": "France" },
+        "refId": "turn0image11",
+        "url": "https://www.hotelpanache.com",
+        "url_verification_required": false
+      },
+      {
+        "name": "Hôtel Providence",
+        "well": "StayWell",
+        "category": "Luxury",
+        "tier": "Luxury",
+        "location": { "city": "Paris", "country": "France" },
+        "refId": "turn0image12",
+        "url": "https://www.hotelprovidenceparis.com",
+        "url_verification_required": false
+      }
+    ]
+  },
+  "EatWell": {
+    "High-End": [
+      {
+        "name": "Upscale Paris Bistro Interior",
+        "well": "EatWell",
+        "category": "High-End",
+        "tier": "Premium",
+        "location": { "city": "Paris", "country": "France" },
+        "refId": "turn0image89",
+        "url": "https://www.lebouillon.com",
+        "url_verification_required": false
+      },
+      {
+        "name": "Classic Paris Bistro — Red Walls & Vintage Posters",
+        "well": "EatWell",
+        "category": "High-End",
+        "tier": "Premium",
+        "location": { "city": "Paris", "country": "France" },
+        "refId": "turn0image92",
+        "url": "https://www.bouillonchartier.com",
+        "url_verification_required": false
+      },
+      {
+        "name": "Elegant Fine-Dining Room — Chandelier & High Ceilings",
+        "well": "EatWell",
+        "category": "High-End",
+        "tier": "Premium",
+        "location": { "city": "Paris", "country": "France" },
+        "refId": "turn0image93",
+        "url": "https://www.letrainbleu.com",
+        "url_verification_required": false
+      },
+      {
+        "name": "Paris Brasserie — High Ceilings & Chandeliers",
+        "well": "EatWell",
+        "category": "High-End",
+        "tier": "Premium",
+        "location": { "city": "Paris", "country": "France" },
+        "refId": "turn0image94",
+        "url": "https://www.bfreres.com/en/brasserie-paris",
+        "url_verification_required": false
+      },
+      {
+        "name": "Hotel Costes-Style Velvet Dining Room",
+        "well": "EatWell",
+        "category": "High-End",
+        "tier": "Premium",
+        "location": { "city": "Paris", "country": "France" },
+        "refId": "turn0image95",
+        "url": "https://www.hotelcostes.com",
+        "url_verification_required": false
+      },
+      {
+        "name": "Modern Chic Paris Restaurant Interior",
+        "well": "EatWell",
+        "category": "High-End",
+        "tier": "Premium",
+        "location": { "city": "Paris", "country": "France" },
+        "refId": "turn0image96",
+        "url": "https://www.girafe-restaurant.com",
+        "url_verification_required": false
+      }
+    ],
+    "Luxury": [
+      {
+        "name": "Luxury Michelin Dining Room — Paris (Le Cinq Style)",
+        "well": "EatWell",
+        "category": "Luxury",
+        "tier": "Luxury",
+        "location": { "city": "Paris", "country": "France" },
+        "refId": "turn0image31",
+        "url": "https://www.fourseasons.com/paris/dining/restaurants/le_cinq/",
+        "url_verification_required": false
+      },
+      {
+        "name": "Haute-Cuisine Gold-Accented Dining Room",
+        "well": "EatWell",
+        "category": "Luxury",
+        "tier": "Luxury",
+        "location": { "city": "Paris", "country": "France" },
+        "refId": "turn0image32",
+        "url": "https://www.alain-ducasse.com/en/restaurant/le-meurice-alain-ducasse",
+        "url_verification_required": false
+      },
+      {
+        "name": "Palace-Level Paris Dining Room — Palm Centerpiece",
+        "well": "EatWell",
+        "category": "Luxury",
+        "tier": "Luxury",
+        "location": { "city": "Paris", "country": "France" },
+        "refId": "turn0image33",
+        "url": "https://www.oetkercollection.com/hotels/le-bristol-paris/restaurants-bar/epicure/",
+        "url_verification_required": false
+      },
+      {
+        "name": "Private Salon — Paris Fine Dining",
+        "well": "EatWell",
+        "category": "Luxury",
+        "tier": "Luxury",
+        "location": { "city": "Paris", "country": "France" },
+        "refId": "turn0image34",
+        "url": "https://www.restaurant-lasserre.com",
+        "url_verification_required": false
+      },
+      {
+        "name": "Michelin-Star Plating — Paris",
+        "well": "EatWell",
+        "category": "Luxury",
+        "tier": "Luxury",
+        "location": { "city": "Paris", "country": "France" },
+        "refId": "turn0image35",
+        "url": "https://guide.michelin.com/en/ile-de-france/paris/restaurants",
+        "url_verification_required": false
+      },
+      {
+        "name": "Four Seasons George V — Fine Dining Room",
+        "well": "EatWell",
+        "category": "Luxury",
+        "tier": "Luxury",
+        "location": { "city": "Paris", "country": "France" },
+        "refId": "turn0image36",
+        "url": "https://www.fourseasons.com/paris/",
+        "url_verification_required": false
+      }
+    ]
+  },
+  "ExperienceWell": {
+    "High-End": [
+      {
+        "name": "Paris Yoga Studio — High-End Wellness Class",
+        "well": "ExperienceWell",
+        "category": "High-End",
+        "tier": "Premium",
+        "location": { "city": "Paris", "country": "France" },
+        "refId": "turn0image61",
+        "url": "https://www.yuj.fr",
+        "url_verification_required": false
+      },
+      {
+        "name": "Paris Pilates Studio — Modern Reformer Room",
+        "well": "ExperienceWell",
+        "category": "High-End",
+        "tier": "Premium",
+        "location": { "city": "Paris", "country": "France" },
+        "refId": "turn0image31",
+        "url": "https://www.reformersparis.com",
+        "url_verification_required": false
+      },
+      {
+        "name": "Paris Art Workshop — Creative Atelier",
+        "well": "ExperienceWell",
+        "category": "High-End",
+        "tier": "Premium",
+        "location": { "city": "Paris", "country": "France" },
+        "refId": "turn0image1",
+        "url": "https://www.atelierdeslumieres.com",
+        "url_verification_required": false
+      },
+      {
+        "name": "Paris Photography Walk — Eiffel Tower",
+        "well": "ExperienceWell",
+        "category": "High-End",
+        "tier": "Premium",
+        "location": { "city": "Paris", "country": "France" },
+        "refId": "turn0image91",
+        "url": "https://www.parisphotowalk.com",
+        "url_verification_required": false
+      },
+      {
+        "name": "Paris Wine Tasting — High-End Sommelier Experience",
+        "well": "ExperienceWell",
+        "category": "High-End",
+        "tier": "Premium",
+        "location": { "city": "Paris", "country": "France" },
+        "refId": "turn0image151",
+        "url": "https://www.o-chateau.com",
+        "url_verification_required": false
+      },
+      {
+        "name": "Paris Cooking Class — High-End Culinary School",
+        "well": "ExperienceWell",
+        "category": "High-End",
+        "tier": "Premium",
+        "location": { "city": "Paris", "country": "France" },
+        "refId": "turn0image121",
+        "url": "https://www.lcbparis.com",
+        "url_verification_required": false
+      }
+    ],
+    "Luxury": [
+      {
+        "name": "Luxury Paris Spa — La Réserve Pool",
+        "well": "ExperienceWell",
+        "category": "Luxury",
+        "tier": "Luxury",
+        "location": { "city": "Paris", "country": "France" },
+        "refId": "turn0image61",
+        "url": "https://www.lareserve-paris.com/en/",
+        "url_verification_required": false
+      },
+      {
+        "name": "Luxury Paris Spa — The Peninsula Pool",
+        "well": "ExperienceWell",
+        "category": "Luxury",
+        "tier": "Luxury",
+        "location": { "city": "Paris", "country": "France" },
+        "refId": "turn0image62",
+        "url": "https://www.peninsula.com/en/paris/wellness/the-spa",
+        "url_verification_required": false
+      },
+      {
+        "name": "Luxury Paris Rooftop Garden Suite — Eiffel Tower View",
+        "well": "ExperienceWell",
+        "category": "Luxury",
+        "tier": "Luxury",
+        "location": { "city": "Paris", "country": "France" },
+        "refId": "turn0image63",
+        "url": "https://www.peninsula.com/en/paris/",
+        "url_verification_required": false
+      },
+      {
+        "name": "Luxury Paris Wellness Suite — Eiffel Tower Window View",
+        "well": "ExperienceWell",
+        "category": "Luxury",
+        "tier": "Luxury",
+        "location": { "city": "Paris", "country": "France" },
+        "refId": "turn0image64",
+        "url": "https://www.shangri-la.com/paris/shangrila/health-leisure/",
+        "url_verification_required": false
+      },
+      {
+        "name": "Luxury Paris Spa — The Peninsula (Illuminated Pool)",
+        "well": "ExperienceWell",
+        "category": "Luxury",
+        "tier": "Luxury",
+        "location": { "city": "Paris", "country": "France" },
+        "refId": "turn0image65",
+        "url": "https://www.peninsula.com/en/paris/wellness/the-spa",
+        "url_verification_required": false
+      },
+      {
+        "name": "Luxury Paris Spa — Shangri-La Health Retreat",
+        "well": "ExperienceWell",
+        "category": "Luxury",
+        "tier": "Luxury",
+        "location": { "city": "Paris", "country": "France" },
+        "refId": "turn0image66",
+        "url": "https://www.shangri-la.com/paris/shangrila/health-leisure/",
+        "url_verification_required": false
+      }
+    ]
+  },
+  "MoveWell": {
+    "High-End": [
+      {
+        "name": "Paris Taxi — Mercedes E-Class",
+        "well": "MoveWell",
+        "category": "High-End",
+        "tier": "Premium",
+        "location": { "city": "Paris", "country": "France" },
+        "refId": "turn0image31",
+        "url": "https://www.g7.fr/en/",
+        "url_verification_required": false
+      },
+      {
+        "name": "Paris Taxi — Peugeot 508",
+        "well": "MoveWell",
+        "category": "High-End",
+        "tier": "Premium",
+        "location": { "city": "Paris", "country": "France" },
+        "refId": "turn0image91",
+        "url": "https://www.g7.fr/en/",
+        "url_verification_required": false
+      },
+      {
+        "name": "Paris Metro — Line 1 (Louvre / Champs-Élysées)",
+        "well": "MoveWell",
+        "category": "High-End",
+        "tier": "Premium",
+        "location": { "city": "Paris", "country": "France" },
+        "refId": "turn0image1",
+        "url": "https://www.ratp.fr/en/",
+        "url_verification_required": false
+      },
+      {
+        "name": "Paris Metro — Line 14 (Automated)",
+        "well": "MoveWell",
+        "category": "High-End",
+        "tier": "Premium",
+        "location": { "city": "Paris", "country": "France" },
+        "refId": "turn0image152",
+        "url": "https://www.ratp.fr/en/",
+        "url_verification_required": false
+      },
+      {
+        "name": "Paris G7 Taxi — Hybrid",
+        "well": "MoveWell",
+        "category": "High-End",
+        "tier": "Premium",
+        "location": { "city": "Paris", "country": "France" },
+        "refId": "turn0image61",
+        "url": "https://www.g7.fr/en/",
+        "url_verification_required": false
+      },
+      {
+        "name": "Paris Regional Train — RER B (CDG → Paris)",
+        "well": "MoveWell",
+        "category": "High-End",
+        "tier": "Premium",
+        "location": { "city": "Paris", "country": "France" },
+        "refId": "turn0image125",
+        "url": "https://www.parisaeroport.fr/en/",
+        "url_verification_required": false
+      }
+    ],
+    "Luxury": [
+      {
+        "name": "Rolls-Royce Phantom Black Badge Chauffeur",
+        "well": "MoveWell",
+        "category": "Luxury",
+        "tier": "Luxury",
+        "location": { "city": "Paris", "country": "France" },
+        "refId": "turn0image5",
+        "url": "https://www.rolls-roycemotorcars.com",
+        "url_verification_required": false
+      },
+      {
+        "name": "Rolls-Royce Ghost Black Badge",
+        "well": "MoveWell",
+        "category": "Luxury",
+        "tier": "Luxury",
+        "location": { "city": "Paris", "country": "France" },
+        "refId": "turn0image1",
+        "url": "https://www.rolls-roycemotorcars.com",
+        "url_verification_required": false
+      },
+      {
+        "name": "Paris Chauffeur — Mercedes S-Class",
+        "well": "MoveWell",
+        "category": "Luxury",
+        "tier": "Luxury",
+        "location": { "city": "Paris", "country": "France" },
+        "refId": "turn0image3",
+        "url": "https://www.blacklane.com/en/",
+        "url_verification_required": false
+      },
+      {
+        "name": "Paris Chauffeur — Mercedes V-Class",
+        "well": "MoveWell",
+        "category": "Luxury",
+        "tier": "Luxury",
+        "location": { "city": "Paris", "country": "France" },
+        "refId": "turn0image2",
+        "url": "https://www.blacklane.com/en/",
+        "url_verification_required": false
+      },
+      {
+        "name": "Paris Airport Transfer — CDG → Paris (Luxury Van)",
+        "well": "MoveWell",
+        "category": "Luxury",
+        "tier": "Luxury",
+        "location": { "city": "Paris", "country": "France" },
+        "refId": "turn0image6",
+        "url": "https://www.blacklane.com/en/",
+        "url_verification_required": false
+      },
+      {
+        "name": "Paris Helicopter Transfer — Paris → Versailles",
+        "well": "MoveWell",
+        "category": "Luxury",
+        "tier": "Luxury",
+        "location": { "city": "Paris", "country": "France" },
+        "refId": "turn0image4",
+        "url": "https://www.helipass.com/en/",
+        "url_verification_required": false
+      }
+    ]
+  },
+  "ActivityWell": {
+    "High-End": [
+      {
+        "name": "Musée d'Orsay — Private / Small-Group Tour",
+        "well": "ActivityWell",
+        "category": "High-End",
+        "tier": "Premium",
+        "location": { "city": "Paris", "country": "France" },
+        "refId": "turn0image1",
+        "url": "https://www.musee-orsay.fr/en/",
+        "url_verification_required": false
+      },
+      {
+        "name": "Paris Art Gallery Visit — Le Marais / Contemporary",
+        "well": "ActivityWell",
+        "category": "High-End",
+        "tier": "Premium",
+        "location": { "city": "Paris", "country": "France" },
+        "refId": "turn0image151",
+        "url": "https://www.parismarais.com/en/what-to-see-do/art-galleries.html",
+        "url_verification_required": false
+      },
+      {
+        "name": "Paris Wine Tasting — Sommelier-Led",
+        "well": "ActivityWell",
+        "category": "High-End",
+        "tier": "Premium",
+        "location": { "city": "Paris", "country": "France" },
+        "refId": "turn0image121",
+        "url": "https://www.o-chateau.com",
+        "url_verification_required": false
+      },
+      {
+        "name": "Paris Cooking Class — High-End Culinary School",
+        "well": "ActivityWell",
+        "category": "High-End",
+        "tier": "Premium",
+        "location": { "city": "Paris", "country": "France" },
+        "refId": "turn0image61",
+        "url": "https://www.lcbparis.com",
+        "url_verification_required": false
+      },
+      {
+        "name": "Paris Perfume Workshop — Fragonard / Molinard",
+        "well": "ActivityWell",
+        "category": "High-End",
+        "tier": "Premium",
+        "location": { "city": "Paris", "country": "France" },
+        "refId": "turn0image31",
+        "url": "https://www.fragonard.com/en/",
+        "url_verification_required": false
+      },
+      {
+        "name": "Paris Photography Tour — Iconic Landmarks",
+        "well": "ActivityWell",
+        "category": "High-End",
+        "tier": "Premium",
+        "location": { "city": "Paris", "country": "France" },
+        "refId": "turn0image91",
+        "url": "https://www.parisphotowalk.com",
+        "url_verification_required": false
+      }
+    ],
+    "Luxury": [
+      {
+        "name": "Private Seine River Cruise — Luxury Wooden Boat",
+        "well": "ActivityWell",
+        "category": "Luxury",
+        "tier": "Luxury",
+        "location": { "city": "Paris", "country": "France" },
+        "refId": "turn0image1",
+        "url": "https://www.bateauxparisiens.com/en/",
+        "url_verification_required": false
+      },
+      {
+        "name": "Private Seine River Cruise — Champagne & Dining Setup",
+        "well": "ActivityWell",
+        "category": "Luxury",
+        "tier": "Luxury",
+        "location": { "city": "Paris", "country": "France" },
+        "refId": "turn0image2",
+        "url": "https://www.bateauxparisiens.com/en/",
+        "url_verification_required": false
+      },
+      {
+        "name": "Private Seine River Cruise — Luxury Yacht Exterior",
+        "well": "ActivityWell",
+        "category": "Luxury",
+        "tier": "Luxury",
+        "location": { "city": "Paris", "country": "France" },
+        "refId": "turn0image3",
+        "url": "https://www.bateauxparisiens.com/en/",
+        "url_verification_required": false
+      },
+      {
+        "name": "Private Seine River Cruise — Eiffel Tower View",
+        "well": "ActivityWell",
+        "category": "Luxury",
+        "tier": "Luxury",
+        "location": { "city": "Paris", "country": "France" },
+        "refId": "turn0image4",
+        "url": "https://www.bateauxparisiens.com/en/",
+        "url_verification_required": false
+      },
+      {
+        "name": "Private Seine River Cruise — Captain's Deck / Luxury Helm",
+        "well": "ActivityWell",
+        "category": "Luxury",
+        "tier": "Luxury",
+        "location": { "city": "Paris", "country": "France" },
+        "refId": "turn0image5",
+        "url": "https://www.bateauxparisiens.com/en/",
+        "url_verification_required": false
+      },
+      {
+        "name": "Private Seine River Cruise — Eiffel Tower Sunset Shot",
+        "well": "ActivityWell",
+        "category": "Luxury",
+        "tier": "Luxury",
+        "location": { "city": "Paris", "country": "France" },
+        "refId": "turn0image6",
+        "url": "https://www.bateauxparisiens.com/en/",
+        "url_verification_required": false
+      }
+    ]
+  }
+}
