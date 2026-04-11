@@ -64,11 +64,11 @@ export function WellPopupModal({ isOpen, onClose, popup, wellName }: WellPopupMo
             {popup.description}
           </p>
           
-          {/* Commission Range - Highlighted subtly */}
-          <div className="mb-6 p-4 rounded-xl bg-[#1A1A1B] border border-[#2A2A2B]">
+          {/* Commission Range - Gold illuminated highlight */}
+          <div className="mb-6 p-4 rounded-xl bg-gradient-to-r from-[#C6A96B]/10 via-[#C6A96B]/5 to-[#C6A96B]/10 border border-[#C6A96B]/30 shadow-[0_0_20px_rgba(198,169,107,0.15)]">
             <div className="flex items-center justify-between">
-              <span className="text-sm text-[#7A7A7A] font-sans">Commission Range</span>
-              <span className="text-lg font-serif text-[#C6A96B]">{popup.commissionRange}</span>
+              <span className="text-sm text-[#C6A96B]/80 font-sans font-medium">Commission Range</span>
+              <span className="text-xl font-serif text-[#C6A96B] drop-shadow-[0_0_8px_rgba(198,169,107,0.5)]">{popup.commissionRange}</span>
             </div>
           </div>
           
