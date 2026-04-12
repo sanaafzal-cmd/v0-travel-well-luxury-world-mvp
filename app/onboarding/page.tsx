@@ -54,8 +54,8 @@ export default function OnboardingPage() {
         setIsTransitioning(false)
       }, 150)
     } else {
-      // Complete onboarding
-      router.push("/categories")
+      // Complete onboarding - show crafting transition
+      router.push("/crafting")
     }
   }
 
