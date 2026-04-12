@@ -40,10 +40,10 @@ export const identitySteps: IdentityStepData[] = [
       { id: "age-5-12", title: "Child (5-12)", subtitle: "Young explorers on adventure", image: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=800&q=80" },
       { id: "age-13-17", title: "Teen (13-17)", subtitle: "Curious minds seeking discovery", image: "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?w=800&q=80" },
       { id: "age-18-29", title: "Young Adult (18-29)", subtitle: "Bold spirits, endless energy", image: "https://images.unsplash.com/photo-1539635278303-d4002c07eae3?w=800&q=80" },
-      { id: "age-30-45", title: "Adult (30-45)", subtitle: "Prime years for exploration", image: "https://images.unsplash.com/photo-1501555088652-021faa106b9b?w=800&q=80" },
-      { id: "age-46-60", title: "Mature (46-60)", subtitle: "Seasoned travelers with taste", image: "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=800&q=80" },
-      { id: "age-60-75", title: "Senior (60-75)", subtitle: "Wisdom meets wanderlust", image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=800&q=80" },
-      { id: "age-75+", title: "Elder (75+)", subtitle: "Timeless journeys await", image: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800&q=80" },
+      { id: "age-30-45", title: "Adult (30-45)", subtitle: "Prime years for exploration", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80" },
+      { id: "age-46-60", title: "Mature (46-60)", subtitle: "Seasoned travelers with taste", image: "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=800&q=80" },
+      { id: "age-60-75", title: "Senior (60-75)", subtitle: "Wisdom meets wanderlust", image: "https://images.unsplash.com/photo-1447005497901-b3e9ee359928?w=800&q=80" },
+      { id: "age-75+", title: "Elder (75+)", subtitle: "Timeless journeys await", image: "https://images.unsplash.com/photo-1516733968668-dbdce39c4651?w=800&q=80" },
     ],
   },
   // Step 2: Travel Companions
@@ -224,6 +224,11 @@ export const categories: CategoryData[] = [
   },
 ]
 
+export interface CommissionRange {
+  low: number
+  high: number
+}
+
 export interface ItineraryActivity {
   id: string
   time: string
@@ -233,10 +238,12 @@ export interface ItineraryActivity {
   image: string
   price?: number
   commission?: string
+  commissionRange?: CommissionRange
   badges?: string[]
   walkingIntensity?: 'low' | 'moderate' | 'high'
   transportIncluded?: boolean
   accessible?: boolean
+  description?: string
 }
 
 export interface ItineraryDay {
@@ -247,52 +254,121 @@ export interface ItineraryDay {
   evening: ItineraryActivity[]
 }
 
+// Canonical Commission Ranges per Well (from Trifecta Engine Spec)
+export const COMMISSION_RANGES: Record<string, CommissionRange> = {
+  "Stay-Well": { low: 0.08, high: 0.15 },
+  "Eat-Well": { low: 0.00, high: 0.05 },
+  "Move-Well": { low: 0.05, high: 0.12 },
+  "Experience-Well": { low: 0.10, high: 0.20 },
+  "Activity-Well": { low: 0.10, high: 0.25 },
+}
+
+// 7-Day Paris Itinerary - Trifecta Engine Compliant
+// Two Couples Trip: Private Jet Miami → Paris, Springsteen Concert Anchor
+// 4-6 monetizable items per day across all 5 Wells
 export const itinerary: ItineraryDay[] = [
   {
     day: 1,
-    date: "Monday, March 15",
+    date: "Saturday, June 14",
     morning: [
-      { id: "d1m1", time: "08:00", title: "Arrival & Private Transfer", location: "Narita International Airport", category: "Move-Well", image: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800&q=80", price: 450, commission: "8-12%", badges: ["Transport Included"], walkingIntensity: "low", transportIncluded: true },
-      { id: "d1m2", time: "10:30", title: "Hotel Check-in", location: "Aman Tokyo, Otemachi", category: "Stay-Well", image: "https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=800&q=80", price: 2400, commission: "10-15%", badges: ["Stroller Friendly"], walkingIntensity: "low" },
+      { id: "d1m1", time: "06:00", title: "Private Jet Departure", location: "Miami Opa-Locka Executive Airport", category: "Move-Well", image: "https://images.unsplash.com/photo-1540962351504-03099e0a754b?w=800&q=80", price: 85000, commissionRange: { low: 0.05, high: 0.12 }, badges: ["Private Aviation"], walkingIntensity: "low", transportIncluded: true, description: "Gulfstream G650 roundtrip" },
     ],
     afternoon: [
-      { id: "d1a1", time: "13:00", title: "Private Sushi Omakase", location: "Sukiyabashi Jiro", category: "Eat-Well", image: "https://images.unsplash.com/photo-1579027989536-b7b1f875659b?w=800&q=80", price: 800, commission: "5-8%", badges: ["Seated Activity"], walkingIntensity: "low" },
-      { id: "d1a2", time: "15:30", title: "Imperial Palace Gardens", location: "Chiyoda, Tokyo", category: "Activity-Well", image: "https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=800&q=80", price: 150, commission: "12-18%", badges: ["Low Walking", "Senior Friendly"], walkingIntensity: "low", accessible: true },
+      { id: "d1a1", time: "18:00", title: "Check-in at Hôtel Plaza Athénée", location: "25 Avenue Montaigne, 8th Arr.", category: "Stay-Well", image: "https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=800&q=80", price: 32400, commissionRange: { low: 0.08, high: 0.15 }, badges: ["Palace Hotel", "Eiffel View"], walkingIntensity: "low", description: "3 suites × 6 nights" },
     ],
     evening: [
-      { id: "d1e1", time: "19:00", title: "Rooftop Kaiseki Dinner", location: "Aman Tokyo Restaurant", category: "Eat-Well", image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=80", price: 650, commission: "10-12%", badges: ["Seated Activity"], walkingIntensity: "low" },
+      { id: "d1e1", time: "20:00", title: "Welcome Dinner at Alain Ducasse", location: "Hôtel Plaza Athénée", category: "Eat-Well", image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=80", price: 1600, commissionRange: { low: 0.00, high: 0.05 }, badges: ["3 Michelin Stars"], walkingIntensity: "low" },
     ]
   },
   {
     day: 2,
-    date: "Tuesday, March 16",
+    date: "Sunday, June 15",
     morning: [
-      { id: "d2m1", time: "07:00", title: "Meditation at Senso-ji", location: "Asakusa Temple", category: "Activity-Well", image: "https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=800&q=80", price: 200, commission: "15-20%", badges: ["Senior Friendly", "Low Walking"], walkingIntensity: "low", accessible: true },
-      { id: "d2m2", time: "09:30", title: "Traditional Breakfast", location: "Tsukiji Outer Market", category: "Eat-Well", image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80", price: 120, commission: "8-10%", badges: ["Kid Friendly"], walkingIntensity: "moderate" },
+      { id: "d2m1", time: "09:00", title: "Private Louvre Tour", location: "Musée du Louvre, 1st Arr.", category: "Experience-Well", image: "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=800&q=80", price: 2400, commissionRange: { low: 0.10, high: 0.20 }, badges: ["VIP Access", "Private Guide"], walkingIntensity: "moderate" },
     ],
     afternoon: [
-      { id: "d2a1", time: "12:00", title: "Private Tea Ceremony", location: "Happo-en Garden", category: "Activity-Well", image: "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=800&q=80", price: 350, commission: "12-15%", badges: ["Seated Activity", "Kid Friendly"], walkingIntensity: "low" },
-      { id: "d2a2", time: "15:00", title: "Ginza Shopping Experience", location: "Ginza District", category: "Experience-Well", image: "https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=800&q=80", price: 0, commission: "0%", badges: ["Teen Friendly"], walkingIntensity: "moderate" },
+      { id: "d2a1", time: "13:00", title: "Lunch at Le Cinq", location: "Four Seasons George V", category: "Eat-Well", image: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=80", price: 1200, commissionRange: { low: 0.00, high: 0.05 }, badges: ["3 Michelin Stars"], walkingIntensity: "low" },
+      { id: "d2a2", time: "15:30", title: "Seine River Cruise", location: "Port de la Conférence", category: "Activity-Well", image: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=800&q=80", price: 1200, commissionRange: { low: 0.10, high: 0.25 }, badges: ["Private Yacht", "Champagne"], walkingIntensity: "low" },
     ],
     evening: [
-      { id: "d2e1", time: "18:30", title: "Wagyu Tasting Experience", location: "Ukai-tei Omotesando", category: "Eat-Well", image: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=80", price: 550, commission: "8-12%", badges: ["Seated Activity"], walkingIntensity: "low" },
-      { id: "d2e2", time: "21:00", title: "Tokyo Tower Night View", location: "Minato City", category: "Experience-Well", image: "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=800&q=80", price: 80, commission: "15-20%", badges: ["Kid Friendly", "Senior Friendly"], walkingIntensity: "low", accessible: true },
+      { id: "d2e1", time: "19:30", title: "Dinner at L'Ambroisie", location: "Place des Vosges, 4th Arr.", category: "Eat-Well", image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80", price: 1400, commissionRange: { low: 0.00, high: 0.05 }, badges: ["3 Michelin Stars"], walkingIntensity: "low" },
+      { id: "d2e2", time: "22:00", title: "Chauffeur Return", location: "Paris", category: "Move-Well", image: "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=800&q=80", price: 200, commissionRange: { low: 0.05, high: 0.12 }, badges: ["Mercedes S-Class"], walkingIntensity: "low", transportIncluded: true },
     ]
   },
   {
     day: 3,
-    date: "Wednesday, March 17",
+    date: "Monday, June 16",
     morning: [
-      { id: "d3m1", time: "08:30", title: "Bullet Train to Kyoto", location: "Tokyo Station", category: "Move-Well", image: "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=800&q=80", price: 280, commission: "5-8%", badges: ["Transport Included", "Stroller Friendly"], walkingIntensity: "low", transportIncluded: true },
-      { id: "d3m2", time: "11:00", title: "Kyoto Arrival", location: "Kyoto Station", category: "Move-Well", image: "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=800&q=80", price: 0, commission: "0%", badges: [], walkingIntensity: "low" },
+      { id: "d3m1", time: "10:00", title: "Spa Morning at Dior Institut", location: "Hôtel Plaza Athénée", category: "Activity-Well", image: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800&q=80", price: 1600, commissionRange: { low: 0.10, high: 0.25 }, badges: ["Couples Spa", "Luxury"], walkingIntensity: "low" },
     ],
     afternoon: [
-      { id: "d3a1", time: "12:30", title: "Kaiseki Lunch", location: "Kikunoi Honten", category: "Eat-Well", image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=80", price: 450, commission: "10-12%", badges: ["Seated Activity"], walkingIntensity: "low" },
-      { id: "d3a2", time: "15:00", title: "Fushimi Inari Shrine", location: "Fushimi, Kyoto", category: "Activity-Well", image: "https://images.unsplash.com/photo-1478436127897-769e1b3f0f36?w=800&q=80", price: 0, commission: "0%", badges: ["Moderate Walking"], walkingIntensity: "moderate" },
+      { id: "d3a1", time: "13:00", title: "Lunch at Epicure", location: "Le Bristol Paris", category: "Eat-Well", image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=80", price: 1100, commissionRange: { low: 0.00, high: 0.05 }, badges: ["3 Michelin Stars"], walkingIntensity: "low" },
+      { id: "d3a2", time: "15:00", title: "Private Shopping at Dior", location: "30 Avenue Montaigne", category: "Experience-Well", image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80", price: 0, commissionRange: { low: 0.10, high: 0.20 }, badges: ["VIP Access", "Personal Stylist"], walkingIntensity: "low" },
     ],
     evening: [
-      { id: "d3e1", time: "18:00", title: "Geisha District Walk", location: "Gion, Kyoto", category: "Experience-Well", image: "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=800&q=80", price: 200, commission: "15-18%", badges: ["Low Walking", "Cultural"], walkingIntensity: "low" },
-      { id: "d3e2", time: "20:00", title: "Traditional Ryokan Stay", location: "Hoshinoya Kyoto", category: "Stay-Well", image: "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800&q=80", price: 1800, commission: "10-15%", badges: ["Unique Stay"], walkingIntensity: "low" },
+      { id: "d3e1", time: "19:00", title: "Dinner at Guy Savoy", location: "Monnaie de Paris, 6th Arr.", category: "Eat-Well", image: "https://images.unsplash.com/photo-1579027989536-b7b1f875659b?w=800&q=80", price: 1600, commissionRange: { low: 0.00, high: 0.05 }, badges: ["3 Michelin Stars"], walkingIntensity: "low" },
+      { id: "d3e2", time: "22:00", title: "Chauffeur Service", location: "Paris", category: "Move-Well", image: "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=800&q=80", price: 200, commissionRange: { low: 0.05, high: 0.12 }, badges: ["Mercedes S-Class"], walkingIntensity: "low", transportIncluded: true },
+    ]
+  },
+  {
+    day: 4,
+    date: "Tuesday, June 17",
+    morning: [
+      { id: "d4m1", time: "09:30", title: "Versailles Palace VIP Tour", location: "Palace of Versailles", category: "Experience-Well", image: "https://images.unsplash.com/photo-1551632811-561732d1e306?w=800&q=80", price: 2000, commissionRange: { low: 0.10, high: 0.20 }, badges: ["Skip the Line", "Private Guide"], walkingIntensity: "moderate" },
+      { id: "d4m2", time: "08:30", title: "Chauffeur to Versailles", location: "Paris → Versailles", category: "Move-Well", image: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800&q=80", price: 400, commissionRange: { low: 0.05, high: 0.12 }, badges: ["Luxury Van"], walkingIntensity: "low", transportIncluded: true },
+    ],
+    afternoon: [
+      { id: "d4a1", time: "13:30", title: "Lunch at Ore Ducasse", location: "Palace of Versailles", category: "Eat-Well", image: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=80", price: 800, commissionRange: { low: 0.00, high: 0.05 }, badges: ["Palace Dining"], walkingIntensity: "low" },
+      { id: "d4a2", time: "15:30", title: "Marie Antoinette's Estate", location: "Petit Trianon, Versailles", category: "Activity-Well", image: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=800&q=80", price: 400, commissionRange: { low: 0.10, high: 0.25 }, badges: ["Private Access"], walkingIntensity: "moderate" },
+    ],
+    evening: [
+      { id: "d4e1", time: "20:00", title: "Dinner at Arpège", location: "7th Arrondissement", category: "Eat-Well", image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=80", price: 1400, commissionRange: { low: 0.00, high: 0.05 }, badges: ["3 Michelin Stars", "Vegetable Forward"], walkingIntensity: "low" },
+    ]
+  },
+  {
+    day: 5,
+    date: "Wednesday, June 18",
+    morning: [
+      { id: "d5m1", time: "10:00", title: "Champagne Day Trip", location: "Reims & Épernay", category: "Activity-Well", image: "https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?w=800&q=80", price: 2400, commissionRange: { low: 0.10, high: 0.25 }, badges: ["Dom Pérignon", "Moët & Chandon"], walkingIntensity: "low" },
+      { id: "d5m2", time: "08:00", title: "Luxury Van Transfer", location: "Paris → Champagne", category: "Move-Well", image: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800&q=80", price: 600, commissionRange: { low: 0.05, high: 0.12 }, badges: ["Mercedes V-Class"], walkingIntensity: "low", transportIncluded: true },
+    ],
+    afternoon: [
+      { id: "d5a1", time: "13:00", title: "Lunch at Les Crayères", location: "Reims", category: "Eat-Well", image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80", price: 1000, commissionRange: { low: 0.00, high: 0.05 }, badges: ["2 Michelin Stars"], walkingIntensity: "low" },
+      { id: "d5a2", time: "15:30", title: "Private Cellar Tasting", location: "Krug, Reims", category: "Experience-Well", image: "https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=800&q=80", price: 800, commissionRange: { low: 0.10, high: 0.20 }, badges: ["Rare Vintages"], walkingIntensity: "low" },
+    ],
+    evening: [
+      { id: "d5e1", time: "20:30", title: "Dinner at Le Clarence", location: "8th Arrondissement", category: "Eat-Well", image: "https://images.unsplash.com/photo-1579027989536-b7b1f875659b?w=800&q=80", price: 1400, commissionRange: { low: 0.00, high: 0.05 }, badges: ["2 Michelin Stars"], walkingIntensity: "low" },
+    ]
+  },
+  {
+    day: 6,
+    date: "Thursday, June 19",
+    morning: [
+      { id: "d6m1", time: "11:00", title: "Leisurely Morning", location: "Hôtel Plaza Athénée", category: "Stay-Well", image: "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800&q=80", price: 0, commissionRange: { low: 0.08, high: 0.15 }, badges: ["Suite Breakfast"], walkingIntensity: "low" },
+    ],
+    afternoon: [
+      { id: "d6a1", time: "12:30", title: "Lunch at Le Meurice", location: "1st Arrondissement", category: "Eat-Well", image: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=80", price: 1200, commissionRange: { low: 0.00, high: 0.05 }, badges: ["2 Michelin Stars", "Dalí Décor"], walkingIntensity: "low" },
+      { id: "d6a2", time: "15:00", title: "Moulin Rouge Backstage", location: "Montmartre, 18th Arr.", category: "Experience-Well", image: "https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?w=800&q=80", price: 1200, commissionRange: { low: 0.10, high: 0.20 }, badges: ["Private Access", "Champagne"], walkingIntensity: "low" },
+      { id: "d6a3", time: "17:00", title: "Chauffeur to Stade de France", location: "Paris → Saint-Denis", category: "Move-Well", image: "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=800&q=80", price: 300, commissionRange: { low: 0.05, high: 0.12 }, badges: ["VIP Transfer"], walkingIntensity: "low", transportIncluded: true },
+    ],
+    evening: [
+      { id: "d6e1", time: "19:30", title: "Bruce Springsteen Concert", location: "Stade de France, Saint-Denis", category: "Experience-Well", image: "https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?w=800&q=80", price: 4400, commissionRange: { low: 0.10, high: 0.20 }, badges: ["VIP Box", "The Boss"], walkingIntensity: "low", description: "4 VIP tickets @ $1,100 each" },
+      { id: "d6e2", time: "23:30", title: "Late Night Supper", location: "Le Comptoir, 6th Arr.", category: "Eat-Well", image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80", price: 600, commissionRange: { low: 0.00, high: 0.05 }, badges: ["Post-Concert"], walkingIntensity: "low" },
+    ]
+  },
+  {
+    day: 7,
+    date: "Friday, June 20",
+    morning: [
+      { id: "d7m1", time: "10:00", title: "Farewell Brunch", location: "Hôtel Plaza Athénée Terrace", category: "Eat-Well", image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=80", price: 600, commissionRange: { low: 0.00, high: 0.05 }, badges: ["Eiffel View", "Champagne"], walkingIntensity: "low" },
+      { id: "d7m2", time: "12:00", title: "Hotel Check-out", location: "Hôtel Plaza Athénée", category: "Stay-Well", image: "https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=800&q=80", price: 0, commissionRange: { low: 0.08, high: 0.15 }, badges: ["Late Check-out"], walkingIntensity: "low" },
+    ],
+    afternoon: [
+      { id: "d7a1", time: "13:00", title: "Final Shopping at Le Bon Marché", location: "7th Arrondissement", category: "Activity-Well", image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80", price: 0, commissionRange: { low: 0.10, high: 0.25 }, badges: ["Luxury Department Store"], walkingIntensity: "moderate" },
+      { id: "d7a2", time: "15:00", title: "Chauffeur to Le Bourget", location: "Paris → Le Bourget Airport", category: "Move-Well", image: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800&q=80", price: 300, commissionRange: { low: 0.05, high: 0.12 }, badges: ["Private Terminal"], walkingIntensity: "low", transportIncluded: true },
+    ],
+    evening: [
+      { id: "d7e1", time: "17:00", title: "Private Jet Departure", location: "Le Bourget Airport → Miami", category: "Move-Well", image: "https://images.unsplash.com/photo-1540962351504-03099e0a754b?w=800&q=80", price: 0, commissionRange: { low: 0.05, high: 0.12 }, badges: ["Return Flight"], walkingIntensity: "low", transportIncluded: true, description: "Included in outbound booking" },
     ]
   },
 ]

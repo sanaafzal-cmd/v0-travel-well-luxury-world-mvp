@@ -104,8 +104,14 @@ export function ItineraryCard({ activity, showPrices }: ItineraryCardProps) {
               <span className="text-lg font-serif text-[#E8DFC8]">
                 ${activity.price.toLocaleString()}
               </span>
-              {/* Dynamic commission from monetization data based on category */}
-              <CommissionTag commission={getCommissionRange(activity.category)} />
+              {/* Dynamic commission - use commissionRange if available, fallback to category-based */}
+              <CommissionTag 
+                commission={
+                  activity.commissionRange 
+                    ? `${Math.round(activity.commissionRange.low * 100)}-${Math.round(activity.commissionRange.high * 100)}%`
+                    : getCommissionRange(activity.category)
+                } 
+              />
             </div>
           </div>
         )}

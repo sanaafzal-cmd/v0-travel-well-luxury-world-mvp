@@ -89,6 +89,31 @@ export default function HomePage() {
           </PrimaryButton>
         </div>
         
+        {/* VC Demo Link */}
+        <div className="mt-8 p-4 rounded-xl bg-gradient-to-r from-[#C6A96B]/10 via-[#C6A96B]/5 to-[#C6A96B]/10 border border-[#C6A96B]/20">
+          <button
+            onClick={() => router.push("/demo")}
+            className="w-full flex items-center justify-between"
+          >
+            <div className="text-left">
+              <div className="flex items-center gap-2">
+                <span className="text-xs text-[#C6A96B] font-sans uppercase tracking-widest">
+                  Investor Demo
+                </span>
+                <span className="px-2 py-0.5 rounded-full text-[10px] font-sans bg-[#C6A96B]/20 text-[#C6A96B] border border-[#C6A96B]/30">
+                  LIVE
+                </span>
+              </div>
+              <span className="text-sm text-[#F5F5F5] font-sans mt-1 block">
+                Paris Springsteen Trip — Revenue Model
+              </span>
+            </div>
+            <svg className="w-5 h-5 text-[#C6A96B]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+        </div>
+        
         <p className="text-center text-xs text-[#7A7A7A] font-sans mt-6">
           Crafted with care for extraordinary travelers
         </p>
