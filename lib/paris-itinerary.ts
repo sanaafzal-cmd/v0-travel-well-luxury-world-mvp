@@ -88,10 +88,10 @@ export const parisItinerary: ParisItineraryDay[] = [
         location: "25 Avenue Montaigne, 8th Arrondissement",
         well: "StayWell",
         image: "https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=800&q=80",
-        price: 5400,
+        price: 32400,
         commissionRange: { low: 0.08, high: 0.15 },
         badges: ["Palace Hotel", "Eiffel View"],
-        description: "3 luxury suites × 6 nights"
+        description: "3 luxury suites × 6 nights ($1,800/night)"
       },
       {
         id: "d1-3",
