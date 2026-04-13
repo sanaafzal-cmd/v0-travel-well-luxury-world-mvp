@@ -5,6 +5,7 @@ import { useRouter, useParams } from "next/navigation"
 import { categories } from "@/lib/data"
 import { CategoryCard } from "@/components/travel/category-card"
 import { PrimaryButton } from "@/components/travel/primary-button"
+import { VCDemoButton } from "@/components/travel/vc-demo-button"
 
 export default function CategoryDetailPage() {
   const router = useRouter()
@@ -41,24 +42,27 @@ export default function CategoryDetailPage() {
     <main className="min-h-screen bg-[#0F0F10]">
       {/* Header */}
       <div className="sticky top-16 md:top-[72px] z-20 bg-[#0F0F10]/95 backdrop-blur-md border-b border-[#2A2A2B]">
-        <div className="px-5 md:px-6 py-4 flex items-center gap-4">
-          <button
-            onClick={() => router.back()}
-            className="w-10 h-10 rounded-full bg-[#1A1A1B] border border-[#2A2A2B] flex items-center justify-center text-[#A1A1A1] hover:text-[#F5F5F5] hover:border-[#3A3A3B] transition-colors"
-            aria-label="Go back"
-          >
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-            </svg>
-          </button>
-          <div>
-            <span className="text-xs text-[#C6A96B] font-sans uppercase tracking-widest">
-              {category.subtitle}
-            </span>
-            <h1 className="font-serif text-xl text-[#F5F5F5]">
-              {category.name}
-            </h1>
+        <div className="px-5 md:px-6 py-4 flex items-center justify-between">
+          <div className="flex items-center gap-4">
+            <button
+              onClick={() => router.back()}
+              className="w-10 h-10 rounded-full bg-[#1A1A1B] border border-[#2A2A2B] flex items-center justify-center text-[#A1A1A1] hover:text-[#F5F5F5] hover:border-[#3A3A3B] transition-colors"
+              aria-label="Go back"
+            >
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            <div>
+              <span className="text-xs text-[#C6A96B] font-sans uppercase tracking-widest">
+                {category.subtitle}
+              </span>
+              <h1 className="font-serif text-xl text-[#F5F5F5]">
+                {category.name}
+              </h1>
+            </div>
           </div>
+          <VCDemoButton variant="compact" />
         </div>
       </div>
       
