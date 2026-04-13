@@ -23,9 +23,9 @@ export default function CraftingPage() {
       setProgress((prev) => {
         if (prev >= 100) {
           clearInterval(interval)
-          // Navigate to itinerary after completion
+          // Navigate to 5 Wells screen after completion
           setTimeout(() => {
-            router.push("/itinerary")
+            router.push("/categories")
           }, 500)
           return 100
         }

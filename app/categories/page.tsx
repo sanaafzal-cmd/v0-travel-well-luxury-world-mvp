@@ -6,6 +6,7 @@ import { categories } from "@/lib/data"
 import { PrimaryButton } from "@/components/travel/primary-button"
 import { WellPopupModal } from "@/components/travel/well-popup-modal"
 import { getPopupData, affiliatePartners } from "@/lib/monetization"
+import { useSelections } from "@/lib/selections-context"
 
 const categoryIcons: Record<string, React.ReactNode> = {
   bed: (
@@ -39,6 +40,7 @@ export default function CategoriesPage() {
   const router = useRouter()
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
   const [popupCategory, setPopupCategory] = useState<string | null>(null)
+  const { getSelectionCount, getLastSelection } = useSelections()
   
   const handleCategorySelect = (categoryId: string) => {
     setSelectedCategory(categoryId)
@@ -87,6 +89,10 @@ export default function CategoriesPage() {
         <div className="flex flex-col gap-4">
           {categories.map((category) => {
             const partnerData = affiliatePartners[category.name]
+            const selectionCount = getSelectionCount(category.id)
+            const lastSelection = getLastSelection(category.id)
+            const hasSelections = selectionCount > 0
+            
             return (
               <div
                 key={category.id}
@@ -104,7 +110,9 @@ export default function CategoriesPage() {
                   focus:outline-none focus:ring-2 focus:ring-[#C6A96B] focus:ring-offset-2 focus:ring-offset-[#0F0F10]
                   ${selectedCategory === category.id
                     ? 'bg-[#1A1A1B] border-[#C6A96B] scale-[1.02]'
-                    : 'bg-[#1A1A1B] border-[#2A2A2B] hover:border-[#C6A96B]/50'
+                    : hasSelections
+                      ? 'bg-[#1A1A1B] border-[#C6A96B]/40 shadow-[0_0_15px_rgba(198,169,107,0.08)]'
+                      : 'bg-[#1A1A1B] border-[#2A2A2B] hover:border-[#C6A96B]/50'
                   }
                 `}
               >
@@ -113,7 +121,9 @@ export default function CategoriesPage() {
                     w-12 h-12 rounded-full flex items-center justify-center transition-colors duration-300
                     ${selectedCategory === category.id 
                       ? 'bg-[#C6A96B] text-[#0F0F10]' 
-                      : 'bg-[#2A2A2B] text-[#C6A96B]'
+                      : hasSelections
+                        ? 'bg-[#C6A96B]/20 text-[#C6A96B]'
+                        : 'bg-[#2A2A2B] text-[#C6A96B]'
                     }
                   `}>
                     {categoryIcons[category.icon]}
@@ -122,7 +132,7 @@ export default function CategoriesPage() {
                     <div className="flex items-center gap-2">
                       <h3 className={`
                         font-serif text-xl transition-colors duration-300
-                        ${selectedCategory === category.id ? 'text-[#C6A96B]' : 'text-[#F5F5F5]'}
+                        ${selectedCategory === category.id || hasSelections ? 'text-[#C6A96B]' : 'text-[#F5F5F5]'}
                       `}>
                         {category.name}
                       </h3>
@@ -137,9 +147,23 @@ export default function CategoriesPage() {
                         </svg>
                       </button>
                     </div>
-                    <p className="text-sm text-[#A1A1A1] font-sans mt-0.5">
-                      {category.subtitle}
-                    </p>
+                    
+                    {/* Selection memory indicator */}
+                    {hasSelections ? (
+                      <p className="text-sm text-[#C6A96B]/70 font-sans mt-0.5 truncate">
+                        {lastSelection?.itemTitle}
+                        {selectionCount > 1 && (
+                          <span className="text-[#C6A96B]/50 ml-1">
+                            +{selectionCount - 1} more
+                          </span>
+                        )}
+                      </p>
+                    ) : (
+                      <p className="text-sm text-[#A1A1A1] font-sans mt-0.5">
+                        {category.subtitle}
+                      </p>
+                    )}
+                    
                     {/* Subtle commission indicator */}
                     {partnerData && (
                       <p className="text-xs text-[#5A5A5A] font-sans mt-1.5">
@@ -148,7 +172,7 @@ export default function CategoriesPage() {
                     )}
                   </div>
                   <svg 
-                    className={`w-5 h-5 flex-shrink-0 transition-all duration-300 ${selectedCategory === category.id ? 'text-[#C6A96B] translate-x-1' : 'text-[#A1A1A1]'}`} 
+                    className={`w-5 h-5 flex-shrink-0 transition-all duration-300 ${selectedCategory === category.id || hasSelections ? 'text-[#C6A96B] translate-x-1' : 'text-[#A1A1A1]'}`} 
                     fill="none" 
                     viewBox="0 0 24 24" 
                     stroke="currentColor"

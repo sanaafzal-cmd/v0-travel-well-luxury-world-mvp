@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation"
 import { itinerary, COMMISSION_RANGES } from "@/lib/data"
 import { DaySection } from "@/components/travel/day-section"
 import { PriceToggle } from "@/components/travel/price-toggle"
+import { VCDemoButton } from "@/components/travel/vc-demo-button"
 
 export default function ItineraryPage() {
   const router = useRouter()
@@ -116,7 +117,10 @@ export default function ItineraryPage() {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
               </svg>
             </button>
-            <PriceToggle showPrices={showPrices} onToggle={() => setShowPrices(!showPrices)} />
+            <div className="flex items-center gap-3">
+              <VCDemoButton variant="compact" />
+              <PriceToggle showPrices={showPrices} onToggle={() => setShowPrices(!showPrices)} />
+            </div>
           </div>
           
           <div>
