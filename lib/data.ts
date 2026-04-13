@@ -292,7 +292,7 @@ export const itinerary: ItineraryDay[] = [
     ],
     evening: [
       { id: "d2e1", time: "19:30", title: "Dinner at L'Ambroisie", location: "Place des Vosges, 4th Arr.", category: "Eat-Well", image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80", price: 1400, commissionRange: { low: 0.00, high: 0.05 }, badges: ["3 Michelin Stars"], walkingIntensity: "low" },
-      { id: "d2e2", time: "22:00", title: "Chauffeur Return", location: "Paris", category: "Move-Well", image: "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=800&q=80", price: 200, commissionRange: { low: 0.05, high: 0.12 }, badges: ["Mercedes S-Class"], walkingIntensity: "low", transportIncluded: true },
+      { id: "d2e2", time: "22:00", title: "Chauffeur Return", location: "Paris", category: "Move-Well", image: "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?w=800&q=80", price: 200, commissionRange: { low: 0.05, high: 0.12 }, badges: ["Mercedes S-Class"], walkingIntensity: "low", transportIncluded: true },
     ]
   },
   {
