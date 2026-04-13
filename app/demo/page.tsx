@@ -228,18 +228,30 @@ export default function VCDemoPage() {
               </svg>
             </button>
             
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-3">
+              <span className="text-xs text-[#7A7A7A] font-sans hidden sm:inline">Revenue</span>
               <button
                 onClick={() => setShowRevenue(!showRevenue)}
                 className={`
-                  px-4 py-2 rounded-full text-sm font-sans transition-all duration-200
+                  relative w-14 h-7 rounded-full transition-all duration-300 ease-out
                   ${showRevenue 
-                    ? 'bg-[#C6A96B] text-[#0F0F10] font-medium' 
-                    : 'bg-[#1A1A1B] text-[#A1A1A1] border border-[#2A2A2B] hover:border-[#3A3A3B]'
+                    ? 'bg-[#C6A96B] shadow-[0_0_12px_rgba(198,169,107,0.4)]' 
+                    : 'bg-[#2A2A2B] border border-[#3A3A3B]'
                   }
                 `}
+                role="switch"
+                aria-checked={showRevenue}
+                aria-label="Toggle revenue mode"
               >
-                {showRevenue ? 'Revenue Mode' : 'Show Revenue'}
+                <span
+                  className={`
+                    absolute top-1 w-5 h-5 rounded-full transition-all duration-300 ease-out
+                    ${showRevenue 
+                      ? 'left-8 bg-[#0F0F10]' 
+                      : 'left-1 bg-[#7A7A7A]'
+                    }
+                  `}
+                />
               </button>
             </div>
           </div>
