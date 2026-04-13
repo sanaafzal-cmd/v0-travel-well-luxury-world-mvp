@@ -1,18 +1,17 @@
 "use client"
 
-import { useState } from "react"
 import { useRouter, useParams } from "next/navigation"
 import { categories } from "@/lib/data"
 import { CategoryCard } from "@/components/travel/category-card"
 import { PrimaryButton } from "@/components/travel/primary-button"
 import { VCDemoButton } from "@/components/travel/vc-demo-button"
+import { useSelections } from "@/lib/selections-context"
 
 export default function CategoryDetailPage() {
   const router = useRouter()
   const params = useParams()
   const categoryId = params.categoryId as string
-  
-  const [selectedOption, setSelectedOption] = useState<string | null>(null)
+  const { addSelection, removeSelection, isSelected, getSelectionCount } = useSelections()
   
   const category = categories.find(c => c.id === categoryId)
   
@@ -29,12 +28,17 @@ export default function CategoryDetailPage() {
     )
   }
   
-  const handleSelect = (optionId: string) => {
-    setSelectedOption(optionId)
+  const handleSelect = (optionId: string, optionTitle: string) => {
+    if (isSelected(categoryId, optionId)) {
+      removeSelection(categoryId, optionId)
+    } else {
+      addSelection(categoryId, optionId, optionTitle)
+    }
   }
   
+  const selectionCount = getSelectionCount(categoryId)
+  
   const handleConfirm = () => {
-    // In a real app, this would save the selection
     router.push("/categories")
   }
   
@@ -80,8 +84,8 @@ export default function CategoryDetailPage() {
             <CategoryCard
               key={option.id}
               option={option}
-              isSelected={selectedOption === option.id}
-              onSelect={() => handleSelect(option.id)}
+              isSelected={isSelected(categoryId, option.id)}
+              onSelect={() => handleSelect(option.id, option.title)}
             />
           ))}
         </div>
@@ -99,10 +103,12 @@ export default function CategoryDetailPage() {
           </PrimaryButton>
           <PrimaryButton 
             onClick={handleConfirm}
-            disabled={!selectedOption}
             className="flex-1"
           >
-            Add to Itinerary
+            {selectionCount > 0 
+              ? `Done (${selectionCount} selected)` 
+              : 'Continue'
+            }
           </PrimaryButton>
         </div>
       </div>
