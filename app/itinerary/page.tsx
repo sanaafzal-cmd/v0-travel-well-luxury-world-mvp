@@ -16,28 +16,45 @@ export default function ItineraryPage() {
   
   // Intersection Observer for scroll-based active day detection
   useEffect(() => {
-    const observers: IntersectionObserver[] = []
+    // Use a single observer for all day sections
+    const visibleDays = new Map<number, number>()
     
-    dayRefs.current.forEach((element, dayNum) => {
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting && entry.intersectionRatio >= 0.3) {
-              setActiveDay(dayNum)
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const dayNum = Number(entry.target.getAttribute('data-day-section'))
+          if (entry.isIntersecting) {
+            visibleDays.set(dayNum, entry.intersectionRatio)
+          } else {
+            visibleDays.delete(dayNum)
+          }
+        })
+        
+        // Find the day with highest intersection ratio
+        if (visibleDays.size > 0) {
+          let maxRatio = 0
+          let mostVisibleDay = 1
+          visibleDays.forEach((ratio, dayNum) => {
+            if (ratio > maxRatio) {
+              maxRatio = ratio
+              mostVisibleDay = dayNum
             }
           })
-        },
-        {
-          rootMargin: '-200px 0px -50% 0px',
-          threshold: [0.3, 0.5, 0.7]
+          setActiveDay(mostVisibleDay)
         }
-      )
+      },
+      {
+        rootMargin: '-150px 0px -40% 0px',
+        threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]
+      }
+    )
+    
+    dayRefs.current.forEach((element) => {
       observer.observe(element)
-      observers.push(observer)
     })
     
     return () => {
-      observers.forEach((observer) => observer.disconnect())
+      observer.disconnect()
     }
   }, [])
   
@@ -194,6 +211,7 @@ export default function ItineraryPage() {
           <div 
             key={day.day} 
             id={`day-${day.day}`}
+            data-day-section={day.day}
             ref={setDayRef(day.day)}
           >
             <DaySection day={day} showPrices={showPrices} />
