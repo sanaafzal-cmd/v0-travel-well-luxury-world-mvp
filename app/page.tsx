@@ -14,10 +14,10 @@ export default function HomePage() {
         {/* Background Image */}
         <div className="absolute inset-0 h-[50vh]">
           <Image
-            src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=1200&q=80"
-            alt="Luxury travel destination"
+            src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=1200&q=80"
+            alt="Paris Eiffel Tower at golden hour"
             fill
-            className="object-cover"
+            className="object-cover object-center"
             priority
           />
           <div className="absolute inset-0 bg-gradient-to-b from-[#0F0F10]/40 via-[#0F0F10]/60 to-[#0F0F10]" />
