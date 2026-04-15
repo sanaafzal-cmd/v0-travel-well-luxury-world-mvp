@@ -1,11 +1,31 @@
 "use client"
 
+import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
 import Image from "next/image"
 import { PrimaryButton } from "@/components/travel/primary-button"
+import { createClient } from "@/lib/supabase/client"
 
 export default function HomePage() {
   const router = useRouter()
+  const [isAuthenticated, setIsAuthenticated] = useState(false)
+  
+  useEffect(() => {
+    const checkAuth = async () => {
+      const supabase = createClient()
+      const { data: { user } } = await supabase.auth.getUser()
+      setIsAuthenticated(!!user)
+    }
+    checkAuth()
+  }, [])
+  
+  const handleBeginJourney = () => {
+    if (isAuthenticated) {
+      router.push("/onboarding")
+    } else {
+      router.push("/sign-up")
+    }
+  }
   
   return (
     <main className="min-h-screen bg-[#0F0F10] flex flex-col">
@@ -89,7 +109,7 @@ export default function HomePage() {
       {/* CTA Section */}
       <div className="px-6 pb-8">
         <div className="flex flex-col gap-4">
-          <PrimaryButton onClick={() => router.push("/onboarding")}>
+          <PrimaryButton onClick={handleBeginJourney}>
             Design Your Journey
           </PrimaryButton>
           <PrimaryButton variant="ghost" onClick={() => router.push("/itinerary")}>
