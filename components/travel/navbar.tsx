@@ -2,13 +2,22 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import { useRouter } from "next/navigation"
 import { createClient } from "@/lib/supabase/client"
 import type { User } from "@supabase/supabase-js"
 
 export function Navbar() {
+  const router = useRouter()
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [user, setUser] = useState<User | null>(null)
+
+  const handleSignOut = async () => {
+    const supabase = createClient()
+    await supabase.auth.signOut()
+    setUser(null)
+    router.push("/")
+  }
 
   // Check authentication status
   useEffect(() => {
@@ -85,15 +94,23 @@ export function Navbar() {
               {/* Auth */}
               <div className="flex items-center gap-5">
                 {user ? (
-                  <Link
-                    href="/identity"
-                    className="px-5 py-2 text-sm font-sans font-medium border border-[#C6A96B]/50 text-[#C6A96B] rounded-full hover:bg-[#C6A96B]/10 hover:border-[#C6A96B] transition-all duration-300 flex items-center gap-2"
-                  >
-                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
-                    </svg>
-                    My Identity
-                  </Link>
+                  <>
+                    <Link
+                      href="/identity"
+                      className="px-5 py-2 text-sm font-sans font-medium border border-[#C6A96B]/50 text-[#C6A96B] rounded-full hover:bg-[#C6A96B]/10 hover:border-[#C6A96B] transition-all duration-300 flex items-center gap-2"
+                    >
+                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                      </svg>
+                      My Identity
+                    </Link>
+                    <button
+                      onClick={handleSignOut}
+                      className="text-sm font-sans text-[#5A5A5A] hover:text-[#A1A1A1] transition-colors duration-300 tracking-wide"
+                    >
+                      Sign out
+                    </button>
+                  </>
                 ) : (
                   <>
                     <Link
@@ -202,13 +219,24 @@ export function Navbar() {
           {/* Auth Actions */}
           <div className="flex flex-col gap-4 pt-8 border-t border-[#2A2A2B]/30">
             {user ? (
-              <Link
-                href="/identity"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="text-center py-3.5 text-base font-sans font-medium border border-[#C6A96B]/50 text-[#C6A96B] rounded-full hover:bg-[#C6A96B]/10 hover:border-[#C6A96B] transition-all duration-300"
-              >
-                My Identity
-              </Link>
+              <>
+                <Link
+                  href="/identity"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="text-center py-3.5 text-base font-sans font-medium border border-[#C6A96B]/50 text-[#C6A96B] rounded-full hover:bg-[#C6A96B]/10 hover:border-[#C6A96B] transition-all duration-300"
+                >
+                  My Identity
+                </Link>
+                <button
+                  onClick={() => {
+                    setIsMobileMenuOpen(false)
+                    handleSignOut()
+                  }}
+                  className="text-center py-3.5 text-base font-sans text-[#5A5A5A] hover:text-[#A1A1A1] transition-colors"
+                >
+                  Sign out
+                </button>
+              </>
             ) : (
               <>
                 <Link
