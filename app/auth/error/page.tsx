@@ -1,10 +1,16 @@
 "use client"
 
-import { useRouter } from "next/navigation"
+import { useRouter, useSearchParams } from "next/navigation"
+import { Suspense } from "react"
 import { PrimaryButton } from "@/components/travel/primary-button"
 
-export default function AuthErrorPage() {
+function AuthErrorContent() {
   const router = useRouter()
+  const searchParams = useSearchParams()
+  const message = searchParams.get('message')
+  
+  // User-friendly message mapping
+  const displayMessage = message || "We couldn't complete your authentication. Please try again."
 
   return (
     <main className="min-h-screen bg-[#0F0F10] flex items-center justify-center px-6">
@@ -16,14 +22,14 @@ export default function AuthErrorPage() {
         </div>
         
         <h1 className="font-serif text-2xl text-[#F5F5F5] mb-3">
-          Something went wrong
+          Something didn&apos;t go as planned
         </h1>
         <p className="text-[#A1A1A1] font-sans text-sm mb-8 leading-relaxed">
-          We couldn&apos;t complete your authentication. Please try again or contact support if the problem persists.
+          {displayMessage}
         </p>
         
         <div className="flex flex-col gap-3">
-          <PrimaryButton onClick={() => router.push("/sign-up")}>
+          <PrimaryButton onClick={() => router.push("/sign-in")}>
             Try Again
           </PrimaryButton>
           <PrimaryButton variant="ghost" onClick={() => router.push("/")}>
@@ -32,5 +38,17 @@ export default function AuthErrorPage() {
         </div>
       </div>
     </main>
+  )
+}
+
+export default function AuthErrorPage() {
+  return (
+    <Suspense fallback={
+      <main className="min-h-screen bg-[#0F0F10] flex items-center justify-center">
+        <div className="w-8 h-8 border-2 border-[#C6A96B] border-t-transparent rounded-full animate-spin" />
+      </main>
+    }>
+      <AuthErrorContent />
+    </Suspense>
   )
 }

@@ -33,13 +33,27 @@ export async function updateSession(request: NextRequest) {
     data: { user },
   } = await supabase.auth.getUser()
 
-  // Redirect to sign-up if accessing protected routes without auth
-  if (
-    request.nextUrl.pathname.startsWith('/identity') &&
-    !user
-  ) {
+  const pathname = request.nextUrl.pathname
+  
+  // Protected routes that require authentication
+  const protectedRoutes = ['/identity', '/onboarding', '/crafting', '/categories', '/itinerary']
+  const isProtectedRoute = protectedRoutes.some(route => pathname.startsWith(route))
+  
+  // Auth routes (sign-in/sign-up) - redirect to identity if already logged in
+  const authRoutes = ['/sign-in', '/sign-up']
+  const isAuthRoute = authRoutes.some(route => pathname.startsWith(route))
+
+  // Redirect to sign-in if accessing protected routes without auth
+  if (isProtectedRoute && !user) {
     const url = request.nextUrl.clone()
-    url.pathname = '/sign-up'
+    url.pathname = '/sign-in'
+    return NextResponse.redirect(url)
+  }
+  
+  // Redirect to identity if already logged in and trying to access auth routes
+  if (isAuthRoute && user) {
+    const url = request.nextUrl.clone()
+    url.pathname = '/identity'
     return NextResponse.redirect(url)
   }
 
