@@ -153,6 +153,29 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+  
+  /* Override browser autofill styles for dark theme */
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 1000px #0F0F10 inset !important;
+    -webkit-text-fill-color: #F5F5F5 !important;
+    caret-color: #F5F5F5 !important;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+  
+  /* For inputs with transparent background */
+  input[class*="bg-transparent"]:-webkit-autofill,
+  input[class*="bg-transparent"]:-webkit-autofill:hover,
+  input[class*="bg-transparent"]:-webkit-autofill:focus,
+  input[class*="bg-transparent"]:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 1000px transparent inset !important;
+    -webkit-text-fill-color: #F5F5F5 !important;
+    caret-color: #F5F5F5 !important;
+    background-color: transparent !important;
+    transition: background-color 5000s ease-in-out 0s;
+  }
 }
 
 /* Luxury typography utilities */
