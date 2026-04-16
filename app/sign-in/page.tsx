@@ -40,7 +40,7 @@ export default function SignInPage() {
       }
       
       // Use router.replace for immediate navigation after successful login
-      router.replace("/identity")
+      router.replace("/travel-identity")
       router.refresh()
     } catch {
       setError("Something didn't go as planned. Please try again.")
