@@ -24,10 +24,26 @@ export default function SignInPage() {
         email,
         password,
       })
-      if (error) throw error
-      router.push("/identity")
-    } catch (error: unknown) {
-      setError(error instanceof Error ? error.message : "An error occurred")
+      
+      if (error) {
+        // Handle specific error cases with user-friendly messages
+        if (error.message.includes("Invalid login credentials")) {
+          setError("Invalid email or password. Please try again.")
+        } else if (error.message.includes("Email not confirmed")) {
+          setError("Please confirm your email address before signing in.")
+        } else if (error.message.includes("rate limit")) {
+          setError("Too many attempts. Please wait a moment and try again.")
+        } else {
+          setError("Something didn't go as planned. Please try again.")
+        }
+        return
+      }
+      
+      // Use router.replace for immediate navigation after successful login
+      router.replace("/identity")
+      router.refresh()
+    } catch {
+      setError("Something didn't go as planned. Please try again.")
     } finally {
       setIsLoading(false)
     }

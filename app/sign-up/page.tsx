@@ -20,7 +20,7 @@ export default function SignUpPage() {
     setError(null)
 
     try {
-      const { error } = await supabase.auth.signUp({
+      const { data, error } = await supabase.auth.signUp({
         email,
         password,
         options: {
@@ -29,10 +29,37 @@ export default function SignUpPage() {
             `${window.location.origin}/auth/callback?next=/onboarding`,
         },
       })
-      if (error) throw error
-      router.push("/sign-up/success")
-    } catch (error: unknown) {
-      setError(error instanceof Error ? error.message : "An error occurred")
+      
+      if (error) {
+        // Handle specific error cases with user-friendly messages
+        if (error.message.includes("already registered")) {
+          setError("This email is already registered. Please sign in instead.")
+        } else if (error.message.includes("valid email")) {
+          setError("Please enter a valid email address.")
+        } else if (error.message.includes("password")) {
+          setError("Password must be at least 6 characters.")
+        } else {
+          setError("Something didn't go as planned. Please try again.")
+        }
+        return
+      }
+      
+      // Check if email confirmation is required
+      if (data?.user?.identities?.length === 0) {
+        // User already exists but hasn't confirmed email
+        setError("This email is already registered. Please check your inbox for a confirmation link.")
+        return
+      }
+      
+      // If user is immediately logged in (email confirmation disabled), go to onboarding
+      if (data?.session) {
+        router.push("/onboarding")
+      } else {
+        // Email confirmation required - show success page
+        router.push("/sign-up/success")
+      }
+    } catch {
+      setError("Something didn't go as planned. Please try again.")
     } finally {
       setIsLoading(false)
     }

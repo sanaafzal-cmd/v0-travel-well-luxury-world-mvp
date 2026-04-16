@@ -15,9 +15,14 @@ export default function HomePage() {
       const supabase = createClient()
       const { data: { user } } = await supabase.auth.getUser()
       setIsAuthenticated(!!user)
+      
+      // Redirect authenticated users to their identity page
+      if (user) {
+        router.replace("/identity")
+      }
     }
     checkAuth()
-  }, [])
+  }, [router])
   
   const handleBeginJourney = () => {
     if (isAuthenticated) {

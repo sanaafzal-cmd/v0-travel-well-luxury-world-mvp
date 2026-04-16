@@ -33,6 +33,9 @@ export default function SignUpSuccessPage() {
         
         {/* Actions */}
         <div className="flex flex-col gap-3">
+          <PrimaryButton onClick={() => router.push("/sign-in")}>
+            Already Confirmed? Sign In
+          </PrimaryButton>
           <PrimaryButton variant="ghost" onClick={() => router.push("/")}>
             Return Home
           </PrimaryButton>
@@ -40,7 +43,7 @@ export default function SignUpSuccessPage() {
         
         {/* Help Text */}
         <p className="text-xs text-[#5A5A5A] font-sans mt-8">
-          Didn&apos;t receive an email? Check your spam folder or try again.
+          Didn&apos;t receive an email? Check your spam folder or try signing up again.
         </p>
       </div>
     </main>
