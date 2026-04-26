@@ -13,6 +13,7 @@ import {
 } from "@/lib/paris-itinerary"
 import { PeopleLayer } from "@/components/travel/people-layer"
 import { RevenueSummary } from "@/components/travel/revenue-summary"
+import { SafetyCard } from "@/components/travel/safety-card"
 
 const wellColors: Record<string, string> = {
   StayWell: 'text-blue-400',
@@ -229,6 +230,7 @@ export default function VCDemoPage() {
             </button>
             
             <div className="flex items-center gap-3">
+              <SafetyCard />
               <span className="text-xs text-[#7A7A7A] font-sans hidden sm:inline">Revenue</span>
               <button
                 onClick={() => setShowRevenue(!showRevenue)}

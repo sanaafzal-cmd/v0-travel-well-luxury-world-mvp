@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import Image from "next/image"
+import Link from "next/link"
 import { Navbar } from "@/components/travel/navbar"
 
 // Big 3 Premium Experiences
@@ -107,11 +108,11 @@ const specialInterests = [
 
 // 5 Wells
 const wells = [
-  { id: "fly-well", name: "Fly-Well", subtitle: "Flights", icon: "plane", active: true },
-  { id: "stay-well", name: "Stay-Well", subtitle: "Hotels", icon: "bed", active: true },
-  { id: "eat-well", name: "Eat-Well", subtitle: "Dining", icon: "utensils", active: true },
-  { id: "move-well", name: "Move-Well", subtitle: "Transport", icon: "car", active: true },
-  { id: "insure-well", name: "Insure-Well", subtitle: "Coming Soon", icon: "shield", active: false },
+  { id: "fly-well", name: "Fly-Well", subtitle: "Flights", icon: "plane", active: true, url: "/wells/fly-well" },
+  { id: "stay-well", name: "Stay-Well", subtitle: "Hotels", icon: "bed", active: true, url: "/wells/stay-well" },
+  { id: "eat-well", name: "Eat-Well", subtitle: "Dining", icon: "utensils", active: true, url: "/wells/eat-well" },
+  { id: "move-well", name: "Move-Well", subtitle: "Transport", icon: "car", active: true, url: "/wells/move-well" },
+  { id: "insure-well", name: "Insure-Well", subtitle: "Coming Soon", icon: "shield", active: false, url: "/wells/insure-well" },
 ]
 
 // Big 3 Tile Component with Image Carousel
@@ -336,8 +337,9 @@ export default function DiscoverPage() {
 
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
             {wells.map((well) => (
-              <div
+              <Link
                 key={well.id}
+                href={well.url}
                 className={`relative p-6 rounded-xl text-center transition-all duration-300 ${
                   well.active
                     ? "bg-[#1A1A1B] border border-[#2A2A2B] hover:border-[#C6A96B]/40 cursor-pointer group"
@@ -365,8 +367,36 @@ export default function DiscoverPage() {
                     Soon
                   </span>
                 )}
-              </div>
+              </Link>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Sample Itinerary CTA */}
+      <section className="px-6 lg:px-12 py-12 border-t border-[#2A2A2B]">
+        <div className="max-w-7xl mx-auto">
+          <div className="p-6 rounded-2xl bg-gradient-to-br from-[#1A1A1B] via-[#1A1A1B] to-[#C6A96B]/5 border border-[#C6A96B]/20 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div>
+              <span className="text-xs text-[#C6A96B] font-sans uppercase tracking-widest">
+                Sample Journey
+              </span>
+              <h3 className="font-serif text-xl text-[#F5F5F5] mt-1">
+                7-Day Paris Experience
+              </h3>
+              <p className="text-sm text-[#7A7A7A] font-sans mt-1">
+                Two Couples · Springsteen Concert · Luxury Itinerary
+              </p>
+            </div>
+            <Link
+              href="/itinerary"
+              className="px-6 py-3 rounded-full bg-[#C6A96B] text-[#0F0F10] font-sans font-medium hover:bg-[#E8DFC8] transition-colors flex items-center gap-2"
+            >
+              View Itinerary
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
+            </Link>
           </div>
         </div>
       </section>
