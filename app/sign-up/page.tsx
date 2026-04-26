@@ -26,7 +26,7 @@ export default function SignUpPage() {
         options: {
           emailRedirectTo:
             process.env.NEXT_PUBLIC_DEV_SUPABASE_REDIRECT_URL ??
-            `${window.location.origin}/auth/callback?next=/itinerary`,
+            `${window.location.origin}/auth/callback?next=/discover`,
         },
       })
       
@@ -51,9 +51,9 @@ export default function SignUpPage() {
         return
       }
       
-      // If user is immediately logged in (email confirmation disabled), go to Discovery
+      // If user is immediately logged in (email confirmation disabled), go to Discover
       if (data?.session) {
-        router.push("/itinerary")
+        router.push("/discover")
       } else {
         // Email confirmation required - show success page
         router.push("/sign-up/success")

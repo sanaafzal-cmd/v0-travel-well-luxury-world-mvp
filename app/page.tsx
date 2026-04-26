@@ -16,9 +16,9 @@ export default function HomePage() {
       const { data: { user } } = await supabase.auth.getUser()
       setIsAuthenticated(!!user)
       
-      // Redirect authenticated users to Discovery (Itinerary) page
+      // Redirect authenticated users to Discover page
       if (user) {
-        router.replace("/itinerary")
+        router.replace("/discover")
       }
     }
     checkAuth()
@@ -26,7 +26,7 @@ export default function HomePage() {
   
   const handleBeginJourney = () => {
     if (isAuthenticated) {
-      router.push("/itinerary")
+      router.push("/discover")
     } else {
       router.push("/sign-up")
     }
@@ -117,7 +117,7 @@ export default function HomePage() {
           <PrimaryButton onClick={handleBeginJourney}>
             Start Exploring
           </PrimaryButton>
-          <PrimaryButton variant="ghost" onClick={() => router.push("/itinerary")}>
+          <PrimaryButton variant="ghost" onClick={() => router.push("/discover")}>
             Explore a Curated Journey
           </PrimaryButton>
         </div>

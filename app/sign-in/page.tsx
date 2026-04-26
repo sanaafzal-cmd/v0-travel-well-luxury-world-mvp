@@ -39,8 +39,8 @@ export default function SignInPage() {
         return
       }
       
-      // Use router.replace for immediate navigation after successful login - go to Discovery
-      router.replace("/itinerary")
+      // Use router.replace for immediate navigation after successful login - go to Discover
+      router.replace("/discover")
       router.refresh()
     } catch {
       setError("Something didn't go as planned. Please try again.")

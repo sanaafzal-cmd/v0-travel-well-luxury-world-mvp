@@ -35,11 +35,11 @@ export async function updateSession(request: NextRequest) {
 
   const pathname = request.nextUrl.pathname
   
-  // Protected routes that require authentication (Discovery = Itinerary page)
-  const protectedRoutes = ['/itinerary']
+  // Protected routes that require authentication
+  const protectedRoutes = ['/discover', '/itinerary']
   const isProtectedRoute = protectedRoutes.some(route => pathname.startsWith(route))
   
-  // Auth routes (sign-in/sign-up) - redirect to discovery (itinerary) if already logged in
+  // Auth routes (sign-in/sign-up) - redirect to discover if already logged in
   const authRoutes = ['/sign-in', '/sign-up']
   const isAuthRoute = authRoutes.some(route => pathname.startsWith(route))
 
@@ -50,10 +50,10 @@ export async function updateSession(request: NextRequest) {
     return NextResponse.redirect(url)
   }
   
-  // Redirect to discovery (itinerary) if already logged in and trying to access auth routes
+  // Redirect to discover if already logged in and trying to access auth routes
   if (isAuthRoute && user) {
     const url = request.nextUrl.clone()
-    url.pathname = '/itinerary'
+    url.pathname = '/discover'
     return NextResponse.redirect(url)
   }
 
