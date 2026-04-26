@@ -26,7 +26,7 @@ export default function SignUpPage() {
         options: {
           emailRedirectTo:
             process.env.NEXT_PUBLIC_DEV_SUPABASE_REDIRECT_URL ??
-            `${window.location.origin}/auth/callback?next=/onboarding`,
+            `${window.location.origin}/auth/callback?next=/itinerary`,
         },
       })
       
@@ -51,9 +51,9 @@ export default function SignUpPage() {
         return
       }
       
-      // If user is immediately logged in (email confirmation disabled), go to onboarding
+      // If user is immediately logged in (email confirmation disabled), go to Discovery
       if (data?.session) {
-        router.push("/onboarding")
+        router.push("/itinerary")
       } else {
         // Email confirmation required - show success page
         router.push("/sign-up/success")
@@ -114,10 +114,10 @@ export default function SignUpPage() {
                 TravelWell
               </span>
               <h1 className="font-serif text-3xl text-[#F5F5F5] mt-6 mb-3">
-                Create Your Travel Identity
+                Create Your Account
               </h1>
               <p className="text-[#A1A1A1] font-sans">
-                Your journey begins with a few details
+                Join TravelWell and discover extraordinary journeys
               </p>
             </div>
 
@@ -175,10 +175,10 @@ export default function SignUpPage() {
                       <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                       <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
                     </svg>
-                    Creating your identity...
+                    Creating your account...
                   </span>
                 ) : (
-                  "Begin Your Journey"
+                  "Create Account"
                 )}
               </button>
 
