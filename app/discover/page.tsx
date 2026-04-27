@@ -3,7 +3,6 @@
 import { useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { Navbar } from "@/components/travel/navbar"
 
 // Big 3 Premium Experiences
 const big3Experiences = [
@@ -273,8 +272,6 @@ function WellIcon({ icon }: { icon: string }) {
 export default function DiscoverPage() {
   return (
     <main className="min-h-screen bg-[#0F0F10]">
-      <Navbar />
-
       {/* Hero Header */}
       <div className="pt-24 pb-8 px-6 lg:px-12">
         <div className="max-w-7xl mx-auto">
