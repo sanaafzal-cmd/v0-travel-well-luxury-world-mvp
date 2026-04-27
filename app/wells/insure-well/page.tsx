@@ -2,7 +2,6 @@
 
 import { useRouter } from "next/navigation"
 import Image from "next/image"
-import { Navbar } from "@/components/travel/navbar"
 
 const regions = [
   { name: "North America", icon: "🌎" },
@@ -18,8 +17,6 @@ export default function InsureWellPage() {
 
   return (
     <main className="min-h-screen bg-[#0F0F10]">
-      <Navbar />
-
       {/* Hero */}
       <div className="relative h-[40vh] min-h-[300px]">
         <Image
@@ -31,17 +28,18 @@ export default function InsureWellPage() {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0F0F10] via-[#0F0F10]/60 to-transparent" />
         
+        {/* Back Button */}
+        <button
+          onClick={() => router.push("/discover")}
+          className="absolute top-6 left-6 lg:left-12 z-10 w-10 h-10 rounded-full bg-[#1A1A1B]/80 backdrop-blur-sm border border-[#2A2A2B] flex items-center justify-center text-[#A1A1A1] hover:text-[#F5F5F5] hover:border-[#3A3A3B] transition-colors"
+          aria-label="Go back"
+        >
+          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+        
         <div className="absolute inset-0 flex flex-col justify-end p-6 lg:p-12">
-          <button
-            onClick={() => router.push("/discover")}
-            className="absolute top-24 left-6 lg:left-12 w-10 h-10 rounded-full bg-[#1A1A1B]/80 backdrop-blur-sm border border-[#2A2A2B] flex items-center justify-center text-[#A1A1A1] hover:text-[#F5F5F5] hover:border-[#3A3A3B] transition-colors"
-            aria-label="Go back"
-          >
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-            </svg>
-          </button>
-          
           <span className="text-xs text-[#C6A96B] font-sans uppercase tracking-widest">
             Insure-Well
           </span>
