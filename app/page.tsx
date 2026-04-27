@@ -16,9 +16,9 @@ export default function HomePage() {
       const { data: { user } } = await supabase.auth.getUser()
       setIsAuthenticated(!!user)
       
-      // Redirect authenticated users to their travel identity page
+      // Redirect authenticated users to Discover page
       if (user) {
-        router.replace("/travel-identity")
+        router.replace("/discover")
       }
     }
     checkAuth()
@@ -26,7 +26,7 @@ export default function HomePage() {
   
   const handleBeginJourney = () => {
     if (isAuthenticated) {
-      router.push("/onboarding")
+      router.push("/discover")
     } else {
       router.push("/sign-up")
     }
@@ -60,11 +60,11 @@ export default function HomePage() {
           {/* Hero Text */}
           <div>
             <h1 className="font-serif text-4xl md:text-5xl lg:text-7xl text-[#F5F5F5] leading-[1.1] mb-6 text-balance">
-              <span className="block">Travel, Reimagined</span>
-              <span className="block text-[#C6A96B]">Through Identity</span>
+              <span className="block">Luxury Travel,</span>
+              <span className="block text-[#C6A96B]">Reimagined</span>
             </h1>
             <p className="text-base md:text-lg text-[#A1A1A1] font-sans leading-relaxed max-w-lg">
-              TravelWell replaces chaotic trip planning with a curated, identity-driven experience — delivering luxury journeys in minutes.
+              TravelWell replaces chaotic trip planning with curated, extraordinary experiences — delivering luxury journeys in minutes.
             </p>
             
             {/* OS Signal */}
@@ -84,11 +84,11 @@ export default function HomePage() {
           <FeatureItem 
             icon={
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
               </svg>
             }
-            title="Identity-Based Curation"
-            description="Your journey is shaped by who you are, not endless choices"
+            title="Expert Curation"
+            description="Handpicked experiences curated by luxury travel specialists"
           />
           <FeatureItem 
             icon={
@@ -115,9 +115,9 @@ export default function HomePage() {
       <div className="px-6 pb-8">
         <div className="flex flex-col gap-4">
           <PrimaryButton onClick={handleBeginJourney}>
-            Design Your Journey
+            Start Exploring
           </PrimaryButton>
-          <PrimaryButton variant="ghost" onClick={() => router.push("/itinerary")}>
+          <PrimaryButton variant="ghost" onClick={() => router.push("/discover")}>
             Explore a Curated Journey
           </PrimaryButton>
         </div>
@@ -150,7 +150,7 @@ export default function HomePage() {
         </div>
         
         <p className="text-center text-xs text-[#5A5A5A] font-sans mt-6">
-          The world&apos;s first identity-based travel operating system
+          Extraordinary journeys, effortlessly curated
         </p>
       </div>
     </main>

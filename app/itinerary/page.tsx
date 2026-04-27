@@ -6,6 +6,7 @@ import { itinerary, COMMISSION_RANGES } from "@/lib/data"
 import { DaySection } from "@/components/travel/day-section"
 import { PriceToggle } from "@/components/travel/price-toggle"
 import { VCDemoButton } from "@/components/travel/vc-demo-button"
+import { SafetyCard } from "@/components/travel/safety-card"
 
 export default function ItineraryPage() {
   const router = useRouter()
@@ -126,7 +127,7 @@ export default function ItineraryPage() {
         <div className="px-5 md:px-6 py-4 border-b border-[#2A2A2B]">
           <div className="flex items-center justify-between mb-4">
             <button
-              onClick={() => router.push("/categories")}
+              onClick={() => router.push("/discover")}
               className="w-10 h-10 rounded-full bg-[#1A1A1B] border border-[#2A2A2B] flex items-center justify-center text-[#A1A1A1] hover:text-[#F5F5F5] hover:border-[#3A3A3B] transition-colors"
               aria-label="Go back"
             >
@@ -135,6 +136,7 @@ export default function ItineraryPage() {
               </svg>
             </button>
             <div className="flex items-center gap-3">
+              <SafetyCard />
               <VCDemoButton variant="compact" />
               <PriceToggle showPrices={showPrices} onToggle={() => setShowPrices(!showPrices)} />
             </div>
@@ -284,10 +286,10 @@ export default function ItineraryPage() {
             Your personalized luxury journey awaits
           </p>
           <button
-            onClick={() => router.push("/categories")}
+            onClick={() => router.push("/discover")}
             className="text-[#C6A96B] font-sans text-sm underline underline-offset-4 hover:text-[#E8DFC8] transition-colors"
           >
-            Customize Your Experience
+            Explore More Experiences
           </button>
         </div>
       </div>

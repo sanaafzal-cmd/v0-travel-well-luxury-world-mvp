@@ -87,7 +87,7 @@ export const parisItinerary: ParisItineraryDay[] = [
         title: "Check-in at Hôtel Plaza Athénée",
         location: "25 Avenue Montaigne, 8th Arrondissement",
         well: "StayWell",
-        image: "https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=800&q=80",
+        image: "/images/wells/stay/plaza-ethenee.jpg",
         price: 32400,
         commissionRange: { low: 0.08, high: 0.15 },
         badges: ["Palace Hotel", "Eiffel View"],
@@ -99,7 +99,7 @@ export const parisItinerary: ParisItineraryDay[] = [
         title: "Welcome Dinner at Alain Ducasse",
         location: "Hôtel Plaza Athénée",
         well: "EatWell",
-        image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=80",
+        image: "/images/wells/stay/plaza-ethenee.jpg",
         price: 340,
         pricePerPerson: true,
         commissionRange: { low: 0.00, high: 0.05 },
@@ -112,7 +112,7 @@ export const parisItinerary: ParisItineraryDay[] = [
         title: "Champagne Nightcap at Bar Hemingway",
         location: "Ritz Paris",
         well: "ExperienceWell",
-        image: "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=800&q=80",
+        image: "https://images.unsplash.com/photo-1624388621606-9f837720c14c?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         price: 120,
         pricePerPerson: true,
         commissionRange: { low: 0.10, high: 0.20 },
@@ -132,7 +132,7 @@ export const parisItinerary: ParisItineraryDay[] = [
         title: "Breakfast at Café de Flore",
         location: "172 Boulevard Saint-Germain",
         well: "EatWell",
-        image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80",
+        image: "https://images.unsplash.com/photo-1651894515323-f357fc6777ff?q=80&w=1548&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         price: 65,
         pricePerPerson: true,
         commissionRange: { low: 0.00, high: 0.05 },
@@ -144,7 +144,7 @@ export const parisItinerary: ParisItineraryDay[] = [
         title: "Private Louvre Tour",
         location: "Musée du Louvre",
         well: "ActivityWell",
-        image: "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=800&q=80",
+        image: "https://images.unsplash.com/photo-1587648415693-4a5362b2ce41?q=80&w=2064&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         price: 180,
         pricePerPerson: true,
         commissionRange: { low: 0.10, high: 0.25 },
@@ -157,7 +157,7 @@ export const parisItinerary: ParisItineraryDay[] = [
         title: "Lunch at L'Ambroisie",
         location: "Place des Vosges",
         well: "EatWell",
-        image: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=80",
+        image: "https://images.unsplash.com/photo-1605371151056-32e1a6198376?q=80&w=2018&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         price: 280,
         pricePerPerson: true,
         commissionRange: { low: 0.00, high: 0.05 },
@@ -169,7 +169,7 @@ export const parisItinerary: ParisItineraryDay[] = [
         title: "Seine River Private Cruise",
         location: "Pont de l'Alma",
         well: "ExperienceWell",
-        image: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=800&q=80",
+        image: "https://images.unsplash.com/photo-1684356090943-10759a24e6f5?q=80&w=1548&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         price: 450,
         pricePerPerson: true,
         commissionRange: { low: 0.10, high: 0.20 },
@@ -193,7 +193,7 @@ export const parisItinerary: ParisItineraryDay[] = [
         title: "Private Chauffeur Service",
         location: "Paris",
         well: "MoveWell",
-        image: "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=800&q=80",
+        image: "https://images.unsplash.com/photo-1680451553374-09d8d6a1ca58?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         price: 200,
         commissionRange: { low: 0.05, high: 0.12 },
         badges: ["Mercedes S-Class", "On Demand"]
@@ -211,7 +211,7 @@ export const parisItinerary: ParisItineraryDay[] = [
         title: "Spa Morning at Dior Institut",
         location: "Hôtel Plaza Athénée",
         well: "ActivityWell",
-        image: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800&q=80",
+        image: "/images/wells/stay/plaza-ethenee.jpg",
         price: 380,
         pricePerPerson: true,
         commissionRange: { low: 0.10, high: 0.25 },
@@ -259,7 +259,7 @@ export const parisItinerary: ParisItineraryDay[] = [
         title: "Private Chauffeur Service",
         location: "Paris",
         well: "MoveWell",
-        image: "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=800&q=80",
+        image: "https://images.unsplash.com/photo-1680451553374-09d8d6a1ca58?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         price: 200,
         commissionRange: { low: 0.05, high: 0.12 },
         badges: ["Mercedes S-Class"]
@@ -313,7 +313,7 @@ export const parisItinerary: ParisItineraryDay[] = [
         title: "Bruce Springsteen Concert",
         location: "Stade de France",
         well: "ExperienceWell",
-        image: "https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?w=800&q=80",
+        image: "https://images.unsplash.com/photo-1430232324554-8f4aebd06683?w=800&q=80",
         price: 850,
         pricePerPerson: true,
         commissionRange: { low: 0.10, high: 0.20 },
@@ -326,7 +326,7 @@ export const parisItinerary: ParisItineraryDay[] = [
         title: "Private Chauffeur Service",
         location: "Paris & Stade de France",
         well: "MoveWell",
-        image: "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=800&q=80",
+        image: "https://images.unsplash.com/photo-1638874085157-91988ffd3fe5?w=800&q=80",
         price: 350,
         commissionRange: { low: 0.05, high: 0.12 },
         badges: ["Concert Transfer", "VIP Parking"]
@@ -344,7 +344,7 @@ export const parisItinerary: ParisItineraryDay[] = [
         title: "Day Trip to Champagne Region",
         location: "Reims & Épernay",
         well: "MoveWell",
-        image: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800&q=80",
+        image: "https://images.unsplash.com/photo-1607587677370-7cd697023bbd?w=800&q=80",
         price: 400,
         commissionRange: { low: 0.05, high: 0.12 },
         badges: ["Luxury Van", "Full Day"],
@@ -368,7 +368,7 @@ export const parisItinerary: ParisItineraryDay[] = [
         title: "Lunch at Les Crayères",
         location: "Reims",
         well: "EatWell",
-        image: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=80",
+        image: "https://images.unsplash.com/photo-1581211653431-310ba15ff9bf?w=800&q=80",
         price: 220,
         pricePerPerson: true,
         commissionRange: { low: 0.00, high: 0.05 },
@@ -380,7 +380,7 @@ export const parisItinerary: ParisItineraryDay[] = [
         title: "Veuve Clicquot Caves Tour",
         location: "Reims",
         well: "ExperienceWell",
-        image: "https://images.unsplash.com/photo-1504279577054-acfeccf8fc52?w=800&q=80",
+        image: "https://images.unsplash.com/photo-1581211653431-310ba15ff9bf?w=800&q=80",
         price: 180,
         pricePerPerson: true,
         commissionRange: { low: 0.10, high: 0.20 },
@@ -411,7 +411,7 @@ export const parisItinerary: ParisItineraryDay[] = [
         title: "Private Transfer to Versailles",
         location: "Paris to Versailles",
         well: "MoveWell",
-        image: "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=800&q=80",
+        image: "https://images.unsplash.com/photo-1591828353335-197466da2a4e?w=800&q=80",
         price: 180,
         commissionRange: { low: 0.05, high: 0.12 },
         badges: ["Private Vehicle"]
@@ -422,7 +422,7 @@ export const parisItinerary: ParisItineraryDay[] = [
         title: "Private Versailles Tour",
         location: "Palace of Versailles",
         well: "ActivityWell",
-        image: "https://images.unsplash.com/photo-1551410224-699683e15636?w=800&q=80",
+        image: "https://images.unsplash.com/photo-1591828353335-197466da2a4e?w=800&q=80",
         price: 220,
         pricePerPerson: true,
         commissionRange: { low: 0.10, high: 0.25 },
@@ -435,7 +435,7 @@ export const parisItinerary: ParisItineraryDay[] = [
         title: "Lunch at Ore — Ducasse",
         location: "Palace of Versailles",
         well: "EatWell",
-        image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=80",
+        image: "https://images.unsplash.com/photo-1591828353335-197466da2a4e?w=800&q=80",
         price: 140,
         pricePerPerson: true,
         commissionRange: { low: 0.00, high: 0.05 },
@@ -447,7 +447,7 @@ export const parisItinerary: ParisItineraryDay[] = [
         title: "Marie Antoinette's Estate",
         location: "Petit Trianon",
         well: "ExperienceWell",
-        image: "https://images.unsplash.com/photo-1551410224-699683e15636?w=800&q=80",
+        image: "https://images.unsplash.com/photo-1696889984047-1f38e8315a21?w=800&q=80",
         price: 90,
         pricePerPerson: true,
         commissionRange: { low: 0.10, high: 0.20 },
@@ -459,7 +459,7 @@ export const parisItinerary: ParisItineraryDay[] = [
         title: "Farewell Dinner at Guy Savoy",
         location: "Monnaie de Paris",
         well: "EatWell",
-        image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=80",
+        image: "https://images.unsplash.com/photo-1663789005655-f73e36285b97?w=800&q=80",
         price: 420,
         pricePerPerson: true,
         commissionRange: { low: 0.00, high: 0.05 },
@@ -471,7 +471,7 @@ export const parisItinerary: ParisItineraryDay[] = [
         title: "Private Chauffeur Service",
         location: "Paris & Versailles",
         well: "MoveWell",
-        image: "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=800&q=80",
+        image: "https://images.unsplash.com/photo-1638874085157-91988ffd3fe5?w=800&q=80",
         price: 280,
         commissionRange: { low: 0.05, high: 0.12 },
         badges: ["Full Day"]
@@ -489,7 +489,7 @@ export const parisItinerary: ParisItineraryDay[] = [
         title: "Breakfast in Suite",
         location: "Hôtel Plaza Athénée",
         well: "EatWell",
-        image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80",
+        image: "https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=800&q=80",
         price: 85,
         pricePerPerson: true,
         commissionRange: { low: 0.00, high: 0.05 },
@@ -512,7 +512,7 @@ export const parisItinerary: ParisItineraryDay[] = [
         title: "Private Transfer to Airport",
         location: "Plaza Athénée to Le Bourget",
         well: "MoveWell",
-        image: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800&q=80",
+        image: "https://images.unsplash.com/photo-1589641057224-21736e83bdaa?w=800&q=80",
         price: 180,
         commissionRange: { low: 0.05, high: 0.12 },
         badges: ["Mercedes S-Class"]
@@ -534,7 +534,7 @@ export const parisItinerary: ParisItineraryDay[] = [
 
 // Calculate revenue for an item
 export function calculateItemRevenue(
-  item: ItineraryItem, 
+  item: ItineraryItem,
   partySize: number
 ): { low: number; high: number } {
   const basePrice = item.pricePerPerson ? item.price * partySize : item.price
@@ -546,9 +546,9 @@ export function calculateItemRevenue(
 
 // Calculate total revenue for the entire trip
 export function calculateTripRevenue(
-  itinerary: ParisItineraryDay[], 
+  itinerary: ParisItineraryDay[],
   partySize: number
-): { 
+): {
   low: number
   high: number
   totalItems: number
@@ -557,7 +557,7 @@ export function calculateTripRevenue(
   let totalLow = 0
   let totalHigh = 0
   let totalItems = 0
-  
+
   const byWell: Record<string, { low: number; high: number; items: number }> = {
     StayWell: { low: 0, high: 0, items: 0 },
     EatWell: { low: 0, high: 0, items: 0 },
@@ -565,7 +565,7 @@ export function calculateTripRevenue(
     ExperienceWell: { low: 0, high: 0, items: 0 },
     ActivityWell: { low: 0, high: 0, items: 0 },
   }
-  
+
   for (const day of itinerary) {
     for (const item of day.items) {
       if (item.price > 0) {
@@ -573,13 +573,13 @@ export function calculateTripRevenue(
         totalLow += revenue.low
         totalHigh += revenue.high
         totalItems++
-        
+
         byWell[item.well].low += revenue.low
         byWell[item.well].high += revenue.high
         byWell[item.well].items++
       }
     }
   }
-  
+
   return { low: totalLow, high: totalHigh, totalItems, byWell }
 }

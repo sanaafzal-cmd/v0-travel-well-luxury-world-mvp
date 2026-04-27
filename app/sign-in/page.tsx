@@ -39,8 +39,8 @@ export default function SignInPage() {
         return
       }
       
-      // Use router.replace for immediate navigation after successful login
-      router.replace("/travel-identity")
+      // Use router.replace for immediate navigation after successful login - go to Discover
+      router.replace("/discover")
       router.refresh()
     } catch {
       setError("Something didn't go as planned. Please try again.")
@@ -174,7 +174,7 @@ export default function SignInPage() {
                   href="/sign-up" 
                   className="text-[#C6A96B] hover:text-[#E8DFC8] transition-colors underline underline-offset-4"
                 >
-                  Create your travel identity
+                  Create an account
                 </Link>
               </p>
             </div>

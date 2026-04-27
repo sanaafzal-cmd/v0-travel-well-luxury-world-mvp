@@ -21,7 +21,7 @@ export default function SignUpSuccessPage() {
           Check Your Email
         </h1>
         <p className="text-[#A1A1A1] font-sans leading-relaxed mb-8">
-          We&apos;ve sent a confirmation link to your email address. Click the link to verify your account and begin your journey.
+          We&apos;ve sent a confirmation link to your email address. Click the link to verify your account and start discovering extraordinary journeys.
         </p>
         
         {/* Visual Element */}
