@@ -136,7 +136,7 @@ export default function ItineraryPage() {
               </svg>
             </button>
             <div className="flex items-center gap-3">
-              <SafetyCard />
+              <SafetyCard destination="Paris, France" />
               <VCDemoButton variant="compact" />
               <PriceToggle showPrices={showPrices} onToggle={() => setShowPrices(!showPrices)} />
             </div>
