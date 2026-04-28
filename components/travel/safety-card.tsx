@@ -121,7 +121,7 @@ export function SafetyCard({ destination = "Paris, France" }: SafetyCardProps) {
 
       {/* Location Enhancement Prompt Modal */}
       {showLocationPrompt && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-6">
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-6">
           <div 
             className="absolute inset-0 bg-black/80 backdrop-blur-sm"
             onClick={() => {
@@ -196,15 +196,15 @@ export function SafetyCard({ destination = "Paris, France" }: SafetyCardProps) {
 
       {/* Safety Panel Modal */}
       {isOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-6">
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-6">
           <div 
             className="absolute inset-0 bg-black/80 backdrop-blur-sm"
             onClick={() => setIsOpen(false)}
           />
 
-          <div className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto bg-[#1A1A1B] rounded-2xl border border-[#2A2A2B] shadow-xl animate-in fade-in zoom-in-95 duration-200">
+          <div className="relative w-full max-w-lg max-h-[85vh] bg-[#1A1A1B] rounded-2xl border border-[#2A2A2B] shadow-xl animate-in fade-in zoom-in-95 duration-200 flex flex-col overflow-hidden">
             {/* Header */}
-            <div className="sticky top-0 z-10 px-6 py-5 border-b border-[#2A2A2B] bg-[#1A1A1B] flex items-center justify-between">
+            <div className="flex-shrink-0 px-6 py-5 border-b border-[#2A2A2B] bg-[#1A1A1B] flex items-center justify-between rounded-t-2xl">
               <div className="flex items-center gap-3">
                 <div className={`
                   w-10 h-10 rounded-full flex items-center justify-center
@@ -237,18 +237,20 @@ export function SafetyCard({ destination = "Paris, France" }: SafetyCardProps) {
               </button>
             </div>
 
-            {/* Location Enhancement Status */}
-            {locationEnhanced && (
-              <div className="px-6 py-3 bg-emerald-500/5 border-b border-emerald-500/20 flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                <span className="text-xs font-sans text-emerald-400">
-                  Location Enhanced — Using device location for nearby services
-                </span>
-              </div>
-            )}
+            {/* Scrollable Content Area */}
+            <div className="flex-1 overflow-y-auto">
+              {/* Location Enhancement Status */}
+              {locationEnhanced && (
+                <div className="px-6 py-3 bg-emerald-500/5 border-b border-emerald-500/20 flex items-center gap-2">
+                  <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                  <span className="text-xs font-sans text-emerald-400">
+                    Location Enhanced — Using device location for nearby services
+                  </span>
+                </div>
+              )}
 
-            {/* Content Sections */}
-            <div className="px-6 py-6 space-y-6">
+              {/* Content Sections */}
+              <div className="px-6 py-6 space-y-6">
               
               {/* Emergency Numbers */}
               <section>
@@ -354,15 +356,16 @@ export function SafetyCard({ destination = "Paris, France" }: SafetyCardProps) {
               </section>
             </div>
 
-            {/* Legal Disclaimer */}
-            <div className="px-6 py-4 bg-[#0F0F10] border-t border-[#2A2A2B]">
-              <p className="text-[#5A5A5A] font-sans text-xs leading-relaxed text-center">
-                TravelWell never tracks your movement or stores your location history. TravelWell provides general safety information for awareness only. Always follow local authorities and emergency services.
-              </p>
+              {/* Legal Disclaimer */}
+              <div className="px-6 py-4 bg-[#0F0F10] border-t border-[#2A2A2B]">
+                <p className="text-[#5A5A5A] font-sans text-xs leading-relaxed text-center">
+                  TravelWell never tracks your movement or stores your location history. TravelWell provides general safety information for awareness only. Always follow local authorities and emergency services.
+                </p>
+              </div>
             </div>
 
             {/* Footer */}
-            <div className="sticky bottom-0 px-6 py-4 border-t border-[#2A2A2B] bg-[#1A1A1B]">
+            <div className="flex-shrink-0 px-6 py-4 border-t border-[#2A2A2B] bg-[#1A1A1B] rounded-b-2xl">
               <button
                 onClick={() => setIsOpen(false)}
                 className="w-full py-3 rounded-full bg-[#2A2A2B] text-[#F5F5F5] font-sans text-sm hover:bg-[#3A3A3B] transition-colors"
