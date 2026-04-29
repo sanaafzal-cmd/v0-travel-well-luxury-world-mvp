@@ -230,7 +230,7 @@ export default function VCDemoPage() {
             </button>
             
             <div className="flex items-center gap-3">
-              <SafetyCard />
+              <SafetyCard destination="Paris, France" />
               <span className="text-xs text-[#7A7A7A] font-sans hidden sm:inline">Revenue</span>
               <button
                 onClick={() => setShowRevenue(!showRevenue)}
