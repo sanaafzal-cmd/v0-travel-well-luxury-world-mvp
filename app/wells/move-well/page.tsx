@@ -34,15 +34,17 @@ const luxuryRides = [
     name: "Uber",
     type: "Rideshare",
     regions: "Global (70+ countries)",
-    brandColor: "#000000",
+    brandColor: "#FFFFFF",
     url: "https://www.uber.com",
+    variant: "uber" as const,
   },
   {
     name: "Blacklane",
     type: "Luxury Chauffeur",
     regions: "Europe / Asia-Pacific / Middle East / Africa / North America / Latin America",
-    brandColor: "#000000",
+    brandColor: "#C6A96B",
     url: "https://www.blacklane.com",
+    variant: "blacklane" as const,
   },
   {
     name: "Sixt Ride",
@@ -50,6 +52,7 @@ const luxuryRides = [
     regions: "Europe / North America / Middle East / Asia-Pacific",
     brandColor: "#FF5F00",
     url: "https://www.sixt.com/ride/",
+    variant: "default" as const,
   },
 ]
 
@@ -92,10 +95,82 @@ interface PartnerCardProps {
     regions: string
     brandColor: string
     url: string
+    variant?: "default" | "uber" | "blacklane"
   }
 }
 
 function PartnerCard({ partner }: PartnerCardProps) {
+  const variant = partner.variant || "default"
+  
+  // Uber: Premium minimal "Uber Black" aesthetic with charcoal background
+  if (variant === "uber") {
+    return (
+      <a
+        href={partner.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group relative p-6 rounded-2xl bg-[#18181B] border border-[#3A3A3D]/60 hover:border-[#5A5A5D] transition-all duration-300 hover:shadow-xl hover:shadow-black/30 hover:-translate-y-1"
+      >
+        {/* Subtle white accent line */}
+        <div className="absolute top-0 left-6 right-6 h-[2px] rounded-full bg-white/20 group-hover:bg-white/40 transition-opacity" />
+        
+        <div className="flex items-start justify-between gap-4">
+          <div className="flex-1 min-w-0">
+            <h3 className="font-serif text-xl text-white group-hover:text-white transition-colors">
+              {partner.name}
+            </h3>
+            <p className="text-sm font-sans font-medium mt-1 text-[#A0A0A0]">
+              {partner.type}
+            </p>
+            <p className="text-xs text-[#6A6A6A] font-sans mt-3 leading-relaxed">
+              {partner.regions}
+            </p>
+          </div>
+          <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#2A2A2D] flex items-center justify-center group-hover:bg-[#3A3A3D] transition-colors">
+            <svg className="w-4 h-4 text-[#8A8A8A] group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+          </div>
+        </div>
+      </a>
+    )
+  }
+  
+  // Blacklane: Elegant luxury chauffeur with warm ivory and champagne-gold accents
+  if (variant === "blacklane") {
+    return (
+      <a
+        href={partner.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group relative p-6 rounded-2xl bg-[#1A1918] border border-[#C6A96B]/25 hover:border-[#C6A96B]/50 transition-all duration-300 hover:shadow-xl hover:shadow-[#C6A96B]/5 hover:-translate-y-1"
+      >
+        {/* Champagne-gold accent line */}
+        <div className="absolute top-0 left-6 right-6 h-[2px] rounded-full bg-[#C6A96B]/40 group-hover:bg-[#C6A96B]/70 transition-opacity" />
+        
+        <div className="flex items-start justify-between gap-4">
+          <div className="flex-1 min-w-0">
+            <h3 className="font-serif text-xl text-[#F5F2EA] group-hover:text-white transition-colors">
+              {partner.name}
+            </h3>
+            <p className="text-sm font-sans font-medium mt-1 text-[#C6A96B]">
+              {partner.type}
+            </p>
+            <p className="text-xs text-[#8A8580] font-sans mt-3 leading-relaxed">
+              {partner.regions}
+            </p>
+          </div>
+          <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#C6A96B]/10 flex items-center justify-center group-hover:bg-[#C6A96B]/20 transition-colors">
+            <svg className="w-4 h-4 text-[#C6A96B]/70 group-hover:text-[#C6A96B] transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+          </div>
+        </div>
+      </a>
+    )
+  }
+  
+  // Default card styling
   return (
     <a
       href={partner.url}
