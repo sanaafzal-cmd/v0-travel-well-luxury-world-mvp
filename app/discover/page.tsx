@@ -11,6 +11,7 @@ const big3Experiences = [
     title: "Live Entertainment",
     subtitle: "World-class concerts & shows",
     url: "https://www.ticketmaster.com/",
+    isExternal: true,
     images: [
       "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&q=80",
       "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=800&q=80",
@@ -21,7 +22,8 @@ const big3Experiences = [
     id: "dive-liveaboards",
     title: "Dive & Liveaboards",
     subtitle: "Underwater adventures await",
-    url: "https://www.aggressor.com/",
+    url: "/experiences/dive-liveaboards",
+    isExternal: false,
     images: [
       "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=80",
       "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&q=80",
@@ -32,7 +34,8 @@ const big3Experiences = [
     id: "river-cruises",
     title: "River Cruises",
     subtitle: "Scenic waterway journeys",
-    url: "https://www.vikingrivercruises.com/",
+    url: "/experiences/river-cruises",
+    isExternal: false,
     images: [
       "https://images.unsplash.com/photo-1637851058613-95f0d41c3c2f?w=800&q=80",
       "https://images.unsplash.com/photo-1599640842225-85d111c60e6b?w=800&q=80",
@@ -119,11 +122,14 @@ function Big3Tile({ experience }: { experience: typeof big3Experiences[0] }) {
   const [currentImage, setCurrentImage] = useState(0)
   const [isHovered, setIsHovered] = useState(false)
 
+  const TileWrapper = experience.isExternal ? 'a' : Link
+  const linkProps = experience.isExternal 
+    ? { href: experience.url, target: "_blank", rel: "noopener noreferrer" }
+    : { href: experience.url }
+
   return (
-    <a
-      href={experience.url}
-      target="_blank"
-      rel="noopener noreferrer"
+    <TileWrapper
+      {...linkProps}
       className="group relative block overflow-hidden rounded-2xl aspect-[4/5] lg:aspect-[3/4]"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -192,7 +198,7 @@ function Big3Tile({ experience }: { experience: typeof big3Experiences[0] }) {
           <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
         </svg>
       </div>
-    </a>
+    </TileWrapper>
   )
 }
 
