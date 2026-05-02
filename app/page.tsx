@@ -45,9 +45,9 @@ export default function HomePage() {
             className="object-cover object-center"
             priority
           />
-          {/* Subtle cinematic overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/30 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20" />
+          {/* Enhanced cinematic overlay for better text readability */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-black/30" />
         </div>
         
         {/* Hero Content */}
