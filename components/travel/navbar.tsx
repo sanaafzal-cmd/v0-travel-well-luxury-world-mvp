@@ -63,14 +63,14 @@ export function Navbar() {
     }
   }, [isMobileMenuOpen])
 
-  // Dynamic styling based on page and scroll
+  // Dynamic styling based on page and scroll - always dark text for bright theme
   const navClasses = isHeroPage && !isScrolled
     ? 'bg-transparent backdrop-blur-sm border-b border-transparent'
     : 'bg-white/95 backdrop-blur-xl border-b border-[#E8E4DC] shadow-sm'
 
-  const textColor = isHeroPage && !isScrolled ? 'text-white' : 'text-[#1A1A1B]'
-  const subtleTextColor = isHeroPage && !isScrolled ? 'text-white/70' : 'text-[#6B6B6B]'
-  const brandColor = isHeroPage && !isScrolled ? 'text-[#C6A96B]' : 'text-[#2D7A7A]'
+  const textColor = 'text-[#1A1A1B]'
+  const subtleTextColor = 'text-[#6B6B6B]'
+  const brandColor = 'text-[#2D7A7A]'
 
   return (
     <>
@@ -85,11 +85,11 @@ export function Navbar() {
             {/* Logo */}
             <Link href="/" className="flex items-center gap-3 group">
               {/* Monogram */}
-              <div className={`w-8 h-8 rounded-full border ${isHeroPage && !isScrolled ? 'border-white/40 group-hover:border-white' : 'border-[#2D7A7A]/40 group-hover:border-[#2D7A7A]'} flex items-center justify-center transition-all duration-300 group-hover:bg-[#2D7A7A]/5`}>
-                <span className={`font-serif text-sm tracking-wider ${brandColor}`}>TW</span>
+              <div className="w-8 h-8 rounded-full border border-[#2D7A7A]/40 group-hover:border-[#2D7A7A] flex items-center justify-center transition-all duration-300 group-hover:bg-[#2D7A7A]/5">
+                <span className="font-serif text-sm tracking-wider text-[#2D7A7A]">TW</span>
               </div>
               {/* Brand Name */}
-              <span className={`font-serif text-xl md:text-[22px] tracking-[0.04em] transition-colors duration-300 ${textColor} group-hover:${brandColor}`}>
+              <span className="font-serif text-xl md:text-[22px] tracking-[0.04em] transition-colors duration-300 text-[#1A1A1B] group-hover:text-[#2D7A7A]">
                 TravelWell
               </span>
             </Link>
