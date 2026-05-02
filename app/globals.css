@@ -3,48 +3,53 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* TravelWell Luxury Dark Theme - Single theme only */
+/* TravelWell Worlds of Adventure - Bright Premium Theme */
 :root {
-  /* Core colors */
-  --background: #0F0F10;
-  --foreground: #F5F5F5;
-  --card: #1A1A1B;
-  --card-foreground: #F5F5F5;
-  --popover: #1A1A1B;
-  --popover-foreground: #F5F5F5;
+  /* Core colors - Bright Premium */
+  --background: #FAF9F6;
+  --foreground: #1A1A1B;
+  --card: #FFFFFF;
+  --card-foreground: #1A1A1B;
+  --popover: #FFFFFF;
+  --popover-foreground: #1A1A1B;
   
   /* Brand colors */
-  --primary: #C6A96B;
-  --primary-foreground: #0F0F10;
-  --secondary: #1A1A1B;
-  --secondary-foreground: #F5F5F5;
-  --muted: #2A2A2B;
-  --muted-foreground: #A1A1A1;
-  --accent: #E8DFC8;
-  --accent-foreground: #0F0F10;
+  --primary: #2D7A7A;
+  --primary-foreground: #FFFFFF;
+  --secondary: #F8F6F1;
+  --secondary-foreground: #1A1A1B;
+  --muted: #F0EDE6;
+  --muted-foreground: #6B6B6B;
+  --accent: #C6A96B;
+  --accent-foreground: #1A1A1B;
+  
+  /* Ocean-blue / teal for Wells buttons */
+  --ocean: #2D7A7A;
+  --ocean-light: #3D9A9A;
+  --ocean-dark: #1D5A5A;
   
   /* Utility colors */
-  --destructive: #8B2942;
-  --destructive-foreground: #F5F5F5;
-  --border: #2A2A2B;
-  --input: #2A2A2B;
-  --ring: #C6A96B;
+  --destructive: #DC3545;
+  --destructive-foreground: #FFFFFF;
+  --border: #E8E4DC;
+  --input: #E8E4DC;
+  --ring: #2D7A7A;
   
-  /* Chart colors - muted luxury palette */
-  --chart-1: #C6A96B;
-  --chart-2: #A1A1A1;
-  --chart-3: #E8DFC8;
-  --chart-4: #7A7A7A;
-  --chart-5: #4A4A4B;
+  /* Chart colors */
+  --chart-1: #2D7A7A;
+  --chart-2: #C6A96B;
+  --chart-3: #1A1A1B;
+  --chart-4: #6B6B6B;
+  --chart-5: #E8E4DC;
   
   --radius: 0.5rem;
   
-  /* Sidebar */
-  --sidebar: #0F0F10;
+  /* Sidebar - keep dark for contrast */
+  --sidebar: #1A1A1B;
   --sidebar-foreground: #F5F5F5;
   --sidebar-primary: #C6A96B;
-  --sidebar-primary-foreground: #0F0F10;
-  --sidebar-accent: #1A1A1B;
+  --sidebar-primary-foreground: #1A1A1B;
+  --sidebar-accent: #2A2A2B;
   --sidebar-accent-foreground: #F5F5F5;
   --sidebar-border: #2A2A2B;
   --sidebar-ring: #C6A96B;
@@ -52,46 +57,22 @@
   /* Custom luxury tokens */
   --gold: #C6A96B;
   --gold-light: #E8DFC8;
-  --text-primary: #F5F5F5;
-  --text-secondary: #A1A1A1;
-  --surface: #1A1A1B;
-  --surface-elevated: #2A2A2B;
+  --text-primary: #1A1A1B;
+  --text-secondary: #6B6B6B;
+  --surface: #FFFFFF;
+  --surface-elevated: #F8F6F1;
+  
+  /* Dark card tokens - for premium dark tiles */
+  --dark-card: #1A1A1B;
+  --dark-card-foreground: #F5F5F5;
+  --dark-border: #2A2A2B;
 }
 
-/* Force dark mode only - no light theme */
-.dark {
-  --background: #0F0F10;
-  --foreground: #F5F5F5;
+/* Dark theme override for specific components */
+.dark-card {
   --card: #1A1A1B;
   --card-foreground: #F5F5F5;
-  --popover: #1A1A1B;
-  --popover-foreground: #F5F5F5;
-  --primary: #C6A96B;
-  --primary-foreground: #0F0F10;
-  --secondary: #1A1A1B;
-  --secondary-foreground: #F5F5F5;
-  --muted: #2A2A2B;
-  --muted-foreground: #A1A1A1;
-  --accent: #E8DFC8;
-  --accent-foreground: #0F0F10;
-  --destructive: #8B2942;
-  --destructive-foreground: #F5F5F5;
   --border: #2A2A2B;
-  --input: #2A2A2B;
-  --ring: #C6A96B;
-  --chart-1: #C6A96B;
-  --chart-2: #A1A1A1;
-  --chart-3: #E8DFC8;
-  --chart-4: #7A7A7A;
-  --chart-5: #4A4A4B;
-  --sidebar: #0F0F10;
-  --sidebar-foreground: #F5F5F5;
-  --sidebar-primary: #C6A96B;
-  --sidebar-primary-foreground: #0F0F10;
-  --sidebar-accent: #1A1A1B;
-  --sidebar-accent-foreground: #F5F5F5;
-  --sidebar-border: #2A2A2B;
-  --sidebar-ring: #C6A96B;
 }
 
 @theme inline {
@@ -138,10 +119,16 @@
   /* Custom colors */
   --color-gold: var(--gold);
   --color-gold-light: var(--gold-light);
+  --color-ocean: var(--ocean);
+  --color-ocean-light: var(--ocean-light);
+  --color-ocean-dark: var(--ocean-dark);
   --color-text-primary: var(--text-primary);
   --color-text-secondary: var(--text-secondary);
   --color-surface: var(--surface);
   --color-surface-elevated: var(--surface-elevated);
+  --color-dark-card: var(--dark-card);
+  --color-dark-card-foreground: var(--dark-card-foreground);
+  --color-dark-border: var(--dark-border);
 }
 
 @layer base {
@@ -154,7 +141,7 @@
     -moz-osx-font-smoothing: grayscale;
   }
   
-  /* Override browser autofill styles for dark theme */
+  /* Override browser autofill styles for light theme */
   input:-webkit-autofill,
   input:-webkit-autofill:hover,
   input:-webkit-autofill:focus,
@@ -167,12 +154,12 @@
   select:-webkit-autofill:hover,
   select:-webkit-autofill:focus,
   select:-webkit-autofill:active {
-    -webkit-box-shadow: 0 0 0 9999px #0F0F10 inset !important;
-    box-shadow: 0 0 0 9999px #0F0F10 inset !important;
-    -webkit-text-fill-color: #F5F5F5 !important;
-    caret-color: #C6A96B !important;
-    background-color: #0F0F10 !important;
-    border-color: #C6A96B !important;
+    -webkit-box-shadow: 0 0 0 9999px #FFFFFF inset !important;
+    box-shadow: 0 0 0 9999px #FFFFFF inset !important;
+    -webkit-text-fill-color: #1A1A1B !important;
+    caret-color: #2D7A7A !important;
+    background-color: #FFFFFF !important;
+    border-color: #2D7A7A !important;
     transition: background-color 5000s ease-in-out 0s, color 5000s ease-in-out 0s;
   }
 }
@@ -220,6 +207,10 @@
   
   .gold-light-text {
     color: var(--gold-light);
+  }
+  
+  .ocean-text {
+    color: var(--ocean);
   }
 }
 

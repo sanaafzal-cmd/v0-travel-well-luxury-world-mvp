@@ -240,7 +240,7 @@ export default function MoveWellPage() {
         
         {/* Back Button */}
         <button
-          onClick={() => router.push("/discover")}
+          onClick={() => router.push("/discover#wells")}
           className="absolute top-6 left-6 lg:left-12 z-10 w-11 h-11 rounded-full bg-[#1A1A1B]/90 backdrop-blur-md border border-[#2A2A2B] flex items-center justify-center text-[#A1A1A1] hover:text-[#F5F5F5] hover:border-[#C6A96B]/50 hover:bg-[#1A1A1B] transition-all duration-300"
           aria-label="Back to Discovery"
         >

@@ -18,8 +18,8 @@ const playfair = Playfair_Display({
 })
 
 export const metadata: Metadata = {
-  title: 'TravelWell LuxuryWorld',
-  description: 'Your luxury travel concierge experience',
+  title: 'TravelWell Worlds of Adventure',
+  description: 'Your journey starts here - Premium global travel experiences',
   generator: 'v0.app',
   icons: {
     icon: [
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  themeColor: '#0F0F10',
+  themeColor: '#FAF9F6',
   width: 'device-width',
   initialScale: 1,
   maximumScale: 1,
@@ -54,8 +54,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="dark">
-      <body className={`${inter.variable} ${playfair.variable} font-sans antialiased bg-[#0F0F10] text-[#F5F5F5] min-h-screen`}>
+    <html lang="en">
+      <body className={`${inter.variable} ${playfair.variable} font-sans antialiased bg-[#FAF9F6] text-[#1A1A1B] min-h-screen`}>
         <Providers>
           <Navbar />
           {children}
