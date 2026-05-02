@@ -4,7 +4,7 @@ import { useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 
-// Big 3 Premium Experiences
+// Big 3 Premium Experiences - Keep premium dark tiles
 const big3Experiences = [
   {
     id: "live-entertainment",
@@ -108,16 +108,16 @@ const specialInterests = [
   },
 ]
 
-// 5 Wells
+// 5 Wells - Your Travel Ecosystem
 const wells = [
-  { id: "fly-well", name: "Fly-Well", subtitle: "Flights", icon: "plane", active: true, url: "/wells/fly-well" },
-  { id: "stay-well", name: "Stay-Well", subtitle: "Hotels", icon: "bed", active: true, url: "/wells/stay-well" },
-  { id: "eat-well", name: "Eat-Well", subtitle: "Dining", icon: "utensils", active: true, url: "/wells/eat-well" },
-  { id: "move-well", name: "Move-Well", subtitle: "Transport", icon: "car", active: true, url: "/wells/move-well" },
-  { id: "insure-well", name: "Insure-Well", subtitle: "Coming Soon", icon: "shield", active: false, url: "/wells/insure-well" },
+  { id: "fly-well", name: "Fly-Well", subtitle: "Flights", icon: "plane", url: "/wells/fly-well" },
+  { id: "stay-well", name: "Stay-Well", subtitle: "Hotels", icon: "bed", url: "/wells/stay-well" },
+  { id: "eat-well", name: "Eat-Well", subtitle: "Dining", icon: "utensils", url: "/wells/eat-well" },
+  { id: "move-well", name: "Move-Well", subtitle: "Transport", icon: "car", url: "/wells/move-well" },
+  { id: "insure-well", name: "Insure-Well", subtitle: "Coming Soon", icon: "shield", url: "/wells/insure-well" },
 ]
 
-// Big 3 Tile Component with Image Carousel
+// Big 3 Tile Component with Image Carousel - Keep premium dark styling
 function Big3Tile({ experience }: { experience: typeof big3Experiences[0] }) {
   const [currentImage, setCurrentImage] = useState(0)
   const [isHovered, setIsHovered] = useState(false)
@@ -130,7 +130,7 @@ function Big3Tile({ experience }: { experience: typeof big3Experiences[0] }) {
   return (
     <TileWrapper
       {...linkProps}
-      className="group relative block overflow-hidden rounded-2xl aspect-[4/5] lg:aspect-[3/4]"
+      className="group relative block overflow-hidden rounded-2xl aspect-[4/5] lg:aspect-[3/4] shadow-xl"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -158,10 +158,10 @@ function Big3Tile({ experience }: { experience: typeof big3Experiences[0] }) {
 
       {/* Content */}
       <div className="absolute inset-x-0 bottom-0 p-6">
-        <h3 className="font-serif text-2xl lg:text-3xl text-[#F5F5F5] mb-1">
+        <h3 className="font-serif text-2xl lg:text-3xl text-white mb-1">
           {experience.title}
         </h3>
-        <p className="text-sm text-[#A1A1A1] font-sans">{experience.subtitle}</p>
+        <p className="text-sm text-white/70 font-sans">{experience.subtitle}</p>
 
         {/* Image Indicators */}
         <div className="flex gap-2 mt-4">
@@ -175,7 +175,7 @@ function Big3Tile({ experience }: { experience: typeof big3Experiences[0] }) {
               className={`h-1 rounded-full transition-all duration-300 ${
                 currentImage === idx
                   ? "w-6 bg-[#C6A96B]"
-                  : "w-2 bg-[#F5F5F5]/40 hover:bg-[#F5F5F5]/60"
+                  : "w-2 bg-white/40 hover:bg-white/60"
               }`}
             />
           ))}
@@ -211,7 +211,7 @@ function InterestTile({ interest }: { interest: typeof specialInterests[0] }) {
       href={interest.url}
       target="_blank"
       rel="noopener noreferrer"
-      className="group relative block overflow-hidden rounded-xl aspect-[4/3]"
+      className="group relative block overflow-hidden rounded-xl aspect-[4/3] shadow-lg"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -229,13 +229,13 @@ function InterestTile({ interest }: { interest: typeof specialInterests[0] }) {
 
       {/* Content */}
       <div className="absolute inset-x-0 bottom-0 p-4">
-        <h4 className="font-serif text-lg text-[#F5F5F5]">{interest.title}</h4>
+        <h4 className="font-serif text-lg text-white">{interest.title}</h4>
       </div>
 
       {/* Hover Effect */}
       <div
         className={`absolute inset-0 border-2 rounded-xl transition-all duration-300 ${
-          isHovered ? "border-[#C6A96B]" : "border-transparent"
+          isHovered ? "border-[#2D7A7A]" : "border-transparent"
         }`}
       />
     </a>
@@ -246,27 +246,27 @@ function InterestTile({ interest }: { interest: typeof specialInterests[0] }) {
 function WellIcon({ icon }: { icon: string }) {
   const icons: Record<string, JSX.Element> = {
     plane: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
       </svg>
     ),
     bed: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
       </svg>
     ),
     utensils: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M12 8.25v-1.5m0 1.5c-1.355 0-2.697.056-4.024.166C6.845 8.51 6 9.473 6 10.608v2.513m6-4.87c1.355 0 2.697.055 4.024.165C17.155 8.51 18 9.473 18 10.608v2.513m-3-4.87v-1.5m-6 1.5v-1.5m12 9.75l-1.5.75a3.354 3.354 0 01-3 0 3.354 3.354 0 00-3 0 3.354 3.354 0 01-3 0 3.354 3.354 0 00-3 0 3.354 3.354 0 01-3 0L3 16.5m15-3.38a48.474 48.474 0 00-6-.37c-2.032 0-4.034.125-6 .37m12 0c.39.049.777.102 1.163.16 1.07.16 1.837 1.094 1.837 2.175v5.17c0 .62-.504 1.124-1.125 1.124H4.125A1.125 1.125 0 013 20.625v-5.17c0-1.08.768-2.014 1.837-2.174A47.78 47.78 0 016 13.12M12.265 3.11a.375.375 0 11-.53 0L12 2.845l.265.265zm-3 0a.375.375 0 11-.53 0L9 2.845l.265.265zm6 0a.375.375 0 11-.53 0L15 2.845l.265.265z" />
       </svg>
     ),
     car: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" />
       </svg>
     ),
     shield: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
       </svg>
     ),
@@ -277,24 +277,35 @@ function WellIcon({ icon }: { icon: string }) {
 
 export default function DiscoverPage() {
   return (
-    <main className="min-h-screen bg-[#0F0F10]">
+    <main className="min-h-screen bg-[#FAF9F6]">
+      {/* Sticky My Itinerary Button */}
+      <Link
+        href="/itinerary"
+        className="fixed top-24 right-6 z-40 px-5 py-2.5 rounded-full bg-[#2D7A7A] text-white font-sans font-medium text-sm shadow-lg shadow-[#2D7A7A]/30 hover:bg-[#3D9A9A] transition-all duration-300 flex items-center gap-2"
+      >
+        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+        </svg>
+        My Itinerary
+      </Link>
+
       {/* Hero Header */}
-      <div className="pt-24 pb-8 px-6 lg:px-12">
+      <div className="pt-24 pb-12 px-6 lg:px-12">
         <div className="max-w-7xl mx-auto">
-          <span className="text-xs text-[#C6A96B] font-sans uppercase tracking-widest">
+          <span className="text-sm text-[#2D7A7A] font-sans uppercase tracking-widest font-medium">
             Discover
           </span>
-          <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#F5F5F5] mt-2 mb-3">
+          <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl text-[#1A1A1B] mt-3 mb-4">
             Extraordinary Experiences
           </h1>
-          <p className="text-[#A1A1A1] font-sans text-lg max-w-2xl">
-            Curated journeys for the discerning traveler
+          <p className="text-[#6B6B6B] font-sans text-lg max-w-2xl">
+            Curated journeys for the discerning traveler. Explore premium experiences across the globe.
           </p>
         </div>
       </div>
 
       {/* Big 3 Section */}
-      <section className="px-6 lg:px-12 pb-16">
+      <section className="px-6 lg:px-12 pb-20">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {big3Experiences.map((exp) => (
@@ -305,14 +316,14 @@ export default function DiscoverPage() {
       </section>
 
       {/* Special Interests Section */}
-      <section className="px-6 lg:px-12 pb-16">
+      <section className="px-6 lg:px-12 pb-20">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center justify-between mb-8">
             <div>
-              <h2 className="font-serif text-2xl text-[#F5F5F5]">
+              <h2 className="font-serif text-2xl md:text-3xl text-[#1A1A1B]">
                 Special Interests
               </h2>
-              <p className="text-sm text-[#7A7A7A] font-sans mt-1">
+              <p className="text-sm text-[#6B6B6B] font-sans mt-1">
                 Explore your passions
               </p>
             </div>
@@ -326,77 +337,63 @@ export default function DiscoverPage() {
         </div>
       </section>
 
-      {/* 5 Wells Section */}
-      <section className="px-6 lg:px-12 py-12 border-t border-[#2A2A2B]">
+      {/* 5 Wells Section - "Your Travel Ecosystem" */}
+      <section id="wells" className="bg-white py-20 px-6 lg:px-12 border-t border-[#E8E4DC]">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-10">
-            <span className="text-xs text-[#C6A96B] font-sans uppercase tracking-widest">
-              The 5 Wells
-            </span>
-            <h2 className="font-serif text-2xl text-[#F5F5F5] mt-2">
+          {/* Section Title - Large bold black text */}
+          <div className="text-center mb-12">
+            <h2 className="font-serif text-4xl md:text-5xl text-[#1A1A1B] font-bold">
               Your Travel Ecosystem
             </h2>
+            <p className="text-[#6B6B6B] font-sans text-lg mt-4 max-w-2xl mx-auto">
+              Five integrated systems powering your perfect journey
+            </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+          {/* Wells Grid - Ocean blue buttons with white text */}
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-6">
             {wells.map((well) => (
               <Link
                 key={well.id}
                 href={well.url}
-                className={`relative p-6 rounded-xl text-center transition-all duration-300 ${
-                  well.active
-                    ? "bg-[#1A1A1B] border border-[#2A2A2B] hover:border-[#C6A96B]/40 cursor-pointer group"
-                    : "bg-[#1A1A1B]/50 border border-[#2A2A2B]/50 opacity-60"
-                }`}
+                className="group relative p-6 md:p-8 rounded-2xl bg-[#2D7A7A] hover:bg-[#3D9A9A] transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 text-center"
               >
-                <div
-                  className={`w-12 h-12 mx-auto rounded-full flex items-center justify-center mb-3 transition-colors ${
-                    well.active
-                      ? "bg-[#C6A96B]/10 text-[#C6A96B] group-hover:bg-[#C6A96B]/20"
-                      : "bg-[#2A2A2B]/50 text-[#5A5A5A]"
-                  }`}
-                >
+                <div className="w-14 h-14 mx-auto rounded-2xl bg-white/20 flex items-center justify-center mb-4 text-white group-hover:bg-white/30 transition-colors">
                   <WellIcon icon={well.icon} />
                 </div>
-                <h4 className={`font-serif text-base ${well.active ? "text-[#F5F5F5]" : "text-[#5A5A5A]"}`}>
+                <h4 className="font-serif text-lg md:text-xl text-white font-bold mb-1">
                   {well.name}
                 </h4>
-                <p className={`text-xs font-sans mt-1 ${well.active ? "text-[#7A7A7A]" : "text-[#5A5A5A]"}`}>
+                <p className="text-sm font-sans text-white/80">
                   {well.subtitle}
                 </p>
-
-                {!well.active && (
-                  <span className="absolute top-3 right-3 text-[10px] font-sans text-[#5A5A5A] uppercase tracking-wider">
-                    Soon
-                  </span>
-                )}
               </Link>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Sample Itinerary CTA */}
-      <section className="px-6 lg:px-12 py-12 border-t border-[#2A2A2B]">
+      {/* Sample Itinerary CTA - Keep premium dark */}
+      <section className="bg-[#1A1A1B] py-16 px-6 lg:px-12">
         <div className="max-w-7xl mx-auto">
-          <div className="p-6 rounded-2xl bg-gradient-to-br from-[#1A1A1B] via-[#1A1A1B] to-[#C6A96B]/5 border border-[#C6A96B]/20 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="p-8 rounded-2xl bg-gradient-to-br from-[#2A2A2B] via-[#1A1A1B] to-[#C6A96B]/10 border border-[#C6A96B]/30 flex flex-col md:flex-row items-center justify-between gap-8">
             <div>
-              <span className="text-xs text-[#C6A96B] font-sans uppercase tracking-widest">
+              <span className="text-sm text-[#C6A96B] font-sans uppercase tracking-widest font-semibold">
                 Sample Journey
               </span>
-              <h3 className="font-serif text-xl text-[#F5F5F5] mt-1">
+              <h3 className="font-serif text-2xl md:text-3xl text-white mt-2 mb-2">
                 7-Day Paris Experience
               </h3>
-              <p className="text-sm text-[#7A7A7A] font-sans mt-1">
+              <p className="text-[#A1A1A1] font-sans">
                 Two Couples · Springsteen Concert · Luxury Itinerary
               </p>
             </div>
             <Link
               href="/itinerary"
-              className="px-6 py-3 rounded-full bg-[#C6A96B] text-[#0F0F10] font-sans font-medium hover:bg-[#E8DFC8] transition-colors flex items-center gap-2"
+              className="px-8 py-4 rounded-full bg-[#C6A96B] text-[#1A1A1B] font-sans font-semibold text-lg hover:bg-[#E8DFC8] transition-colors flex items-center gap-3 shadow-lg"
             >
               View Itinerary
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
               </svg>
             </Link>
@@ -405,9 +402,9 @@ export default function DiscoverPage() {
       </section>
 
       {/* Footer */}
-      <footer className="px-6 lg:px-12 py-8 border-t border-[#2A2A2B]">
+      <footer className="bg-[#FAF9F6] py-12 px-6 lg:px-12 border-t border-[#E8E4DC]">
         <div className="max-w-7xl mx-auto text-center">
-          <p className="text-xs text-[#5A5A5A] font-sans">
+          <p className="text-sm text-[#6B6B6B] font-sans">
             Extraordinary journeys, effortlessly curated
           </p>
         </div>

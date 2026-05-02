@@ -22,25 +22,25 @@ export function PrimaryButton({
   type = 'button'
 }: PrimaryButtonProps) {
   const baseStyles = `
-    relative w-full py-4 px-6 rounded-lg font-sans text-base font-medium
+    relative w-full py-4 px-6 rounded-full font-sans text-base font-medium
     transition-all duration-300 ease-out
-    focus:outline-none focus:ring-2 focus:ring-[#C6A96B] focus:ring-offset-2 focus:ring-offset-[#0F0F10]
+    focus:outline-none focus:ring-2 focus:ring-[#2D7A7A] focus:ring-offset-2 focus:ring-offset-[#FAF9F6]
     disabled:opacity-50 disabled:cursor-not-allowed
     active:scale-[0.98]
   `
   
   const variants = {
     primary: `
-      bg-[#C6A96B] text-[#0F0F10]
-      hover:bg-[#E8DFC8]
+      bg-[#2D7A7A] text-white
+      hover:bg-[#3D9A9A] shadow-lg shadow-[#2D7A7A]/30
     `,
     secondary: `
-      bg-[#2A2A2B] text-[#F5F5F5] border border-[#3A3A3B]
-      hover:bg-[#3A3A3B]
+      bg-white text-[#1A1A1B] border border-[#E8E4DC]
+      hover:bg-[#F8F6F1] shadow-md
     `,
     ghost: `
-      bg-transparent text-[#A1A1A1]
-      hover:text-[#F5F5F5]
+      bg-transparent text-[#6B6B6B]
+      hover:text-[#1A1A1B]
     `
   }
   

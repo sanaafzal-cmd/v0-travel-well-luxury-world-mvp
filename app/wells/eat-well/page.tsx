@@ -42,7 +42,7 @@ export default function EatWellPage() {
         
         {/* Back Button */}
         <button
-          onClick={() => router.push("/discover")}
+          onClick={() => router.push("/discover#wells")}
           className="absolute top-6 left-6 lg:left-12 z-10 w-10 h-10 rounded-full bg-[#1A1A1B]/80 backdrop-blur-sm border border-[#2A2A2B] flex items-center justify-center text-[#A1A1A1] hover:text-[#F5F5F5] hover:border-[#3A3A3B] transition-colors"
           aria-label="Go back"
         >
