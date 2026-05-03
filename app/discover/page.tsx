@@ -342,7 +342,7 @@ export default function DiscoverPage() {
         <div className="max-w-7xl mx-auto">
           {/* Section Title - Large bold black text */}
           <div className="text-center mb-12">
-            <h2 className="font-serif text-4xl md:text-5xl text-[#1A1A1B] font-bold">
+            <h2 className="font-serif text-4xl md:text-5xl text-[#1A1A1B">
               Your Travel Ecosystem
             </h2>
             <p className="text-[#6B6B6B] font-sans text-lg mt-4 max-w-2xl mx-auto">
@@ -361,7 +361,7 @@ export default function DiscoverPage() {
                 <div className="w-14 h-14 mx-auto rounded-2xl bg-white/20 flex items-center justify-center mb-4 text-white group-hover:bg-white/30 transition-colors">
                   <WellIcon icon={well.icon} />
                 </div>
-                <h4 className="font-serif text-lg md:text-xl text-white font-bold mb-1">
+                <h4 className="font-serif text-lg md:text-xl text-white mb-1">
                   {well.name}
                 </h4>
                 <p className="text-sm font-sans text-white/80">
