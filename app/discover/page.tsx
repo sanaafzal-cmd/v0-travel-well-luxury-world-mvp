@@ -342,7 +342,7 @@ export default function DiscoverPage() {
         <div className="max-w-7xl mx-auto">
           {/* Section Title - Large bold black text */}
           <div className="text-center mb-12">
-            <h2 className="font-serif text-4xl md:text-5xl text-[#1A1A1B">
+            <h2 className="font-serif text-4xl md:text-5xl text-[#1A1A1B]">
               Your Travel Ecosystem
             </h2>
             <p className="text-[#6B6B6B] font-sans text-lg mt-4 max-w-2xl mx-auto">
