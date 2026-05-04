@@ -4,14 +4,19 @@ import { useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 
+// Helper to create in-frame partner URL
+function getPartnerUrl(url: string, name: string, returnPath: string = "/discover") {
+  return `/partner?url=${encodeURIComponent(url)}&name=${encodeURIComponent(name)}&return=${encodeURIComponent(returnPath)}`
+}
+
 // Big 3 Premium Experiences - Keep premium dark tiles
 const big3Experiences = [
   {
     id: "live-entertainment",
     title: "Live Entertainment",
     subtitle: "World-class concerts & shows",
-    url: "https://www.ticketmaster.com/",
-    isExternal: true,
+    url: "/partner?url=https%3A%2F%2Fwww.ticketmaster.com%2F&name=Ticketmaster&return=%2Fdiscover",
+    isExternal: false,
     images: [
       "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&q=80",
       "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=800&q=80",
@@ -44,67 +49,77 @@ const big3Experiences = [
   },
 ]
 
-// 10 Special Interests
+// 10 Special Interests - All use in-frame partner navigation
 const specialInterests = [
   {
     id: "beaches",
     title: "Beaches",
     image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80",
-    url: "https://www.getyourguide.com/s/?q=beach&searchSource=3",
+    partnerUrl: "https://www.getyourguide.com/s/?q=beach&searchSource=3",
+    partnerName: "GetYourGuide",
   },
   {
     id: "adventure",
     title: "Adventure",
     image: "https://images.unsplash.com/photo-1530789253388-582c481c54b0?w=800&q=80",
-    url: "https://www.viator.com/tours/Adventure",
+    partnerUrl: "https://www.viator.com/tours/Adventure",
+    partnerName: "Viator",
   },
   {
     id: "culinary",
     title: "Culinary",
     image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80",
-    url: "https://www.getyourguide.com/s/?q=food%20tour&searchSource=3",
+    partnerUrl: "https://www.getyourguide.com/s/?q=food%20tour&searchSource=3",
+    partnerName: "GetYourGuide",
   },
   {
     id: "culture-history",
     title: "Culture & History",
     image: "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=800&q=80",
-    url: "https://www.tiqets.com/en/search/?q=museum",
+    partnerUrl: "https://www.tiqets.com/en/search/?q=museum",
+    partnerName: "Tiqets",
   },
   {
     id: "photography",
     title: "Photography",
     image: "https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=800&q=80",
-    url: "https://www.getyourguide.com/s/?q=photography&searchSource=3",
+    partnerUrl: "https://www.getyourguide.com/s/?q=photography&searchSource=3",
+    partnerName: "GetYourGuide",
   },
   {
     id: "wellness",
     title: "Wellness",
     image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800&q=80",
-    url: "https://www.klook.com/en-US/search/?keyword=spa",
+    partnerUrl: "https://www.klook.com/en-US/search/?keyword=spa",
+    partnerName: "Klook",
   },
   {
     id: "nightlife",
     title: "Nightlife",
     image: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&q=80",
-    url: "https://www.viator.com/searchResults/all?text=nightlife",
+    partnerUrl: "https://www.viator.com/searchResults/all?text=nightlife",
+    partnerName: "Viator",
   },
   {
     id: "romance",
     title: "Romance & Honeymoons",
     image: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=800&q=80",
-    url: "https://www.getyourguide.com/s/?q=romantic&searchSource=3",
+    partnerUrl: "https://www.getyourguide.com/s/?q=romantic&searchSource=3",
+    partnerName: "GetYourGuide",
   },
   {
     id: "family",
     title: "Family",
     image: "https://images.unsplash.com/photo-1511895426328-dc8714191300?w=800&q=80",
-    url: "https://www.getyourguide.com/s/?q=family&searchSource=3",
+    partnerUrl: "https://www.getyourguide.com/s/?q=family&searchSource=3",
+    partnerName: "GetYourGuide",
   },
   {
     id: "winter-ski",
     title: "Winter & Ski",
     image: "https://images.unsplash.com/photo-1551524559-8af4e6624178?w=800&q=80",
-    url: "https://www.ski.com/",
+    partnerUrl: "https://www.ski.com/",
+    partnerName: "Ski.com",
   },
 ]
 
@@ -122,14 +137,9 @@ function Big3Tile({ experience }: { experience: typeof big3Experiences[0] }) {
   const [currentImage, setCurrentImage] = useState(0)
   const [isHovered, setIsHovered] = useState(false)
 
-  const TileWrapper = experience.isExternal ? 'a' : Link
-  const linkProps = experience.isExternal 
-    ? { href: experience.url, target: "_blank", rel: "noopener noreferrer" }
-    : { href: experience.url }
-
   return (
-    <TileWrapper
-      {...linkProps}
+    <Link
+      href={experience.url}
       className="group relative block overflow-hidden rounded-2xl aspect-[4/5] lg:aspect-[3/4] shadow-xl"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -198,19 +208,18 @@ function Big3Tile({ experience }: { experience: typeof big3Experiences[0] }) {
           <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
         </svg>
       </div>
-    </TileWrapper>
+    </Link>
   )
 }
 
-// Special Interest Tile Component
+// Special Interest Tile Component - Uses in-frame navigation
 function InterestTile({ interest }: { interest: typeof specialInterests[0] }) {
   const [isHovered, setIsHovered] = useState(false)
+  const partnerLink = getPartnerUrl(interest.partnerUrl, interest.partnerName, "/discover")
 
   return (
-    <a
-      href={interest.url}
-      target="_blank"
-      rel="noopener noreferrer"
+    <Link
+      href={partnerLink}
       className="group relative block overflow-hidden rounded-xl aspect-[4/3] shadow-lg"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -238,7 +247,7 @@ function InterestTile({ interest }: { interest: typeof specialInterests[0] }) {
           isHovered ? "border-[#2D7A7A]" : "border-transparent"
         }`}
       />
-    </a>
+    </Link>
   )
 }
 

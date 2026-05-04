@@ -2,6 +2,12 @@
 
 import { useRouter } from "next/navigation"
 import Image from "next/image"
+import Link from "next/link"
+
+// Helper to create in-frame partner URL
+function getPartnerUrl(url: string, name: string, returnPath: string = "/wells/fly-well") {
+  return `/partner?url=${encodeURIComponent(url)}&name=${encodeURIComponent(name)}&return=${encodeURIComponent(returnPath)}`
+}
 
 const partners = [
   {
@@ -73,11 +79,9 @@ export default function FlyWellPage() {
           
           <div className="grid gap-4">
             {partners.map((partner) => (
-              <a
+              <Link
                 key={partner.name}
-                href={partner.url}
-                target="_blank"
-                rel="noopener noreferrer"
+                href={getPartnerUrl(partner.url, partner.name)}
                 className="group flex items-center gap-5 p-5 rounded-xl bg-[#1A1A1B] border border-[#2A2A2B] hover:border-[#C6A96B]/40 transition-all duration-300"
               >
                 <div className="relative w-16 h-16 rounded-lg overflow-hidden flex-shrink-0">
@@ -103,9 +107,9 @@ export default function FlyWellPage() {
                   stroke="currentColor"
                   strokeWidth={2}
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
                 </svg>
-              </a>
+              </Link>
             ))}
           </div>
         </div>
