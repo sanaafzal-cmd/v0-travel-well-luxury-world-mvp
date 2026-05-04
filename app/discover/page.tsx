@@ -49,78 +49,18 @@ const big3Experiences = [
   },
 ]
 
-// 10 Special Interests - All use in-frame partner navigation
+// 10 Special Interests - Now link to TravelWell landing pages
 const specialInterests = [
-  {
-    id: "beaches",
-    title: "Beaches",
-    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80",
-    partnerUrl: "https://www.getyourguide.com/s/?q=beach&searchSource=3",
-    partnerName: "GetYourGuide",
-  },
-  {
-    id: "adventure",
-    title: "Adventure",
-    image: "https://images.unsplash.com/photo-1530789253388-582c481c54b0?w=800&q=80",
-    partnerUrl: "https://www.viator.com/tours/Adventure",
-    partnerName: "Viator",
-  },
-  {
-    id: "culinary",
-    title: "Culinary",
-    image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80",
-    partnerUrl: "https://www.getyourguide.com/s/?q=food%20tour&searchSource=3",
-    partnerName: "GetYourGuide",
-  },
-  {
-    id: "culture-history",
-    title: "Culture & History",
-    image: "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=800&q=80",
-    partnerUrl: "https://www.tiqets.com/en/search/?q=museum",
-    partnerName: "Tiqets",
-  },
-  {
-    id: "photography",
-    title: "Photography",
-    image: "https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=800&q=80",
-    partnerUrl: "https://www.getyourguide.com/s/?q=photography&searchSource=3",
-    partnerName: "GetYourGuide",
-  },
-  {
-    id: "wellness",
-    title: "Wellness",
-    image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800&q=80",
-    partnerUrl: "https://www.klook.com/en-US/search/?keyword=spa",
-    partnerName: "Klook",
-  },
-  {
-    id: "nightlife",
-    title: "Nightlife",
-    image: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&q=80",
-    partnerUrl: "https://www.viator.com/searchResults/all?text=nightlife",
-    partnerName: "Viator",
-  },
-  {
-    id: "romance",
-    title: "Romance & Honeymoons",
-    image: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=800&q=80",
-    partnerUrl: "https://www.getyourguide.com/s/?q=romantic&searchSource=3",
-    partnerName: "GetYourGuide",
-  },
-  {
-    id: "family",
-    title: "Family",
-    image: "https://images.unsplash.com/photo-1511895426328-dc8714191300?w=800&q=80",
-    partnerUrl: "https://www.getyourguide.com/s/?q=family&searchSource=3",
-    partnerName: "GetYourGuide",
-  },
-  {
-    id: "winter-ski",
-    title: "Winter & Ski",
-    image: "https://images.unsplash.com/photo-1551524559-8af4e6624178?w=800&q=80",
-    partnerUrl: "https://www.ski.com/",
-    partnerName: "Ski.com",
-  },
+  { id: "beaches", title: "Beaches", image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80" },
+  { id: "adventure", title: "Adventure", image: "https://images.unsplash.com/photo-1530789253388-582c481c54b0?w=800&q=80" },
+  { id: "culinary", title: "Culinary", image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80" },
+  { id: "culture-history", title: "Culture & History", image: "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=800&q=80" },
+  { id: "photography", title: "Photography", image: "https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=800&q=80" },
+  { id: "wellness", title: "Wellness", image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800&q=80" },
+  { id: "nightlife", title: "Nightlife", image: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&q=80" },
+  { id: "romance", title: "Romance & Honeymoons", image: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=800&q=80" },
+  { id: "family", title: "Family", image: "https://images.unsplash.com/photo-1511895426328-dc8714191300?w=800&q=80" },
+  { id: "winter-ski", title: "Winter & Ski", image: "https://images.unsplash.com/photo-1551524559-8af4e6624178?w=800&q=80" },
 ]
 
 // 5 Wells - Your Travel Ecosystem
@@ -212,14 +152,13 @@ function Big3Tile({ experience }: { experience: typeof big3Experiences[0] }) {
   )
 }
 
-// Special Interest Tile Component - Uses in-frame navigation
+// Special Interest Tile Component - Links to TravelWell landing page
 function InterestTile({ interest }: { interest: typeof specialInterests[0] }) {
   const [isHovered, setIsHovered] = useState(false)
-  const partnerLink = getPartnerUrl(interest.partnerUrl, interest.partnerName, "/discover")
 
   return (
     <Link
-      href={partnerLink}
+      href={`/interests/${interest.id}`}
       className="group relative block overflow-hidden rounded-xl aspect-[4/3] shadow-lg"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
