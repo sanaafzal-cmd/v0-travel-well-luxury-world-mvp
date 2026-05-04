@@ -1,6 +1,12 @@
 "use client"
 
 import { useRouter } from "next/navigation"
+import Link from "next/link"
+
+// Helper to create in-frame partner URL
+function getPartnerUrl(url: string, name: string, returnPath: string = "/experiences/river-cruises") {
+  return `/partner?url=${encodeURIComponent(url)}&name=${encodeURIComponent(name)}&return=${encodeURIComponent(returnPath)}`
+}
 
 // Partner data with assigned ocean-inspired backgrounds
 const partners = [
@@ -67,11 +73,9 @@ export default function RiverCruisesPage() {
         <div className="max-w-4xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {partners.map((partner) => (
-              <a
+              <Link
                 key={partner.name}
-                href={partner.url}
-                target="_blank"
-                rel="noopener noreferrer"
+                href={getPartnerUrl(partner.url, partner.name)}
                 className="group relative p-6 rounded-2xl border border-[#D4AF37]/20 hover:border-[#D4AF37]/50 transition-all duration-300 hover:shadow-lg hover:shadow-[#D4AF37]/5 hover:-translate-y-0.5"
                 style={{ backgroundColor: partner.bgColor }}
               >
@@ -86,15 +90,15 @@ export default function RiverCruisesPage() {
                     {partner.regions}
                   </p>
                   
-                  {/* External Link Indicator */}
+                  {/* Navigation Indicator */}
                   <div className="mt-4 flex items-center justify-center gap-1.5 text-[#D4AF37]/60 group-hover:text-[#D4AF37] transition-colors">
-                    <span className="text-xs font-sans uppercase tracking-wider">Visit</span>
+                    <span className="text-xs font-sans uppercase tracking-wider">Explore</span>
                     <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
                     </svg>
                   </div>
                 </div>
-              </a>
+              </Link>
             ))}
           </div>
         </div>

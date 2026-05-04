@@ -2,6 +2,12 @@
 
 import { useRouter } from "next/navigation"
 import Image from "next/image"
+import Link from "next/link"
+
+// Helper to create in-frame partner URL
+function getPartnerUrl(url: string, name: string, returnPath: string = "/wells/move-well") {
+  return `/partner?url=${encodeURIComponent(url)}&name=${encodeURIComponent(name)}&return=${encodeURIComponent(returnPath)}`
+}
 
 // Section 1 — Car Rentals (Global)
 const carRentals = [
@@ -105,10 +111,8 @@ function PartnerCard({ partner }: PartnerCardProps) {
   // Uber: Premium minimal "Uber Black" aesthetic with charcoal background
   if (variant === "uber") {
     return (
-      <a
-        href={partner.url}
-        target="_blank"
-        rel="noopener noreferrer"
+      <Link
+        href={getPartnerUrl(partner.url, partner.name)}
         className="group relative p-6 rounded-2xl bg-[#18181B] border border-[#3A3A3D]/60 hover:border-[#5A5A5D] transition-all duration-300 hover:shadow-xl hover:shadow-black/30 hover:-translate-y-1"
       >
         {/* Subtle white accent line */}
@@ -128,21 +132,19 @@ function PartnerCard({ partner }: PartnerCardProps) {
           </div>
           <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#2A2A2D] flex items-center justify-center group-hover:bg-[#3A3A3D] transition-colors">
             <svg className="w-4 h-4 text-[#8A8A8A] group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
             </svg>
           </div>
         </div>
-      </a>
+      </Link>
     )
   }
   
   // Blacklane: Elegant luxury chauffeur with warm ivory and champagne-gold accents
   if (variant === "blacklane") {
     return (
-      <a
-        href={partner.url}
-        target="_blank"
-        rel="noopener noreferrer"
+      <Link
+        href={getPartnerUrl(partner.url, partner.name)}
         className="group relative p-6 rounded-2xl bg-[#1A1918] border border-[#C6A96B]/25 hover:border-[#C6A96B]/50 transition-all duration-300 hover:shadow-xl hover:shadow-[#C6A96B]/5 hover:-translate-y-1"
       >
         {/* Champagne-gold accent line */}
@@ -162,20 +164,18 @@ function PartnerCard({ partner }: PartnerCardProps) {
           </div>
           <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#C6A96B]/10 flex items-center justify-center group-hover:bg-[#C6A96B]/20 transition-colors">
             <svg className="w-4 h-4 text-[#C6A96B]/70 group-hover:text-[#C6A96B] transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
             </svg>
           </div>
         </div>
-      </a>
+      </Link>
     )
   }
   
   // Default card styling
   return (
-    <a
-      href={partner.url}
-      target="_blank"
-      rel="noopener noreferrer"
+    <Link
+      href={getPartnerUrl(partner.url, partner.name)}
       className="group relative p-6 rounded-2xl bg-[#1A1A1B] border border-[#2A2A2B] hover:border-[#3A3A3B] transition-all duration-300 hover:shadow-xl hover:shadow-black/20 hover:-translate-y-1"
     >
       {/* Brand Accent Line */}
@@ -205,7 +205,7 @@ function PartnerCard({ partner }: PartnerCardProps) {
           </p>
         </div>
         
-        {/* External Link Icon */}
+        {/* Navigation Arrow Icon */}
         <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#2A2A2B] flex items-center justify-center group-hover:bg-[#3A3A3B] transition-colors">
           <svg
             className="w-4 h-4 text-[#7A7A7A] group-hover:text-[#F5F5F5] transition-colors"
@@ -214,11 +214,11 @@ function PartnerCard({ partner }: PartnerCardProps) {
             stroke="currentColor"
             strokeWidth={2}
           >
-            <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
           </svg>
         </div>
       </div>
-    </a>
+    </Link>
   )
 }
 
