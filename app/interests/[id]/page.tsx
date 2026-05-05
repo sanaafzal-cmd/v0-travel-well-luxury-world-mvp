@@ -70,7 +70,7 @@ export default function SpecialInterestPage() {
             </h1>
             
             {/* Subtle tagline */}
-            <p className="font-sans text-lg md:text-xl text-white/80 max-w-2xl">
+            <p className="font-sans text-lg md:text-md text-white/80 max-w-2xl">
               Your curated gateway to extraordinary experiences
             </p>
           </div>
