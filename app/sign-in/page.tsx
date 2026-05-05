@@ -106,7 +106,7 @@ export default function SignInPage() {
             </div>
 
             {/* Form */}
-            <form onSubmit={handleSignIn} className="space-y-8">
+            <form onSubmit={handleSignIn} className="space-y-8 dark-autofill">
               {/* Email Field */}
               <div className="space-y-2">
                 <label htmlFor="email" className="text-xs text-[#7A7A7A] font-sans uppercase tracking-wider">

@@ -162,6 +162,19 @@
     border-color: #2D7A7A !important;
     transition: background-color 5000s ease-in-out 0s, color 5000s ease-in-out 0s;
   }
+  
+  /* Override browser autofill styles for dark theme (auth pages) */
+  .dark-autofill input:-webkit-autofill,
+  .dark-autofill input:-webkit-autofill:hover,
+  .dark-autofill input:-webkit-autofill:focus,
+  .dark-autofill input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 9999px transparent inset !important;
+    box-shadow: 0 0 0 9999px transparent inset !important;
+    -webkit-text-fill-color: #F5F5F5 !important;
+    caret-color: #C6A96B !important;
+    background-color: transparent !important;
+    transition: background-color 5000s ease-in-out 0s, color 5000s ease-in-out 0s;
+  }
 }
 
 /* Luxury typography utilities */
