@@ -132,7 +132,7 @@ function Big3Tile({ experience }: { experience: typeof big3Experiences[0] }) {
         </div>
       </div>
 
-      {/* Hover Arrow */}
+      {/* Hover Arrow - Forward arrow for in-frame navigation */}
       <div
         className={`absolute top-4 right-4 w-10 h-10 rounded-full bg-[#C6A96B]/20 backdrop-blur-sm flex items-center justify-center transition-all duration-300 ${
           isHovered ? "opacity-100 translate-x-0" : "opacity-0 translate-x-2"
@@ -145,7 +145,7 @@ function Big3Tile({ experience }: { experience: typeof big3Experiences[0] }) {
           stroke="currentColor"
           strokeWidth={2}
         >
-          <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+          <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
         </svg>
       </div>
     </Link>
