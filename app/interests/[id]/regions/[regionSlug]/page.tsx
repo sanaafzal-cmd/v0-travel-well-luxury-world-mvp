@@ -76,6 +76,37 @@ interface MicroDestination {
   stayCount: number
 }
 
+// Sub-Region data - will be replaced with Supabase data
+interface SubRegion {
+  id: number
+  name: string
+  slug: string
+  description: string
+  heroImage: string
+  microDestinationCount: number
+}
+
+const subRegionsData: Record<string, SubRegion[]> = {
+  "caribbean-atlantic": [
+    { id: 1, name: "Eastern Caribbean", slug: "eastern-caribbean", description: "St. Lucia, Barbados, Antigua & more", heroImage: "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=800&q=80", microDestinationCount: 8 },
+    { id: 2, name: "Western Caribbean", slug: "western-caribbean", description: "Jamaica, Cayman Islands, Cozumel", heroImage: "https://images.unsplash.com/photo-1580977276076-ae4b8c219b8e?w=800&q=80", microDestinationCount: 6 },
+    { id: 3, name: "Southern Caribbean", slug: "southern-caribbean", description: "Aruba, Curacao, Bonaire", heroImage: "https://images.unsplash.com/photo-1568402102990-bc541580b59f?w=800&q=80", microDestinationCount: 5 },
+    { id: 4, name: "Bahamas & Turks", slug: "bahamas-turks", description: "Island-hopping paradise", heroImage: "https://images.unsplash.com/photo-1548574505-5e239809ee19?w=800&q=80", microDestinationCount: 4 },
+  ],
+  "mediterranean-europe": [
+    { id: 1, name: "Cyclades", slug: "cyclades", description: "Santorini, Mykonos, Paros & more", heroImage: "https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=800&q=80", microDestinationCount: 7 },
+    { id: 2, name: "Amalfi Coast", slug: "amalfi-coast", description: "Positano, Ravello, Capri", heroImage: "https://images.unsplash.com/photo-1533104816931-20fa691ff6ca?w=800&q=80", microDestinationCount: 5 },
+    { id: 3, name: "Balearic Islands", slug: "balearic-islands", description: "Ibiza, Mallorca, Menorca", heroImage: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80", microDestinationCount: 4 },
+    { id: 4, name: "Ionian Islands", slug: "ionian-islands", description: "Corfu, Zakynthos, Kefalonia", heroImage: "https://images.unsplash.com/photo-1585241645927-c7a8e5840c42?w=800&q=80", microDestinationCount: 5 },
+    { id: 5, name: "French Riviera", slug: "french-riviera", description: "Nice to Monaco glamour", heroImage: "https://images.unsplash.com/photo-1491166617655-0723a0999cfc?w=800&q=80", microDestinationCount: 6 },
+  ],
+  "southeast-asia": [
+    { id: 1, name: "Thai Islands", slug: "thai-islands", description: "Phuket, Koh Samui, Phi Phi", heroImage: "https://images.unsplash.com/photo-1506665531195-3566af2b4dfa?w=800&q=80", microDestinationCount: 8 },
+    { id: 2, name: "Bali & Beyond", slug: "bali-beyond", description: "Bali, Lombok, Gili Islands", heroImage: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=800&q=80", microDestinationCount: 6 },
+    { id: 3, name: "Philippines", slug: "philippines", description: "Palawan, Boracay, Siargao", heroImage: "https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?w=800&q=80", microDestinationCount: 5 },
+  ],
+}
+
 // Region data lookup
 const regionData: Record<string, { name: string; description: string; heroImage: string }> = {
   "caribbean-atlantic": {
@@ -103,10 +134,12 @@ export default function RegionDetailPage() {
   
   const interest = getSpecialInterestById(interestId)
   const region = regionData[regionSlug] || regionData["caribbean-atlantic"]
+  const subRegions = subRegionsData[regionSlug] || subRegionsData["caribbean-atlantic"]
   const microDestinations = microDestinationsData[regionSlug] || microDestinationsData["caribbean-atlantic"]
   
   const [selectedTier, setSelectedTier] = useState<StayTier>("all")
   const [showAllDestinations, setShowAllDestinations] = useState(false)
+  const [selectedSubRegion, setSelectedSubRegion] = useState<SubRegion | null>(null)
   
   // Top 10 destinations
   const top10Destinations = microDestinations.slice(0, 10)
@@ -176,8 +209,126 @@ export default function RegionDetailPage() {
         <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#F8F6F1] to-transparent" />
       </section>
 
+      {/* Sub-Regions Section */}
+      <section className="relative -mt-6 z-10 px-6 lg:px-12 pb-8">
+        <div className="max-w-7xl mx-auto">
+          {/* Section Header */}
+          <div className="mb-6">
+            <h2 className="font-serif text-2xl md:text-3xl text-[#1A1A1B] mb-2">
+              Explore by Sub-Region
+            </h2>
+            <p className="text-[#6B6B6B] font-sans">
+              Discover unique areas within {region.name}
+            </p>
+          </div>
+
+          {/* Sub-Regions Grid */}
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+            {subRegions.map((subRegion) => (
+              <button
+                key={subRegion.id}
+                onClick={() => setSelectedSubRegion(selectedSubRegion?.id === subRegion.id ? null : subRegion)}
+                className={`group relative overflow-hidden rounded-xl aspect-[4/3] shadow-md transition-all duration-300 text-left ${
+                  selectedSubRegion?.id === subRegion.id 
+                    ? "ring-2 ring-[#C6A96B] shadow-lg" 
+                    : "hover:shadow-lg hover:ring-2 hover:ring-[#C6A96B]/50"
+                }`}
+              >
+                {/* Sub-Region Image */}
+                <Image
+                  src={subRegion.heroImage}
+                  alt={subRegion.name}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                
+                {/* Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+                
+                {/* Selection Indicator */}
+                {selectedSubRegion?.id === subRegion.id && (
+                  <div className="absolute top-3 right-3 w-6 h-6 rounded-full bg-[#C6A96B] flex items-center justify-center">
+                    <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                )}
+                
+                {/* Content */}
+                <div className="absolute inset-0 flex flex-col justify-end p-4">
+                  <h3 className={`font-serif text-base md:text-lg mb-1 transition-colors ${
+                    selectedSubRegion?.id === subRegion.id ? "text-[#C6A96B]" : "text-white group-hover:text-[#C6A96B]"
+                  }`}>
+                    {subRegion.name}
+                  </h3>
+                  <p className="text-xs text-white/70 font-sans line-clamp-1">
+                    {subRegion.description}
+                  </p>
+                  <p className="text-xs text-white/50 font-sans mt-1">
+                    {subRegion.microDestinationCount} destinations
+                  </p>
+                </div>
+              </button>
+            ))}
+          </div>
+
+          {/* Selected Sub-Region Micro-Destinations Preview */}
+          {selectedSubRegion && (
+            <div className="mt-8 p-6 bg-white rounded-2xl border border-[#E8E4DC] animate-in slide-in-from-top-2 duration-300">
+              <div className="flex items-center justify-between mb-4">
+                <div>
+                  <h3 className="font-serif text-xl text-[#1A1A1B]">
+                    {selectedSubRegion.name} Destinations
+                  </h3>
+                  <p className="text-sm text-[#6B6B6B] font-sans">
+                    {selectedSubRegion.microDestinationCount} places to explore
+                  </p>
+                </div>
+                <Link
+                  href={`/interests/${interestId}/regions/${regionSlug}/sub/${selectedSubRegion.slug}`}
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#2D7A7A] text-white font-sans text-sm font-medium hover:bg-[#3D9A9A] transition-colors"
+                >
+                  View All
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                  </svg>
+                </Link>
+              </div>
+              
+              {/* Quick preview of micro-destinations (first 4) */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                {microDestinations.slice(0, 4).map((dest) => (
+                  <Link
+                    key={dest.id}
+                    href={`/interests/${interestId}/regions/${regionSlug}/${dest.slug}`}
+                    className="group flex items-center gap-3 p-3 rounded-xl bg-[#F8F6F1] hover:bg-[#E8E4DC] transition-colors"
+                  >
+                    <div className="relative w-12 h-12 rounded-lg overflow-hidden flex-shrink-0">
+                      <Image
+                        src={dest.heroImage}
+                        alt={dest.name}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <div className="min-w-0">
+                      <h4 className="font-sans text-sm font-medium text-[#1A1A1B] truncate group-hover:text-[#2D7A7A] transition-colors">
+                        {dest.name}
+                      </h4>
+                      <p className="text-xs text-[#6B6B6B]">
+                        {dest.stayCount} stays
+                      </p>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      </section>
+
       {/* Top 10 Destinations Section */}
-      <section className="relative -mt-6 z-10 px-6 lg:px-12 pb-12">
+      <section className="px-6 lg:px-12 pb-12">
         <div className="max-w-7xl mx-auto">
           {/* Section Header */}
           <div className="mb-8">
