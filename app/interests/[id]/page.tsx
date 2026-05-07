@@ -109,6 +109,39 @@ export default function SpecialInterestPage() {
               </p>
             </div>
 
+            {/* Explore Regions CTA - TravelWell OS Navigation */}
+            <div className="bg-gradient-to-br from-[#1A1A1B] to-[#2A2A2B] rounded-2xl p-6 md:p-8 mb-6">
+              <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+                <div className="text-center md:text-left">
+                  <p className="text-sm text-[#C6A96B] font-sans uppercase tracking-wider mb-1">
+                    TravelWell Curated
+                  </p>
+                  <p className="font-serif text-xl md:text-2xl text-white">
+                    Explore {interest.title} Regions
+                  </p>
+                  <p className="text-sm text-white/60 font-sans mt-1">
+                    Discover destinations, stays, and experiences
+                  </p>
+                </div>
+                
+                <Link
+                  href={`/interests/${interest.id}/regions`}
+                  className="group inline-flex items-center gap-3 px-8 py-4 rounded-full bg-[#C6A96B] text-[#1A1A1B] font-sans font-semibold text-base md:text-lg shadow-lg hover:bg-[#D4B97B] transition-all duration-300"
+                >
+                  Browse Regions
+                  <svg 
+                    className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" 
+                    fill="none" 
+                    viewBox="0 0 24 24" 
+                    stroke="currentColor" 
+                    strokeWidth={2}
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                  </svg>
+                </Link>
+              </div>
+            </div>
+
             {/* Prime Partner CTA Section */}
             <div className="bg-gradient-to-br from-[#FAF9F6] to-[#F0EDE8] rounded-2xl p-6 md:p-8 border border-[#E8E4DC]">
               <div className="flex flex-col md:flex-row items-center justify-between gap-6">
